@@ -44,8 +44,8 @@ namespace RandomNameGeneratorLibrary
 
         public string GenerateRandomFirstName()
         {
-            return !RandomlyPickIfNameIsMale 
-                ? GenerateRandomFemaleFirstName() 
+            return !RandomlyPickIfNameIsMale
+                ? GenerateRandomFemaleFirstName()
                 : GenerateRandomMaleFirstName();
         }
 

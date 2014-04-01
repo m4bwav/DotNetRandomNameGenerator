@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomNameGeneratorLibrary;
 
 namespace RandomNameGeneratorUnitTests
@@ -12,7 +11,7 @@ namespace RandomNameGeneratorUnitTests
         [TestInitialize]
         public void Setup()
         {
-            _placeGenerator = new PlaceNameGenerator();    
+            _placeGenerator = new PlaceNameGenerator();
         }
 
         [TestMethod]

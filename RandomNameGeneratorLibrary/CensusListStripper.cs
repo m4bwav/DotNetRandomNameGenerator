@@ -60,13 +60,13 @@ namespace RandomNameGeneratorLibrary
 
         private static string RemoveTrailingTextOnPlaceName(string minusState)
         {
-            if(string.IsNullOrWhiteSpace(minusState))
+            if (string.IsNullOrWhiteSpace(minusState))
                 throw new ArgumentOutOfRangeException("minusState");
 
             var townClassification = GetTownClassification(minusState, false);
-            
+
             var startIndex = minusState.IndexOf(townClassification);
-            
+
             return minusState.Remove(startIndex);
         }
 
