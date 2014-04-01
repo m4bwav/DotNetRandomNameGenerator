@@ -7,7 +7,7 @@ namespace RandomNameGeneratorLibrary
 {
     public abstract class BaseNameGenerator
     {
-        private const string ResourcePathPrefix = "RandomNameGenerator.Resources.";
+        private const string ResourcePathPrefix = "RandomNameGeneratorLibrary.Resources.";
         protected readonly Random RandGen;
 
         protected BaseNameGenerator()

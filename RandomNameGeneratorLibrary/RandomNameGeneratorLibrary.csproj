@@ -36,15 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EmbeddedResource Include="RandomNameGenerator.Resources.dist.all.last.stripped" />
-    <EmbeddedResource Include="RandomNameGenerator.Resources.dist.female.first.stripped" />
-    <EmbeddedResource Include="RandomNameGenerator.Resources.dist.male.first.stripped" />
-    <EmbeddedResource Include="RandomNameGenerator.Resources.places2k.txt.stripped" />
+    <EmbeddedResource Include="Resources.dist.all.last.stripped" />
+    <EmbeddedResource Include="Resources.dist.female.first.stripped" />
+    <EmbeddedResource Include="Resources.dist.male.first.stripped" />
+    <EmbeddedResource Include="Resources.places2k.txt.stripped" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="RandomNameGenerator">
-      <HintPath>..\..\..\..\Code\RandomNameGenerator\RandomNameGenerator.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
