@@ -1,6 +1,8 @@
 DotNetRandomNameGenerator
 =========================
 
+[![Join the chat at https://gitter.im/m4bwav/DotNetRandomNameGenerator](https://badges.gitter.im/m4bwav/DotNetRandomNameGenerator.svg)](https://gitter.im/m4bwav/DotNetRandomNameGenerator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Generates random people and place names drawn from freely available US census data.
 
 Nuget package: https://www.nuget.org/packages/RandomNameGeneratorLibrary/
