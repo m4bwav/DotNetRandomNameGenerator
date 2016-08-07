@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RandomNameGeneratorLibrary
 {
@@ -12,6 +13,16 @@ namespace RandomNameGeneratorLibrary
         private static string[] _lastNames;
 
         public PersonNameGenerator()
+        {
+            InitNames();
+        }
+
+        public PersonNameGenerator(Random randGen) : base(randGen)
+        {
+            InitNames();
+        }
+
+        private void InitNames()
         {
             if (_maleFirstNames == null)
                 _maleFirstNames = ReadResourceByLine(MaleFile);
