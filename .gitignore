@@ -42,3 +42,4 @@
 /RandomNameGeneratorUnitTests/obj/Debug/RandomNameGeneratorUnitTests.csproj.FileListAbsolute.txt
 /RandomNameGeneratorUnitTests/bin/Release/*.xml
 /RandomNameGeneratorLibrary/*.nupkg
+/RandomNameGeneratorUnitTests/obj/Release
