@@ -19,27 +19,12 @@ namespace RandomNameGeneratorLibrary
 
         public PersonNameGenerator(Random randGen) : base(randGen)
         {
+            if (randGen == null) throw new ArgumentNullException(nameof(randGen));
+
             InitNames();
         }
 
-        private void InitNames()
-        {
-            if (_maleFirstNames == null)
-                _maleFirstNames = ReadResourceByLine(MaleFile);
-
-            if (_femaleFirstNames == null)
-                _femaleFirstNames = ReadResourceByLine(FemaleFile);
-
-            if (_lastNames != null)
-                return;
-
-            _lastNames = ReadResourceByLine(LastNameFile);
-        }
-
-        private bool RandomlyPickIfNameIsMale
-        {
-            get { return RandGen.Next(0, 2) == 0; }
-        }
+        private bool RandomlyPickIfNameIsMale => RandGen.Next(0, 2) == 0;
 
         public string GenerateRandomFirstAndLastName()
         {
@@ -76,6 +61,8 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultipleFirstAndLastNames(int count)
         {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+
             var list = new List<string>();
 
             for (var index = 0; index < count; ++index)
@@ -86,6 +73,8 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultipleLastNames(int count)
         {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+
             var list = new List<string>();
 
             for (var index = 0; index < count; ++index)
@@ -96,6 +85,8 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultipleFemaleFirstAndLastNames(int count)
         {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+
             var list = new List<string>();
 
             for (var index = 0; index < count; ++index)
@@ -106,6 +97,8 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultipleMaleFirstAndLastNames(int count)
         {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+
             var list = new List<string>();
 
             for (var index = 0; index < count; ++index)
@@ -116,6 +109,8 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultipleFemaleFirstNames(int count)
         {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+
             var list = new List<string>();
 
             for (var index = 0; index < count; ++index)
@@ -126,6 +121,8 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultipleMaleFirstNames(int count)
         {
+            if (count < 0) throw new ArgumentOutOfRangeException(nameof(count));
+
             var list = new List<string>();
 
             for (var index = 0; index < count; ++index)
@@ -136,12 +133,26 @@ namespace RandomNameGeneratorLibrary
 
         public string GenerateRandomFemaleFirstAndLastName()
         {
-            return GenerateRandomFemaleFirstName() + GenerateRandomLastName();
+            return GenerateRandomFemaleFirstName() + ' ' + GenerateRandomLastName();
         }
 
         public string GenerateRandomMaleFirstAndLastName()
         {
-            return GenerateRandomMaleFirstName() + GenerateRandomLastName();
+            return GenerateRandomMaleFirstName() + ' ' + GenerateRandomLastName();
+        }
+
+        private static void InitNames()
+        {
+            if (_maleFirstNames == null)
+                _maleFirstNames = ReadResourceByLine(MaleFile);
+
+            if (_femaleFirstNames == null)
+                _femaleFirstNames = ReadResourceByLine(FemaleFile);
+
+            if (_lastNames != null)
+                return;
+
+            _lastNames = ReadResourceByLine(LastNameFile);
         }
     }
 }

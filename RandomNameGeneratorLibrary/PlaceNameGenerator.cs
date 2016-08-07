@@ -15,15 +15,9 @@ namespace RandomNameGeneratorLibrary
 
         public PlaceNameGenerator(Random randGen) : base(randGen)
         {
+            if (randGen == null) throw new ArgumentNullException(nameof(randGen));
+
             InitPlaceNames();
-        }
-
-        private void InitPlaceNames()
-        {
-            if (_placeNames != null)
-                return;
-
-            _placeNames = ReadResourceByLine(PlaceNameFile);
         }
 
         public string GenerateRandomPlaceName()
@@ -35,12 +29,22 @@ namespace RandomNameGeneratorLibrary
 
         public IEnumerable<string> GenerateMultiplePlaceNames(int numberOfNames)
         {
+            if (numberOfNames < 0) throw new ArgumentOutOfRangeException(nameof(numberOfNames));
+
             var list = new List<string>();
 
             for (var index = 0; index < numberOfNames; ++index)
                 list.Add(GenerateRandomPlaceName());
 
             return list;
+        }
+
+        private void InitPlaceNames()
+        {
+            if (_placeNames != null)
+                return;
+
+            _placeNames = ReadResourceByLine(PlaceNameFile);
         }
     }
 }

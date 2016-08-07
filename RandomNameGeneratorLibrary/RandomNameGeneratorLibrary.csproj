@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RandomNameGeneratorLibrary</RootNamespace>
     <AssemblyName>RandomNameGeneratorLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,6 +41,7 @@
     <EmbeddedResource Include="Resources.dist.female.first.stripped" />
     <EmbeddedResource Include="Resources.dist.male.first.stripped" />
     <EmbeddedResource Include="Resources.places2k.txt.stripped" />
+    <None Include="RandomNameGeneratorLibrary.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,6 +55,8 @@
     <Compile Include="PersonNameGenerator.cs" />
     <Compile Include="PlaceNameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomPersonNameExtensions.cs" />
+    <Compile Include="RandomPlaceNameExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

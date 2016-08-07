@@ -3,7 +3,7 @@
     <metadata>
         <id>RandomNameGeneratorLibrary</id>
 		<title>Random Name Generator</title>
-        <version>1.1.1.0</version>
+        <version>1.2.0.0</version>
         <authors>Mark Rogers</authors>
         <owners>Mark Rogers</owners>
 		<projectUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</projectUrl>
