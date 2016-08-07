@@ -15,6 +15,11 @@ namespace RandomNameGeneratorLibrary
             RandGen = new Random();
         }
 
+        protected BaseNameGenerator(Random randGen)
+        {
+            RandGen = randGen;
+        }
+
         private static Stream ReadResourceStreamForFileName(string resourceFileName)
         {
             return

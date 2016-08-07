@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RandomNameGeneratorLibrary
 {
@@ -8,6 +9,16 @@ namespace RandomNameGeneratorLibrary
         private static string[] _placeNames;
 
         public PlaceNameGenerator()
+        {
+            InitPlaceNames();
+        }
+
+        public PlaceNameGenerator(Random randGen) : base(randGen)
+        {
+            InitPlaceNames();
+        }
+
+        private void InitPlaceNames()
         {
             if (_placeNames != null)
                 return;
