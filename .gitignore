@@ -40,3 +40,5 @@
 /RandomNameGeneratorUnitTests/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
 /RandomNameGeneratorUnitTests/bin/Debug/Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
 /RandomNameGeneratorUnitTests/obj/Debug/RandomNameGeneratorUnitTests.csproj.FileListAbsolute.txt
+/RandomNameGeneratorUnitTests/bin/Release/*.xml
+/RandomNameGeneratorLibrary/*.nupkg
