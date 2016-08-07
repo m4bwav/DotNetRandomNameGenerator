@@ -3,7 +3,7 @@
     <metadata>
         <id>RandomNameGeneratorLibrary</id>
 		<title>Random Name Generator</title>
-        <version>1.1.0.0</version>
+        <version>1.1.1.0</version>
         <authors>Mark Rogers</authors>
         <owners>Mark Rogers</owners>
 		<projectUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</projectUrl>
@@ -12,4 +12,7 @@
 		<summary>Generates random people and place names drawn from freely available US census data.</summary>
         <description>The library contains a stripped down lists of human names from the US Census names list, and a list of place names from another census list. The library allows you to get random first and last names or both and you can get male and female first names. You can also generate random place names as well. To access this functionality create a NameGenerator in namespace RandomNameGenerator, and call one of the functions like GenerateRandomFirstAndLastName(). The functions names describe literally and simply what those functions do.</description>
     </metadata>
+	<files>
+		<file src="bin\Release\RandomNameGeneratorLibrary.dll" target="lib" />
+	</files>
 </package>
