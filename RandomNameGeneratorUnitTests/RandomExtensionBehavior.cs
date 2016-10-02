@@ -1,30 +1,29 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomNameGeneratorLibrary;
+using Xunit;
 
 namespace RandomNameGeneratorUnitTests
 {
-    [TestClass]
     public class RandomExtensionBehavior
     {
-        [TestMethod]
+        [Fact]
         public void CanGetARandomPlaceNameFromARandomObject()
         {
             var rand = new Random();
 
             var name = rand.GenerateRandomPlaceName();
 
-            Assert.IsNotNull(name);
+            Assert.NotNull(name);
         }
 
-        [TestMethod]
+        [Fact]
         public void CanGetARandomPersonNameFromARandomObject()
         {
             var rand = new Random();
 
             var name = rand.GenerateRandomFirstAndLastName();
 
-            Assert.IsNotNull(name);
+            Assert.NotNull(name);
         }
     }
 }

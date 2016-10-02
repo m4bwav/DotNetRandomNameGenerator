@@ -1,45 +1,44 @@
 ﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomNameGeneratorLibrary;
+using Xunit;
 
 namespace RandomNameGeneratorUnitTests
-{
-    [TestClass]
+{    
     public class PersonNameGeneratorBehavior
     {
-        private PersonNameGenerator _personGenerator;
+        private readonly PersonNameGenerator _personGenerator;
 
-        [TestInitialize]
-        public void Setup()
+        public PersonNameGeneratorBehavior()
         {
             _personGenerator = new PersonNameGenerator();
+
         }
 
-        [TestMethod]
+        [Fact]
         public void GetTheProperNumberOfRequestedNamesWithoutRepeats()
         {
             var result = _personGenerator.GenerateMultipleFirstAndLastNames(2).AsQueryable();
 
-            Assert.AreEqual(result.Count(), 2);
-            Assert.AreNotEqual(result.First(), result.Last());
+            Assert.Equal(result.Count(), 2);
+            Assert.NotEqual(result.First(), result.Last());
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenAFirstAndLastNameAreGeneratedTogetherTheyShouldHaveASpaceBetweenThem()
         {
             var result = _personGenerator.GenerateRandomFirstAndLastName();
 
-            Assert.IsNotNull(result);
-            Assert.AreNotEqual(result.IndexOf(' '), -1);
+            Assert.NotNull(result);
+            Assert.NotEqual(result.IndexOf(' '), -1);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhenMultipleFemaleFirstAndLastNamesAreGeneratedTogetherTheyShouldHaveASpaceBetweenThem()
         {
             var result = _personGenerator.GenerateMultipleFemaleFirstAndLastNames(2).First();
 
-            Assert.IsNotNull(result);
-            Assert.AreNotEqual(result.IndexOf(' '), -1);
+            Assert.NotNull(result);
+            Assert.NotEqual(result.IndexOf(' '), -1);
         }
     }
 }

@@ -22,9 +22,13 @@ namespace RandomNameGeneratorLibrary
 
         private static Stream ReadResourceStreamForFileName(string resourceFileName)
         {
-            return
-                Assembly.GetExecutingAssembly()
+#if NET40
+            return Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream(ResourcePathPrefix + resourceFileName);
+#else
+            return typeof(BaseNameGenerator).GetTypeInfo().Assembly
+                .GetManifestResourceStream(ResourcePathPrefix + resourceFileName);
+#endif
         }
 
         protected static string[] ReadResourceByLine(string resourceFileName)

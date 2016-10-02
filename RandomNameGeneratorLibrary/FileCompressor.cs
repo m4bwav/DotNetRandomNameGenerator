@@ -13,7 +13,7 @@ namespace RandomNameGeneratorLibrary
                         new FileStream(outputFilePath, FileMode.Create, FileAccess.Write), CompressionMode.Compress)))
             {
                 streamWriter.Write(sourceText);
-                streamWriter.Close();
+                streamWriter.Flush();
             }
         }
 
