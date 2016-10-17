@@ -1,29 +1,28 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomNameGeneratorLibrary;
+using Xunit;
 
 namespace RandomNameGeneratorUnitTests
-{
-    [TestClass]
+{    
     public class PlaceNameBehavior
     {
-        private PlaceNameGenerator _placeGenerator;
+        private readonly PlaceNameGenerator _placeGenerator;
 
-        [TestInitialize]
-        public void Setup()
+        public PlaceNameBehavior()
         {
             _placeGenerator = new PlaceNameGenerator();
+
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldGenerateRandomName()
         {
             var name = _placeGenerator.GenerateRandomPlaceName();
 
-            Assert.IsFalse(string.IsNullOrWhiteSpace(name));
+            Assert.False(string.IsNullOrWhiteSpace(name));
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldGenerateSameNameIfSameRandomGenerator()
         {
             var personNameGenerator1 = new PersonNameGenerator(new Random(42));
@@ -32,7 +31,7 @@ namespace RandomNameGeneratorUnitTests
             var firstName = personNameGenerator1.GenerateRandomFirstAndLastName();
             var secondName = personNameGenerator2.GenerateRandomFirstAndLastName();
 
-            Assert.AreEqual(firstName, secondName);
+            Assert.Equal(firstName, secondName);
         }
     }
 }
