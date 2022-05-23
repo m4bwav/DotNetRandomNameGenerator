@@ -1,5 +1,4 @@
-﻿using System;
-using RandomNameGeneratorLibrary;
+﻿using RandomNameGeneratorLibrary;
 using Xunit;
 
 namespace RandomNameGeneratorUnitTests

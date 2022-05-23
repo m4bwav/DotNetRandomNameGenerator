@@ -1,9 +1,8 @@
-﻿using System;
-using RandomNameGeneratorLibrary;
+﻿using RandomNameGeneratorLibrary;
 using Xunit;
 
 namespace RandomNameGeneratorUnitTests
-{    
+{
     public class PlaceNameBehavior
     {
         private readonly PlaceNameGenerator _placeGenerator;
@@ -11,7 +10,6 @@ namespace RandomNameGeneratorUnitTests
         public PlaceNameBehavior()
         {
             _placeGenerator = new PlaceNameGenerator();
-
         }
 
         [Fact]

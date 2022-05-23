@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using RandomNameGeneratorLibrary;
+﻿using RandomNameGeneratorLibrary;
 using Xunit;
 
 namespace RandomNameGeneratorUnitTests
-{    
+{
     public class PersonNameGeneratorBehavior
     {
         private readonly PersonNameGenerator _personGenerator;
@@ -11,7 +10,6 @@ namespace RandomNameGeneratorUnitTests
         public PersonNameGeneratorBehavior()
         {
             _personGenerator = new PersonNameGenerator();
-
         }
 
         [Fact]
@@ -19,7 +17,7 @@ namespace RandomNameGeneratorUnitTests
         {
             var result = _personGenerator.GenerateMultipleFirstAndLastNames(2).AsQueryable();
 
-            Assert.Equal(result.Count(), 2);
+            Assert.Equal(2, result.Count());
             Assert.NotEqual(result.First(), result.Last());
         }
 
