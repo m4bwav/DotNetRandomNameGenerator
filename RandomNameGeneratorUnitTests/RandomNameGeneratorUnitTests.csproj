@@ -3,6 +3,9 @@
   <PropertyGroup>
     <!-- net48 exercises the netstandard2.0 build for real; it only runs on Windows (CI passes -f net10.0 on Linux). -->
     <TargetFrameworks>net10.0;net48</TargetFrameworks>
+    <!-- xunit.v3 4.x runs on Microsoft.Testing.Platform, which needs an executable test project;
+         global.json opts dotnet test into that runner. -->
+    <OutputType>Exe</OutputType>
     <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
@@ -11,10 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="10.0.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
-    <PackageReference Include="xunit" Version="2.9.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" PrivateAssets="all" />
+    <PackageReference Include="xunit.v3" Version="4.0.1" />
+    <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.11.2" />
+    <!-- Explicit so the net48 reference assemblies resolve the same way on Windows and Linux (keeps packages.lock.json identical). -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

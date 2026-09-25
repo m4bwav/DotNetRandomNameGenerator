@@ -1,6 +1,6 @@
 # RandomNameGeneratorLibrary modernization plan
 
-Written 2026-09-25 from a full read of the repo at 2.0.1 (commit `7d1162c`). **Status 2026-09-25: stages 1 to 6 done in one pass as 2.1.0, uncommitted on the working tree; see `ai-docs/log/2026-09-25-stages-1-to-6.md`.** Remaining unticked items are deliberate skips. Meant to be executed in fresh sessions, one stage per session or PR. Tick boxes as work lands. Ship stages 1 to 5 as **2.1.0** (additive only); anything marked BREAK waits for **3.0**.
+Written 2026-09-25 from a full read of the repo at 2.0.1 (commit `7d1162c`). **Status 2026-09-25: stages 1 to 6 done in one pass as 2.1.0, uncommitted on the working tree; see `ai-docs/log/2026-09-25-stages-1-to-6.md`.** Every item is done. Meant to be executed in fresh sessions, one stage per session or PR. Tick boxes as work lands. Ship stages 1 to 5 as **2.1.0** (additive only); anything marked BREAK waits for **3.0**.
 
 Repo: https://github.com/m4bwav/DotNetRandomNameGenerator. Package: https://www.nuget.org/packages/RandomNameGeneratorLibrary. Release procedure: bump `<Version>` in `RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj`, push a `v<version>` tag, approve the `nuget` deployment in Actions (Trusted Publishing, see README "Building and releasing").
 
@@ -69,7 +69,7 @@ Facts verified 2026-09-25:
 
 - [x] Fix `PersonNameGeneratorBehavior` line 22: `Assert.Equal(expected, actual)` order is reversed. Seed the "WithoutRepeats" test (line 18) so it is deterministic. Move `ShouldGenerateSameNameIfSameRandomGenerator` from `PlaceNameBehavior` to the person tests.
 - [x] Add cases: `GenerateMultiple*(0)` returns empty, negative count throws, male-only and female-only methods draw from the right list (check membership in the exposed lists from stage 5), `GenerateMultiplePlaceNames`, extension methods are deterministic with a seed, null `Random` throws `ArgumentNullException`.
-- [ ] (skipped for now) Optional: xunit v3 on Microsoft.Testing.Platform.
+- [x] Optional: xunit v3 on Microsoft.Testing.Platform (done 2026-09-25: xunit.v3 4.0.1, global.json test.runner, Microsoft.Testing.Extensions.CodeCoverage; Test.Sdk, coverlet and the VSTest adapter removed).
 
 ## Deferred and breaking (3.0 candidates)
 

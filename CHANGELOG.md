@@ -21,6 +21,7 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 - `PersonNameGenerator.MaleFirstNames`, `FemaleFirstNames`, `LastNames` and `PlaceNameGenerator.PlaceNames` as read-only lists, so callers can count or pick their own.
 - XML documentation on every public member (the packed `.xml` was empty before), nullable annotations, .NET analyzers, trimming and AOT compatibility on net10.0, package validation against 2.0.1, package icon.
 - `CHANGELOG.md`, `global.json`, `.gitattributes` (resources stay LF), `.editorconfig`, Dependabot, formatting and coverage in CI, net48 tests on Windows, a GitHub Release per tag.
+- Tests moved to xunit.v3 4.0.1 on Microsoft.Testing.Platform (the library itself has no package dependencies).
 - Resource integrity tests: counts, no blanks, no U+FFFD, no duplicates, Title case.
 - `tools/CensusTools`, a console project holding the maintained stripping tool (reads Census files as Latin-1, dedupes).
 

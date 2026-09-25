@@ -36,6 +36,8 @@ jobs:
           cache: true
           cache-dependency-path: '**/packages.lock.json'
 
+      - name: Show evaluated target frameworks (diagnoses NU1004 lock-file mismatches)
+        run: dotnet msbuild RandomNameGeneratorUnitTests/RandomNameGeneratorUnitTests.csproj -getProperty:TargetFrameworks -getProperty:TargetFramework
       - run: dotnet restore --locked-mode
       - run: dotnet build --no-restore -c Release
 
@@ -43,17 +45,18 @@ jobs:
         if: runner.os == 'Linux'
         run: dotnet format --no-restore --verify-no-changes
 
+      # xunit.v3 on Microsoft.Testing.Platform (global.json "test.runner"); --coverage comes from Microsoft.Testing.Extensions.CodeCoverage.
       - name: Test (net10.0)
         if: runner.os == 'Linux'
-        run: dotnet test --no-build -c Release -f net10.0 --collect:"XPlat Code Coverage" --results-directory coverage
+        run: dotnet test --no-build -c Release -f net10.0 --coverage --coverage-output-format cobertura --results-directory coverage
       - name: Test (net10.0 and net48)
         if: runner.os == 'Windows'
-        run: dotnet test --no-build -c Release --collect:"XPlat Code Coverage" --results-directory coverage
+        run: dotnet test --no-build -c Release --coverage --coverage-output-format cobertura --results-directory coverage
 
       - uses: actions/upload-artifact@v7
         with:
           name: coverage-${{ matrix.os }}
-          path: coverage/**/coverage.cobertura.xml
+          path: coverage/*.cobertura.xml
           retention-days: 30
 
       - if: runner.os == 'Linux'
