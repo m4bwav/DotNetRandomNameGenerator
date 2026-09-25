@@ -1,5 +1,7 @@
 # Build, test and pack on every push and pull request; the .nupkg and .snupkg are kept as a run artifact.
-# Publishing to NuGet is a manual step from a tag (see README "Releasing") so no API key lives in this repo.
+# Publishing to NuGet happens only from a v* tag (see README "Releasing") through nuget.org Trusted Publishing:
+# the job trades GitHub's OIDC token for a one-hour NuGet key, so no long-lived API key is stored anywhere.
+# It needs a NUGET_USER secret (the nuget.org profile name) in the repository's "nuget" environment.
 name: CI
 
 on:
@@ -35,11 +37,13 @@ jobs:
           retention-days: 30
 
   publish:
-    # Runs only for a v* tag and only after CI is green; needs the NUGET_API_KEY secret (Mark sets it once).
     if: startsWith(github.ref, 'refs/tags/v')
     needs: build
     runs-on: ubuntu-latest
     environment: nuget
+    permissions:
+      id-token: write   # lets the job request the GitHub OIDC token that nuget.org exchanges for a temporary key
+      contents: read
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -48,6 +52,11 @@ jobs:
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.0.x
+      - name: NuGet login (OIDC to temporary API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
       - run: dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}

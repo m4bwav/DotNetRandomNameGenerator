@@ -71,7 +71,7 @@ dotnet test
 dotnet pack RandomNameGeneratorLibrary -c Release -o artifacts
 ```
 
-CI (`.github/workflows/ci.yml`) builds, tests and packs on every push. To publish: bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, tag the commit `v<version>` and push the tag; the `publish` job pushes the package to NuGet with the `NUGET_API_KEY` secret from the `nuget` environment.
+CI (`.github/workflows/ci.yml`) builds, tests and packs on every push. To publish: bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, tag the commit `v<version>` and push the tag; the `publish` job signs in to nuget.org with Trusted Publishing (GitHub OIDC, no stored API key; a `NUGET_USER` secret holding the nuget.org profile name lives in the `nuget` environment) and pushes the package.
 
 The census lists are embedded resources (`Resources.*.stripped`); `CensusListStripper` and `FileCompressor` are the tools that produced them and are kept public for compatibility.
 
