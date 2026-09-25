@@ -13,6 +13,12 @@
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <!-- The SDK adds this RID to a .NET Framework exe only on Windows; pinning it keeps packages.lock.json identical on Linux. -->
+    <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="xunit.v3" Version="4.0.1" />
     <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.11.2" />
