@@ -3,9 +3,13 @@ DotNetRandomNameGenerator
 
 Generates random people and place names drawn from freely available US census data.
 
-[![Join the chat at https://gitter.im/m4bwav/DotNetRandomNameGenerator](https://badges.gitter.im/m4bwav/DotNetRandomNameGenerator.svg)](https://gitter.im/m4bwav/DotNetRandomNameGenerator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![NuGet](https://img.shields.io/nuget/v/RandomNameGeneratorLibrary.svg)](https://www.nuget.org/packages/RandomNameGeneratorLibrary/) [![CI](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml/badge.svg)](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml)
 
-[Nuget package link](https://www.nuget.org/packages/RandomNameGeneratorLibrary/)
+```
+dotnet add package RandomNameGeneratorLibrary
+```
+
+Targets `netstandard2.0` (any .NET Framework 4.6.2+, .NET Core, Mono, Unity) and `net10.0`. Version 2.0.0 is the same API as 1.2.2, rebuilt with the current SDK, SourceLink and this README in the package; the `net40` and `netstandard1.6` targets are gone. Try it live at https://www.markdavidrogers.com/tools (random names) or through the site's MCP server tool `random_name`.
 
 The library contains a stripped down lists of human names from the US Census names list, and a list of place names from another census list. The library allows you to get random first and last names or both and you can get male and female first names. You can also generate random place names as well. To access this functionality create a NameGenerator in namespace RandomNameGenerator, and call one of the functions like GenerateRandomFirstAndLastName(). The functions names describe literally and simply what those functions do.
 
@@ -59,3 +63,18 @@ var name = randomObj.GenerateRandomFemaleFirstName();
 	
 Console.WriteLine(name); //Outputs some random first female name using the passed Random obj, example: "Lindsay"
 ```
+
+## Building and releasing
+
+```
+dotnet test
+dotnet pack RandomNameGeneratorLibrary -c Release -o artifacts
+```
+
+CI (`.github/workflows/ci.yml`) builds, tests and packs on every push. To publish: bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, tag the commit `v<version>` and push the tag; the `publish` job pushes the package to NuGet with the `NUGET_API_KEY` secret from the `nuget` environment.
+
+The census lists are embedded resources (`Resources.*.stripped`); `CensusListStripper` and `FileCompressor` are the tools that produced them and are kept public for compatibility.
+
+## License
+
+MIT, see `LICENSE`.

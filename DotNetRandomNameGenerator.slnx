@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj" />
+  <Project Path="RandomNameGeneratorUnitTests/RandomNameGeneratorUnitTests.csproj" />
+</Solution>

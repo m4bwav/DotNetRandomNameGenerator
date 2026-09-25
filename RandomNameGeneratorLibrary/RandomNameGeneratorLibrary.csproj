@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package">
+    <PackageId>RandomNameGeneratorLibrary</PackageId>
+    <Version>2.0.0</Version>
+    <Authors>Mark Rogers</Authors>
+    <Title>Random Name Generator</Title>
+    <Description>Generates random people and place names drawn from freely available US census data. Create a PersonNameGenerator or PlaceNameGenerator and call a method such as GenerateRandomFirstAndLastName(); every method name says literally what it does.</Description>
+    <PackageTags>random;name;generator;census;person;place;fake;test-data</PackageTags>
+    <PackageProjectUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>2.0.0: rebuilt for netstandard2.0 and net10.0 (net40 and netstandard1.6 dropped), SourceLink and deterministic build, README in the package. No API changes.</PackageReleaseNotes>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.dist.all.last.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.dist.all.last.stripped" />
+    <EmbeddedResource Include="Resources.dist.female.first.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.dist.female.first.stripped" />
+    <EmbeddedResource Include="Resources.dist.male.first.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.dist.male.first.stripped" />
+    <EmbeddedResource Include="Resources.places2k.txt.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.places2k.txt.stripped" />
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
