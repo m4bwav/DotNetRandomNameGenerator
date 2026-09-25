@@ -9,14 +9,28 @@ Generates random people and place names drawn from freely available US census da
 dotnet add package RandomNameGeneratorLibrary
 ```
 
-Targets `netstandard2.0` (any .NET Framework 4.6.2+, .NET Core, Mono, Unity) and `net10.0`. Version 2.0.0 is the same API as 1.2.2, rebuilt with the current SDK, SourceLink and this README in the package; the `net40` and `netstandard1.6` targets are gone. Try it live at https://www.markdavidrogers.com/tools (random names) or through the site's MCP server tool `random_name`.
+Targets `netstandard2.0` (any .NET Framework 4.6.2+, .NET Core, Mono, Unity) and `net10.0`. Version 2.0.x is the same API as 1.2.2, rebuilt with the current SDK, SourceLink and this README in the package; the `net40` and `netstandard1.6` targets are gone. Try it live at https://www.markdavidrogers.com/tools (random names) or through the site's MCP server tool `random_name`.
+
+## What the names look like
+
+Eight of each, straight from the library (`new Random(20260924)`, so you can reproduce them):
+
+| Kind | Examples |
+| --- | --- |
+| First and last name | Jon Rohl, Deneen Vanvolkinburg, Alona Glordano, Norris Veltz, Wes Tomopoulos, Peter Melito, Stephanie Niceswander, Erich Dunnagan |
+| Female first name | Heather, Joel, Zita, Pinkie, Miriam, Laticia, Adrianna, Courtney |
+| Male first name | Emmanuel, Lauren, Mathew, Jeffrey, Terence, Leo, Evan, Jacinto |
+| Last name | Hernanders, Marzolf, Potulski, Glasner, Casilles, Rousu, Kakowski, Eppenger |
+| Place name | Agenda, Atlantic Beach, Formoso, French, New Augusta, Oriskany, Oneida, Trujillo Alto zona urbana |
+
+The lists are the 1990 US Census name frequency files and the Census 2000 place file, with frequencies stripped, so every entry is equally likely: common names and rare ones sit side by side, and a few first names appear on both the male and female lists because the census recorded them that way. Place names include Puerto Rico entries such as the last one above.
 
 The library contains a stripped down lists of human names from the US Census names list, and a list of place names from another census list. The library allows you to get random first and last names or both and you can get male and female first names. You can also generate random place names as well. To access this functionality create a NameGenerator in namespace RandomNameGenerator, and call one of the functions like GenerateRandomFirstAndLastName(). The functions names describe literally and simply what those functions do.
 
 Typical Usage (generating a person name):  
 ```C#
 var personGenerator = new PersonNameGenerator();
-var name = _personGenerator.GenerateRandomFirstAndLastName();
+var name = personGenerator.GenerateRandomFirstAndLastName();
 	
 Console.WriteLine(name); //Outputs some random first and last name combination in the format "{first} {last}" example: "Mark Rogers"
 ```
@@ -24,14 +38,14 @@ Console.WriteLine(name); //Outputs some random first and last name combination i
 Generating a place name:
 ```C#
 var placeGenerator = new PlaceNameGenerator();
-var name = _personGenerator.GenerateRandomPlaceName();
+var name = placeGenerator.GenerateRandomPlaceName();
 	
 Console.WriteLine(name); //Outputs some random place name, example: "Hoboken"
 ```
 Male and female first names can be generated with or without a last name
 ```C#
 var personGenerator = new PersonNameGenerator();
-var name = _personGenerator.GenerateRandomFemaleFirstName();
+var name = personGenerator.GenerateRandomFemaleFirstName();
 	
 Console.WriteLine(name); //Outputs some random first female name, example: "Jane"
 ```
@@ -39,8 +53,8 @@ Console.WriteLine(name); //Outputs some random first female name, example: "Jane
 More than one name can be generated at a time.  There are a variety of functions that let you choose gender if desired, and the number of names to be produced.
 ```C#
 var personGenerator = new PersonNameGenerator();
-var numberOfNames = 1;
-var names = _personGenerator.GenerateRandomFemaleFirstAndLastName(numberOfNames);
+var numberOfNames = 5;
+var names = personGenerator.GenerateMultipleFemaleFirstAndLastNames(numberOfNames);
 var name = names.First();
 	
 Console.WriteLine(name); //Outputs some random first and last female name combination in the format "{first} {last}" example: "Rose Jones"

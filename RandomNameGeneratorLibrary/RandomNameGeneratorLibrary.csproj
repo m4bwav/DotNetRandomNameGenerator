@@ -13,7 +13,7 @@
 
   <PropertyGroup Label="Package">
     <PackageId>RandomNameGeneratorLibrary</PackageId>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Authors>Mark Rogers</Authors>
     <Title>Random Name Generator</Title>
     <Description>Generates random people and place names drawn from freely available US census data. Create a PersonNameGenerator or PlaceNameGenerator and call a method such as GenerateRandomFirstAndLastName(); every method name says literally what it does.</Description>
