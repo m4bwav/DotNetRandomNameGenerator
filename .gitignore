@@ -269,3 +269,6 @@ __pycache__/
 # Coverage output from dotnet test --collect
 coverage/
 TestResults/
+
+# ai-docs/log holds handoff notes, not build logs
+!ai-docs/log/
