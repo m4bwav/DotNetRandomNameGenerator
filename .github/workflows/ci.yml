@@ -30,7 +30,7 @@ jobs:
         with:
           fetch-depth: 0 # SourceLink needs the commit history
 
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/setup-dotnet@v6
         with:
           global-json-file: global.json
           cache: true
@@ -90,7 +90,7 @@ jobs:
         with:
           name: package
           path: artifacts
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/setup-dotnet@v6
         with:
           global-json-file: global.json
       - name: NuGet login (OIDC to temporary API key)
