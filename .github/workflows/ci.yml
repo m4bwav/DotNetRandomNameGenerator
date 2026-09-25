@@ -26,7 +26,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # SourceLink needs the commit history
 
@@ -75,7 +75,7 @@ jobs:
       id-token: write   # lets the job request the GitHub OIDC token that nuget.org exchanges for a temporary key
       contents: write   # lets the job create the GitHub Release
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Check that the tag matches the csproj version
         run: |
