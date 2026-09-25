@@ -1,0 +1,9 @@
+* text=auto
+*.stripped text eol=lf
+*.cs text
+*.md text
+*.yml text
+*.json text
+*.csproj text
+*.slnx text
+*.png binary

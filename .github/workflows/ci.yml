@@ -1,6 +1,7 @@
 # Build, test and pack on every push and pull request; the .nupkg and .snupkg are kept as a run artifact.
-# Publishing to NuGet happens only from a v* tag (see README "Releasing") through nuget.org Trusted Publishing:
-# the job trades GitHub's OIDC token for a one-hour NuGet key, so no long-lived API key is stored anywhere.
+# Linux runs the net10.0 tests; Windows also runs them on net48, which exercises the netstandard2.0 build.
+# Publishing to NuGet happens only from a v* tag (see README "Building and releasing") through nuget.org Trusted
+# Publishing: the job trades GitHub's OIDC token for a one-hour NuGet key, so no long-lived API key is stored anywhere.
 # It needs a NUGET_USER secret (the nuget.org profile name) in the repository's "nuget" environment.
 name: CI
 
@@ -13,9 +14,17 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -23,14 +32,35 @@ jobs:
 
       - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 10.0.x
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
 
-      - run: dotnet restore
+      - run: dotnet restore --locked-mode
       - run: dotnet build --no-restore -c Release
-      - run: dotnet test --no-build -c Release
-      - run: dotnet pack RandomNameGeneratorLibrary --no-build -c Release -o artifacts
+
+      - name: Check formatting
+        if: runner.os == 'Linux'
+        run: dotnet format --no-restore --verify-no-changes
+
+      - name: Test (net10.0)
+        if: runner.os == 'Linux'
+        run: dotnet test --no-build -c Release -f net10.0 --collect:"XPlat Code Coverage" --results-directory coverage
+      - name: Test (net10.0 and net48)
+        if: runner.os == 'Windows'
+        run: dotnet test --no-build -c Release --collect:"XPlat Code Coverage" --results-directory coverage
 
       - uses: actions/upload-artifact@v7
+        with:
+          name: coverage-${{ matrix.os }}
+          path: coverage/**/coverage.cobertura.xml
+          retention-days: 30
+
+      - if: runner.os == 'Linux'
+        run: dotnet pack RandomNameGeneratorLibrary --no-build -c Release -o artifacts
+
+      - if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v7
         with:
           name: package
           path: artifacts/*nupkg
@@ -43,15 +73,26 @@ jobs:
     environment: nuget
     permissions:
       id-token: write   # lets the job request the GitHub OIDC token that nuget.org exchanges for a temporary key
-      contents: read
+      contents: write   # lets the job create the GitHub Release
     steps:
+      - uses: actions/checkout@v6
+
+      - name: Check that the tag matches the csproj version
+        run: |
+          version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj)
+          tag=${GITHUB_REF_NAME#v}
+          if [ "$version" != "$tag" ]; then
+            echo "Tag v$tag does not match <Version>$version</Version>; bump the csproj or retag." >&2
+            exit 1
+          fi
+
       - uses: actions/download-artifact@v8
         with:
           name: package
           path: artifacts
       - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 10.0.x
+          global-json-file: global.json
       - name: NuGet login (OIDC to temporary API key)
         uses: NuGet/login@v1
         id: login
@@ -60,3 +101,11 @@ jobs:
       - run: dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
         env:
           NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            artifacts/*.nupkg
+            artifacts/*.snupkg
+          body: See CHANGELOG.md for this version's entry.

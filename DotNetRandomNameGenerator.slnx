@@ -1,4 +1,7 @@
 <Solution>
   <Project Path="RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj" />
   <Project Path="RandomNameGeneratorUnitTests/RandomNameGeneratorUnitTests.csproj" />
+  <Folder Name="/tools/">
+    <Project Path="tools/CensusTools/CensusTools.csproj" />
+  </Folder>
 </Solution>

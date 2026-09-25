@@ -266,3 +266,6 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
+# Coverage output from dotnet test --collect
+coverage/
+TestResults/

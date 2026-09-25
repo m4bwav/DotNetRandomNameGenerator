@@ -3,18 +3,25 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Label="Package">
     <PackageId>RandomNameGeneratorLibrary</PackageId>
-    <Version>2.0.1</Version>
+    <Version>2.1.0</Version>
     <Authors>Mark Rogers</Authors>
+    <Copyright>Copyright (c) 2014-2026 Mark Rogers</Copyright>
     <Title>Random Name Generator</Title>
     <Description>Generates random people and place names drawn from freely available US census data. Create a PersonNameGenerator or PlaceNameGenerator and call a method such as GenerateRandomFirstAndLastName(); every method name says literally what it does.</Description>
     <PackageTags>random;name;generator;census;person;place;fake;test-data</PackageTags>
@@ -23,13 +30,16 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>2.0.0: rebuilt for netstandard2.0 and net10.0 (net40 and netstandard1.6 dropped), SourceLink and deterministic build, README in the package. No API changes.</PackageReleaseNotes>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>2.1.0: place list fixed (49 Puerto Rico names had a broken character) and deduplicated so every place is equally likely; default generators no longer repeat each other on .NET Framework (#7); lists parsed lazily and thread-safely; new PersonNameGenerator(int seed) and PlaceNameGenerator(int seed); MaleFirstNames, FemaleFirstNames, LastNames and PlaceNames exposed as read-only lists; XML docs and nullable annotations; CensusListStripper and FileCompressor marked obsolete. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <PackageValidationBaselineVersion>2.0.1</PackageValidationBaselineVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +48,7 @@
     <EmbeddedResource Include="Resources.dist.male.first.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.dist.male.first.stripped" />
     <EmbeddedResource Include="Resources.places2k.txt.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.places2k.txt.stripped" />
     <None Include="../README.md" Pack="true" PackagePath="/" />
+    <None Include="icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
