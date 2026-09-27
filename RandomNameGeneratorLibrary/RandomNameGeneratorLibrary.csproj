@@ -19,19 +19,19 @@
 
   <PropertyGroup Label="Package">
     <PackageId>RandomNameGeneratorLibrary</PackageId>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Authors>Mark Rogers</Authors>
     <Copyright>Copyright (c) 2014-2026 Mark Rogers</Copyright>
     <Title>Random Name Generator</Title>
-    <Description>Generates random people and place names drawn from freely available US census data. Create a PersonNameGenerator or PlaceNameGenerator and call a method such as GenerateRandomFirstAndLastName(); every method name says literally what it does.</Description>
-    <PackageTags>random;name;generator;census;person;place;fake;test-data</PackageTags>
+    <Description>Generates random people and place names drawn from freely available US census data, and the names of real stars from the IAU star-name list and the Bright Star, Henry Draper and Hipparcos catalogues. Create a PersonNameGenerator, PlaceNameGenerator or StarNameGenerator and call a method such as GenerateRandomFirstAndLastName(); every method name says literally what it does.</Description>
+    <PackageTags>random;name;generator;census;person;place;star;astronomy;fake;test-data</PackageTags>
     <PackageProjectUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</PackageProjectUrl>
     <RepositoryUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReleaseNotes>2.1.0: place list fixed (49 Puerto Rico names had a broken character) and deduplicated so every place is equally likely; default generators no longer repeat each other on .NET Framework (#7); lists parsed lazily and thread-safely; new PersonNameGenerator(int seed) and PlaceNameGenerator(int seed); MaleFirstNames, FemaleFirstNames, LastNames and PlaceNames exposed as read-only lists; XML docs and nullable annotations; CensusListStripper and FileCompressor marked obsolete. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>2.2.0: new StarNameGenerator and IStarNameGenerator for real star names: 640 IAU proper names (Sirius, Betelgeuse), 3,076 Bayer and Flamsteed designations covering every naked-eye star (Tau Ceti, 61 Cygni), and 343,518 Henry Draper and Hipparcos catalogue designations (HD 209458, HIP 70890); Random extension methods GenerateRandomStarName and GenerateMultipleStarNames. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -47,6 +47,9 @@
     <EmbeddedResource Include="Resources.dist.female.first.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.dist.female.first.stripped" />
     <EmbeddedResource Include="Resources.dist.male.first.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.dist.male.first.stripped" />
     <EmbeddedResource Include="Resources.places2k.txt.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.places2k.txt.stripped" />
+    <EmbeddedResource Include="Resources.stars.proper.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.stars.proper.stripped" />
+    <EmbeddedResource Include="Resources.stars.designations.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.stars.designations.stripped" />
+    <EmbeddedResource Include="Resources.stars.hipgaps.stripped" LogicalName="RandomNameGeneratorLibrary.Resources.stars.hipgaps.stripped" />
     <None Include="../README.md" Pack="true" PackagePath="/" />
     <None Include="icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>

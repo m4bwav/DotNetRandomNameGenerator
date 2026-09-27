@@ -4,6 +4,15 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-09-27
+
+### Added
+
+- `StarNameGenerator` and `IStarNameGenerator` generate the names of real stars: `GenerateRandomStarName()` (an IAU proper name or a Bayer or Flamsteed designation, for example `Tau Ceti`), `GenerateRandomProperStarName()` (IAU names only), `GenerateRandomCatalogStarName()` (`HD` or `HIP` designations of 343,518 catalogued stars) and `GenerateMultipleStarNames(int)`, with the same default, `Random` and seed constructors as the other generators.
+- `StarNameGenerator.ProperStarNames` (640), `DesignatedStarNames` (3,076), `StarNames` (both) and `CatalogStarNameCount`.
+- `Random.GenerateRandomStarName()` and `Random.GenerateMultipleStarNames(int)` extensions.
+- `tools/StarLists/build_star_lists.py` rebuilds the star resources from the IAU WGSN list, the Yale Bright Star Catalogue and the Hipparcos catalogue. The package grows by about 45 KB (5%).
+
 ## [2.1.0] - 2026-09-25
 
 ### Fixed
@@ -46,7 +55,8 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 
 - Last release of the 1.x line, targeting `net40` and `netstandard1.6`.
 
-[Unreleased]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/m4bwav/DotNetRandomNameGenerator/releases/tag/v2.0.0

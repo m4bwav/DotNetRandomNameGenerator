@@ -17,6 +17,9 @@ namespace RandomNameGeneratorUnitTests
             yield return new object[] { "female first names", PersonNameGenerator.FemaleFirstNames, 4275 };
             yield return new object[] { "last names", PersonNameGenerator.LastNames, 88799 };
             yield return new object[] { "place names", PlaceNameGenerator.PlaceNames, 16873 };
+            yield return new object[] { "proper star names", StarNameGenerator.ProperStarNames, 640 };
+            yield return new object[] { "designated star names", StarNameGenerator.DesignatedStarNames, 3076 };
+            yield return new object[] { "star names", StarNameGenerator.StarNames, 3716 };
         }
 
         [Theory]
