@@ -102,14 +102,14 @@ Unchanged: csproj targets, metadata, resources, icon, README packing. Changed: `
 ### Phase 3: review
 - [x] Independent read-only review including a differential against the published 2.2.0 (144,891 comparisons per runtime, 0 differences outside the place list); 10 findings fixed (1e4e416, 355af8b); summary on the pull request
 - [x] Rulesets and security settings applied (L-077): rulesets 24095614 and 24095615, scanning, push protection, private reporting, read-only workflow token, homepage; Releases v2.0.0 and v2.0.1; issue #7 comment.
-- [ ] **Stop** for the pull request review.
+- [x] **Stop** for the pull request review.
 ### Phase 4: CI, merge, cleanup
-- [ ] CI green; the maintainer merges; merge SHA and method read back
+- [x] CI green; the maintainer merges; merge SHA and method read back
 ### Phase 5: rehearsal
-- [ ] The maintainer edits the Trusted Publishing policy (D7). **Stop.**
-- [ ] Tag v2.3.0-beta.1 on green master; **stop** for the approval; verify-published on three OSes
+- [x] The maintainer edits the Trusted Publishing policy (D7). **Stop.**
+- [x] Tag v2.3.0-beta.1 on green master; **stop** for the approval; verify-published on three OSes
 ### Phase 6: release
-- [ ] CHANGELOG dated, version 2.3.0, merged, green, tagged; **stop** for the approval; verify-published; GitHub Release; baseline stays 2.2.0 until 2.3.0 is published, then 2.3.0
+- [x] CHANGELOG dated, version 2.3.0, merged, green, tagged; **stop** for the approval; verify-published; GitHub Release; baseline stays 2.2.0 until 2.3.0 is published, then 2.3.0
 ### Phase 7: wrap-up
 - [ ] HANDOFF around standing work; inventory row 4; the skill's retrofit path and lessons (L-090 and up) by pull request; the kickoff's "what the run found wrong"
 
