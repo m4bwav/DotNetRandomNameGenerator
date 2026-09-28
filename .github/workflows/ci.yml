@@ -64,8 +64,9 @@ jobs:
       - name: The package holds exactly what it should and declares its dependencies
         if: runner.os == 'Linux'
         run: |
+          # The expected list is in C-locale order (uppercase first), as the sort below produces it.
           nupkg=$(ls artifacts/RandomNameGeneratorLibrary.[0-9]*.nupkg)
-          expected=$'RandomNameGeneratorLibrary.nuspec\nREADME.md\nicon.png\nlib/net10.0/RandomNameGeneratorLibrary.dll\nlib/net10.0/RandomNameGeneratorLibrary.xml\nlib/netstandard2.0/RandomNameGeneratorLibrary.dll\nlib/netstandard2.0/RandomNameGeneratorLibrary.xml'
+          expected=$'README.md\nRandomNameGeneratorLibrary.nuspec\nicon.png\nlib/net10.0/RandomNameGeneratorLibrary.dll\nlib/net10.0/RandomNameGeneratorLibrary.xml\nlib/netstandard2.0/RandomNameGeneratorLibrary.dll\nlib/netstandard2.0/RandomNameGeneratorLibrary.xml'
           actual=$(unzip -Z1 "$nupkg" | grep -Ev '^(_rels/|package/|\[Content_Types\])' | LC_ALL=C sort)
           if [ "$actual" != "$expected" ]; then
             echo "::error::unexpected package contents"
