@@ -75,3 +75,10 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - nuget.org flat-container index lists 2.3.0. verify-published run 36421937100 for 2.3.0: green on Ubuntu, Windows and macOS.
 - check-readme-images.mjs on the README inside the 2.3.0 nupkg with `--registry nuget`: 3 images, every one works, exit 0. (Without the flag it checks for npm; pass `--registry nuget` for NuGet.)
 - Branch baseline-2.3.0: PackageValidationBaselineVersion 2.2.0 to 2.3.0 (D5, after publication).
+
+## [2026-09-28] add | GitHub wiki written, push blocked on the first page
+- Mark merged PR #15 (65a3af8); master holds the 2.3.0 baseline.
+- Mark asked for the repository wiki to be filled. Eleven pages written (Home, Getting started, API reference, Recipes, Reproducible names, Name lists and data sources, Versions and upgrading, FAQ, Development, sidebar, footer); every example output verified against the published 2.3.0 (file-based app, `dotnet fsi`, PowerShell `Add-Type`). Committed as 0bf2dd6 in the sibling working copy `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`.
+- `git push` to `DotNetRandomNameGenerator.wiki.git`: `Repository not found`. GitHub creates the wiki repository only when the first page is saved in the web UI; no API exists. Mark's click, then `git push --force -u origin master` from the working copy. Details: notes/2026-09-28-github-wiki.md.
+- Found while writing: the README's thread-safety sentence overstates the .NET Framework case (a default generator there holds a plain per-instance `Random`). Not changed; recorded in the note and in HANDOFF standing work.
+## [2026-09-28] index | rebuilt (7 entries)
