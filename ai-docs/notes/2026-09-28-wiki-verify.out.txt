@@ -1,0 +1,113 @@
+## installed
+RandomNameGeneratorLibrary 2.3.0
+
+## home: unseeded examples (each checked against the list it comes from)
+Deneen Vanvolkinburg
+Prophetstown
+Alpha Muscae
+
+## getting started: the first call, unseeded (each checked against the list it comes from)
+Jon Rohl
+Hildegard
+Benny
+Drouillard
+Prophetstown
+26 Vulpeculae
+Ankaa
+HD 107420
+
+## getting started: seed 42, full name (also Recipes, seeded test data)
+Alisa Streets
+
+## getting started: seed 42, place
+Boardman
+
+## getting started: extension methods on one Random(42)
+Marguerita
+Sedco Hills
+Ran
+
+## reproducible names: three ways to seed
+Marguerita
+Marguerita
+Marguerita
+
+## recipes: first then last equals first-and-last (seed 42)
+Alisa Streets
+
+## recipes: distinct names
+Mccaskey, Gerena, Antinoro, Rosazza, Bocklage
+
+## recipes: one Random for everything
+Kerry Marrello from La Plena comunidad
+Iris Velazques from Vanleer
+Bambi Neblock from Highland Beach
+
+## recipes: the same seed with a StarNameGenerator
+Kerry Marrello of Zeta Trianguli Australis
+
+## recipes: usernames
+Emmitt Diak -> emmitt.diak@example.com
+Nguyet Kistler -> nguyet.kistler@example.com
+Joel Pieroni -> joel.pieroni@example.com
+
+## recipes: picking from the lists (the Mc names)
+1,394 names
+
+## recipes: picking from the lists (three of them)
+Mcnees, Mcrorie, Mccraight
+
+## sizes: male, female, last, places, stars, proper, designated, catalogue
+1,219 4,275 88,799 16,969 3,716 640 3,076 343,518
+
+## first entries: male, female, last, place, last place, proper, designated
+James | Mary | Smith | Abbeville | Yaurel comunidad | Absolutno | 1 Aquarii
+
+## places with a space, places with a non-ASCII letter
+6,394 52
+
+## first names of four letters or fewer: female, male; on both lists
+652 251 331
+
+## longest last name, longest place name
+Hollingsworth | Chesapeake Ranch Estates-Drum Point
+
+## names of the longest length: last names (length, count, first three), place names
+13 characters, 250: Hollingsworth, Killingsworth, Christopherso
+35 characters: Chesapeake Ranch Estates-Drum Point | Leisure Village West-Pine Lake Park
+
+## places with a comma
+Islamorada, Village of Islands | Lynchburg, Moore County
+
+## names with an apostrophe (places), with a double quotation mark (all lists)
+33 0
+
+## non-ASCII examples on the lists
+Mayagüez zona urbana found | Boötis found | Rosalíadecastro found | Delta² Gruis found
+
+## person names are ASCII letters only
+True
+
+## zero gives an empty sequence
+0
+
+## negative count
+ArgumentOutOfRangeException: The number of names to generate cannot be negative. (Parameter 'count')
+Actual value was -1.
+
+## negative count, places
+ArgumentOutOfRangeException: The number of names to generate cannot be negative. (Parameter 'numberOfNames')
+Actual value was -1.
+
+## null Random
+ArgumentNullException: Value cannot be null. (Parameter 'randGen')
+
+## getting started: F#
+Alisa Streets
+Boardman
+
+## getting started: PowerShell
+<an unseeded full name from the lists>
+Boardman
+88799
+
