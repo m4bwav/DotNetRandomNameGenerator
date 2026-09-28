@@ -54,3 +54,6 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - Tag v2.3.0-beta.1 on e3d610a pushed (the "Cannot create ref due to creations being restricted" line is the admin bypass message, L-087; ls-remote shows the tag on e3d610a).
 - release.yml run 36375599177: build and test, Windows net48 and net10.0, attest all green; "push to nuget.org (after approval)" waiting at the nuget environment.
 - PR #14 (branch release-2.3.0): version 2.3.0, changelog section dated 2026-09-28 and moved above the beta; checked locally (build, 103 tests on net10.0, pack, consumers of 2.3.0, notes extraction, dated-heading check). To be merged only after the beta is verified.
+
+## [2026-09-28] update | Correction to the entry above
+- Mark said "I merged everything"; he did not say whether the nuget.org policy edit (workflow ci.yml to release.yml) is done. The beta's push job will show it: a NuGet/login failure there means the policy still names ci.yml.
