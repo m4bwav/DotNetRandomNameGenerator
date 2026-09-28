@@ -12,5 +12,9 @@ decisions/2026-09-28-retrofit-without-code-changes.md (accepted; the place-list 
 ## Dead ends hit
 The net48 golden replay as win-x86 differs from the 64-bit capture in one OutOfMemoryException message; it runs as win-x64. Adopting eol=lf in an autocrlf clone leaves CRLF working files until `git rm -r --cached . && git reset --hard` after a commit.
 
+## Lessons still to file in package-modernize (L-105 and up)
+- The agent logged a maintainer statement he had not made (the policy edit); corrected in log.md. Rule: log only what the maintainer said, quoted.
+- Any lesson from the beta and 2.3.0 release runs.
+
 ## Next single action
 After Mark approves the beta: wait for both nuget.org indexes, run `gh workflow run verify-published.yml -f version=2.3.0-beta.1` and check it on three OSes, `gh release view v2.3.0-beta.1`, `gh attestation verify` on the run's nupkg with `--format json` (L-088). Then Mark merges PR #14; after ci is green on master, tag v2.3.0, stop for the approval, verify-published 2.3.0, `check-readme-images.mjs` on the README inside the 2.3.0 nupkg, then a PR setting PackageValidationBaselineVersion to 2.3.0. Finally: package-modernization PR #10 (records: inventory row 4 done, kickoff status done) out of draft and merged, and the everlast wrap-up.
