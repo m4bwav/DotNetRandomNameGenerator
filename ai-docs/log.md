@@ -19,6 +19,12 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - AGENTS.md (template adapted, everlast block), CLAUDE.md (import line), .github/copilot-instructions.md.
 
 ## [2026-09-28] add | Retrofit Phase 1: plan and decision record, stop for rulings
-- plans/2026-09-28-retrofit-and-2.2.1-release.md (D1-D16, one question); decisions/2026-09-28-retrofit-without-code-changes.md (proposed).
+- plans/2026-09-28-retrofit-and-2.3.0-release.md (D1-D16, one question); decisions/2026-09-28-retrofit-without-code-changes.md (proposed).
 ## [2026-09-27] index | rebuilt (6 entries)
 ## [2026-09-27] index | rebuilt (6 entries)
+
+## [2026-09-28] update | Phase 1 ruled: recommendations stand, place list fixed in place as 2.3.0
+- Maintainer: "follow all recommendations but fix the place-list bug now"; asked the shape (in place 2.3.0, 3.0.0, or a new name), chose in place as 2.3.0; then "I consider it a bug, the old behavior wasn't worth preserving".
+- `dotnet run --project tools/CensusTools -c Release -- place places2k.txt out`: 16,969 names, no duplicates, no classification words left, no U+FFFD; 150 truncations removed, 246 names restored (Georgetown, Felicity, Middletown); one-letter "Y" is a real Alaska CDP.
+- Provenance of the person lists: the 1990 files from www2.census.gov/topics/genealogy/1990surnames rebuilt with the old logic (first column, Title case, first occurrence) equal the shipped lists exactly (88,799, 1,219, 4,275).
+- Source SHA-256: places2k.zip 520a8374...bbc9, places2k.txt f3a49faf...e92e, dist.all.last b0e2b374...f4e1, dist.male.first 0a5078ef...470b, dist.female.first bd2f310f...b358.

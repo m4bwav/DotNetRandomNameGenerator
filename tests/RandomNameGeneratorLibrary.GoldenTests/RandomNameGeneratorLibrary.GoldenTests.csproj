@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The golden replay (plan D1): the Phase 0 capture's cases, compiled unchanged against this repository's library and
+    compared with what the published 2.2.0 answered on the same runtime (tests/Golden/2.2.0.<runtime>-windows.json).
+    The one ruled exception is the regenerated place list (plan D3), pinned in tests/Golden/2.3.0.places.<runtime>.json.
+    A project of its own, so no other test shares its process (skill L-072 golden-alone-in-process).
+  -->
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net48</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- A locked-mode lock file must not depend on what the SDK infers per OS (the NuGet reference's trap). x64, because
+       the net48 recording came from a 64-bit process: a 32-bit one words the int.MaxValue OutOfMemoryException differently. -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Frozen since the Phase 0 commit 84dbc6b; never edit them to make a test pass. -->
+    <Compile Include="../Golden/Capture/Cases.cs" Link="Capture/Cases.cs" />
+    <Compile Include="../Golden/Capture/Fixtures.cs" Link="Capture/Fixtures.cs" />
+    <Compile Include="../Golden/Capture/Json.cs" Link="Capture/Json.cs" />
+    <None Include="../Golden/*.json" LinkBase="Golden" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" Version="4.0.1" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="System.Text.Json" Version="10.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj" />
+  </ItemGroup>
+
+</Project>

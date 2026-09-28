@@ -1,28 +1,29 @@
 ---
-title: package-modernize retrofit and the 2.2.1 release
+title: package-modernize retrofit and the 2.3.0 release
 kind: plan
 status: active
 date: 2026-09-28
 verified: 2026-09-28
 stale_after: never
 tags: [v2, retrofit, plan, nuget, github-actions, golden, release]
-summary: "the living plan that brings 2.2.0 (modernized before the package-modernize skill existed) up to the skill's standard: gap audit, golden contract, decisions D1-D16, workflows, settings, the 2.2.1 release through release.yml, phases 0-7 with checkboxes"
+summary: "the living plan that brings 2.2.0 (modernized before the package-modernize skill existed) up to the skill's standard: gap audit, golden contract, decisions D1-D16 as ruled, the place-list fix, workflows, settings, the 2.3.0 release through release.yml, phases 0-7 with checkboxes"
 ---
 
-# Retrofit and 2.2.1 release plan: RandomNameGeneratorLibrary
+# Retrofit and 2.3.0 release plan: RandomNameGeneratorLibrary
 
 RandomNameGeneratorLibrary was modernized on 2026-09-24 and 25 ([the 2.1.0 plan](2026-09-25-modernization-2.1.0.md)), before the package-modernize skill existed, and shipped 2.0.0 to 2.2.0. This plan is a retrofit, not a rewrite: it adds the contract, the release path and the settings the skill requires, and changes no library code unless the maintainer rules otherwise. It follows the package-modernize skill (SKILL.md, references/nuget.md) at 3988316. Evidence goes to [../log.md](../log.md); the audit is [../notes/2026-09-28-phase-0-gap-audit.md](../notes/2026-09-28-phase-0-gap-audit.md).
 
 ## Status
 
-Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`); Phase 1 waits for the maintainer's rulings on D1 to D16 and the one question below.
+Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`). Phase 1 ruled 2026-09-28: every recommendation stands except D2, D3 and D4, which the maintainer overruled: "fix the place-list bug now", in place, as 2.3.0 ("I consider it a bug, the old behavior wasn't worth preserving"). Phase 2 in progress.
 
 ## Goal
 
 - Every answer the published 2.2.0 gives stays the same, proven on every build by a golden replay of 426 recorded cases per runtime, a public API list and package validation against 2.2.0.
 - Releases go through a separate, gated `release.yml` (tag equals the csproj version and sits on green master, net48 tests, attestation, maintainer approval) and are checked from nuget.org by `verify-published.yml` on three OSes.
 - The repository is protected (rulesets, scanning, private reporting, read-only workflow token) and documented for any agent (AGENTS.md, everlast ai-docs).
-- 2.2.1 proves the new path with metadata and build changes only, after a 2.2.1-beta.1 rehearsal.
+- The place list is regenerated from the Census 2000 source with tools/CensusTools (16,969 names; the 2014 truncations gone); every seeded place name changes, as the one ruled exception to the golden contract.
+- 2.3.0 proves the new path, after a 2.3.0-beta.1 rehearsal.
 
 ## Where it stands (survey 2026-09-28)
 
@@ -52,9 +53,9 @@ Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`);
 | # | Question | Recommendation | Why | Alternative |
 |---|---|---|---|---|
 | D1 | The compatibility promise | Every recorded 2.2.0 answer stays the same on its runtime: tests/Golden/2.2.0.net48-windows.json on net48, 2.2.0.net10.0-windows.json on net10.0 (Windows, Linux, macOS); no named exceptions; PublicApi-2.2.0.txt lines all present; package validation baseline 2.2.0 | Seeded output is what callers rely on; 2.1.0 changed it unguarded once | Compare net10.0 with the net48 recording plus message exceptions (more exceptions for nothing) |
-| D2 | Library code changes | None. Only the csproj's version, release notes and baseline change | The audit found no code bug; the one defect is data (D3) | Small cleanups (the analyzer set of the template) that touch code: no, each would need the replay to prove it |
-| D3 | The place-list truncation | Keep the list in 2.x; README "Known issues" and a CHANGELOG line; regenerate with tools/CensusTools at 3.0 (together with the other 3.0 breaks) | Any fix changes every seeded place name, the exact thing the promise protects; 3.0 already has a list of breaks | (b) 2.3.0 adds the corrected list under a new name (for example a `PlaceNameGenerator.CensusPlaceNames` list with a constructor option); (c) fix in place in 2.3.0 as 2.1.0 did: rejected, it breaks the promise |
-| D4 | Release | Yes: 2.2.1 (README with the third badge and the known issues, CHANGELOG, baseline 2.2.0, release notes), after a 2.2.1-beta.1 rehearsal | nuget.org shows the README from the package, so the doc fixes need a version; proves release.yml and the policy before a real change depends on them | Wait for the next real change (the new path stays unproven) |
+| D2 | Library code changes | **Ruled: no code change; the place-list data is regenerated (D3).** Recommended was: none. Only the csproj's version, release notes and baseline change | The audit found no code bug; the one defect is data (D3) | Small cleanups (the analyzer set of the template) that touch code: no, each would need the replay to prove it |
+| D3 | The place-list truncation | **Ruled 2026-09-28: fix in place in 2.3.0** (Resources.places2k.txt.stripped regenerated with tools/CensusTools; PlaceNames, every place method and extension use it; the place-derived golden cases are the one named exception, their new answers pinned in tests/Golden/2.3.0.places.*.json). Recommended was: keep the list in 2.x; README "Known issues" and a CHANGELOG line; regenerate with tools/CensusTools at 3.0 (together with the other 3.0 breaks) | Any fix changes every seeded place name, the exact thing the promise protects; 3.0 already has a list of breaks | (b) 2.3.0 adds the corrected list under a new name (for example a `PlaceNameGenerator.CensusPlaceNames` list with a constructor option); (c) fix in place in 2.3.0 as 2.1.0 did: rejected, it breaks the promise |
+| D4 | Release | **Ruled: 2.3.0** (the place-list fix, README with the third badge and a regenerated place row, CHANGELOG, baseline 2.2.0, release notes), after a 2.3.0-beta.1 rehearsal. Recommended was 2.2.1 without the fix | nuget.org shows the README from the package, so the doc fixes need a version; proves release.yml and the policy before a real change depends on them | Wait for the next real change (the new path stays unproven) |
 | D5 | Package validation baseline | 2.2.0 | The last published stable; 2.1.0 and 2.2.0 were additive | Keep 2.0.1 (misses the 2.1 and 2.2 additions) |
 | D6 | Workflows | ci.yml, release.yml, verify-published.yml from the templates; publish removed from ci.yml; actions pinned to SHAs; final `ci` job; audit-pipeline step; pack content check; consumers on the packed package; actionlint and zizmor clean | The skill's CI-proven set (CachingServiceWithAOPSupport, 2026-09-27) | Keep ci.yml and add SHA pins only |
 | D7 | Trusted Publishing policy | The maintainer edits the existing policy on nuget.org: Workflow File `ci.yml` becomes `release.yml`; owner m4bwav, repository DotNetRandomNameGenerator, environment `nuget`, package RandomNameGeneratorLibrary unchanged. After the merge, before the beta tag | The policy names one workflow file; release.yml is the only one that may publish | Add a second policy and delete the old one after the rehearsal |
@@ -72,7 +73,7 @@ Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`);
 
 1. Rulings on D1 to D16 (silence keeps the recommendations).
 2. GitHub settings to apply through `gh` before the pull request goes up: master ruleset (deletion and non-fast-forward blocked, required check `ci`, admin bypass); tag ruleset (only admins create, update or delete tags); secret scanning, push protection and private vulnerability reporting on; Dependabot security updates on; default workflow permissions read and no pull-request approvals by Actions; delete branches on merge; wiki and projects off (both empty).
-3. Repository homepage: change http://www.markdavidrogers.com/random-name-generator-net-library/ to https://www.nuget.org/packages/RandomNameGeneratorLibrary (the overlay's default), or keep the site page?
+3. Repository homepage: change http://www.markdavidrogers.com/random-name-generator-net-library/ to https://www.nuget.org/packages/RandomNameGeneratorLibrary (the overlay's default), or keep the site page? Ruled: the nuget.org page.
 4. Create the missing GitHub Releases for v2.0.0 and v2.0.1 from the changelog, with the nupkgs from nuget.org attached?
 5. A short comment on closed issue #7 saying 2.1.0 fixed its cause (default generators made in the same tick)?
 6. Deletions: none needed now; after the merge, delete branch `v2-retrofit` (automatic with delete-on-merge).
@@ -152,6 +153,10 @@ No leaked credentials; no webhooks; no repository secrets. Publishing: Trusted P
 - Editing the policy's workflow file may restart nuget.org's seven-day temporary state; the beta rehearsal shows it either way.
 - FileCompressor's compressed bytes on Linux come from .NET's bundled zlib-ng, as on Windows; if the Ubuntu replay disagrees, the difference becomes a named exception decided from the CI run.
 
+## Rulings (2026-09-28)
+
+"Follow all recommendations but fix the place-list bug now"; asked how, the maintainer chose in place as 2.3.0 over 3.0.0 or a new name, and added "I consider it a bug, the old behavior wasn't worth preserving". So: the settings of question 2 are applied, the homepage moves to nuget.org, Releases for v2.0.0 and v2.0.1 are created, issue #7 gets its comment, and the agent merges its own skill and records pull requests (question 8, recommendation: yes).
+
 ## Next single action
 
-The maintainer's rulings on D1 to D16 and the one question above.
+Phase 2: the golden replay project, green against the unchanged 2.2.0 code, then the canary, then the regenerated place list with its named exception.
