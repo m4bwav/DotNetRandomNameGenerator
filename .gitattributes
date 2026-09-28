@@ -7,3 +7,6 @@
 *.csproj text
 *.slnx text
 *.png binary
+# The golden recordings and API list are compared byte for byte; keep them exactly as captured.
+tests/Golden/*.json -text
+tests/Golden/PublicApi-*.txt -text

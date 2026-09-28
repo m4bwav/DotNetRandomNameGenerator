@@ -1,0 +1,104 @@
+# Public API of the published RandomNameGeneratorLibrary 2.2.0 (lib/netstandard2.0/RandomNameGeneratorLibrary.dll from nuget.org),
+# listed by reflection on 2026-09-28 with tests/Golden/ApiList. The tests check every line still exists and nothing was
+# added without a plan decision. Parameter names are listed because callers use them in named arguments.
+RandomNameGeneratorLibrary.BaseNameGenerator constructor protected .ctor()
+RandomNameGeneratorLibrary.BaseNameGenerator constructor protected .ctor(System.Random randGen)
+RandomNameGeneratorLibrary.BaseNameGenerator field protected readonly System.Random RandGen
+RandomNameGeneratorLibrary.BaseNameGenerator method protected static System.String[] ReadResourceByLine(System.String resourceFileName)
+RandomNameGeneratorLibrary.BaseNameGenerator type abstract class
+RandomNameGeneratorLibrary.CensusListStripper constructor .ctor()
+RandomNameGeneratorLibrary.CensusListStripper method System.Void StripStatisticsFromPersonNameFile(System.String nameFilePath, System.String nameStrippedFilePath)
+RandomNameGeneratorLibrary.CensusListStripper method System.Void StripStatisticsFromPlaceNameFile(System.String placeFilePath, System.String placeStrippedFilePath)
+RandomNameGeneratorLibrary.CensusListStripper method static System.String RemoveDigits(System.String key)
+RandomNameGeneratorLibrary.CensusListStripper type class
+RandomNameGeneratorLibrary.FileCompressor constructor .ctor()
+RandomNameGeneratorLibrary.FileCompressor method System.String DecompressFileToString(System.String inputFilePath)
+RandomNameGeneratorLibrary.FileCompressor method System.Void CompressStringToFile(System.String sourceText, System.String outputFilePath)
+RandomNameGeneratorLibrary.FileCompressor type class
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFemaleFirstAndLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFemaleFirstNames(System.Int32 count)
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFirstAndLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleMaleFirstAndLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleMaleFirstNames(System.Int32 count)
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomFemaleFirstAndLastName()
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomFemaleFirstName()
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomFirstAndLastName()
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomFirstName()
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomLastName()
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomMaleFirstAndLastName()
+RandomNameGeneratorLibrary.IPersonNameGenerator method System.String GenerateRandomMaleFirstName()
+RandomNameGeneratorLibrary.IPersonNameGenerator type interface
+RandomNameGeneratorLibrary.IPlaceNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultiplePlaceNames(System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.IPlaceNameGenerator method System.String GenerateRandomPlaceName()
+RandomNameGeneratorLibrary.IPlaceNameGenerator type interface
+RandomNameGeneratorLibrary.IStarNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleStarNames(System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.IStarNameGenerator method System.String GenerateRandomCatalogStarName()
+RandomNameGeneratorLibrary.IStarNameGenerator method System.String GenerateRandomProperStarName()
+RandomNameGeneratorLibrary.IStarNameGenerator method System.String GenerateRandomStarName()
+RandomNameGeneratorLibrary.IStarNameGenerator type interface
+RandomNameGeneratorLibrary.PersonNameGenerator base RandomNameGeneratorLibrary.BaseNameGenerator
+RandomNameGeneratorLibrary.PersonNameGenerator constructor .ctor()
+RandomNameGeneratorLibrary.PersonNameGenerator constructor .ctor(System.Int32 seed)
+RandomNameGeneratorLibrary.PersonNameGenerator constructor .ctor(System.Random randGen)
+RandomNameGeneratorLibrary.PersonNameGenerator implements RandomNameGeneratorLibrary.IPersonNameGenerator
+RandomNameGeneratorLibrary.PersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFemaleFirstAndLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.PersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFemaleFirstNames(System.Int32 count)
+RandomNameGeneratorLibrary.PersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFirstAndLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.PersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.PersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleMaleFirstAndLastNames(System.Int32 count)
+RandomNameGeneratorLibrary.PersonNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleMaleFirstNames(System.Int32 count)
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomFemaleFirstAndLastName()
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomFemaleFirstName()
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomFirstAndLastName()
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomFirstName()
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomLastName()
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomMaleFirstAndLastName()
+RandomNameGeneratorLibrary.PersonNameGenerator method System.String GenerateRandomMaleFirstName()
+RandomNameGeneratorLibrary.PersonNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> FemaleFirstNames { get; }
+RandomNameGeneratorLibrary.PersonNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> LastNames { get; }
+RandomNameGeneratorLibrary.PersonNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> MaleFirstNames { get; }
+RandomNameGeneratorLibrary.PersonNameGenerator type class
+RandomNameGeneratorLibrary.PlaceNameGenerator base RandomNameGeneratorLibrary.BaseNameGenerator
+RandomNameGeneratorLibrary.PlaceNameGenerator constructor .ctor()
+RandomNameGeneratorLibrary.PlaceNameGenerator constructor .ctor(System.Int32 seed)
+RandomNameGeneratorLibrary.PlaceNameGenerator constructor .ctor(System.Random randGen)
+RandomNameGeneratorLibrary.PlaceNameGenerator implements RandomNameGeneratorLibrary.IPlaceNameGenerator
+RandomNameGeneratorLibrary.PlaceNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultiplePlaceNames(System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.PlaceNameGenerator method System.String GenerateRandomPlaceName()
+RandomNameGeneratorLibrary.PlaceNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> PlaceNames { get; }
+RandomNameGeneratorLibrary.PlaceNameGenerator type class
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFemaleFirstAndLastNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFemaleFirstNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleFirstAndLastNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleLastNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleMaleFirstAndLastNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleMaleFirstNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomFemaleFirstAndLastName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomFemaleFirstName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomFirstAndLastName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomFirstName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomLastName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomMaleFirstAndLastName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions method static extension System.String GenerateRandomMaleFirstName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPersonNameExtensions type static class
+RandomNameGeneratorLibrary.RandomPlaceNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultiplePlaceNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomPlaceNameExtensions method static extension System.String GenerateRandomPlaceName(System.Random rand)
+RandomNameGeneratorLibrary.RandomPlaceNameExtensions type static class
+RandomNameGeneratorLibrary.RandomStarNameExtensions method static extension System.Collections.Generic.IEnumerable<System.String> GenerateMultipleStarNames(System.Random rand, System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.RandomStarNameExtensions method static extension System.String GenerateRandomStarName(System.Random rand)
+RandomNameGeneratorLibrary.RandomStarNameExtensions type static class
+RandomNameGeneratorLibrary.StarNameGenerator base RandomNameGeneratorLibrary.BaseNameGenerator
+RandomNameGeneratorLibrary.StarNameGenerator constructor .ctor()
+RandomNameGeneratorLibrary.StarNameGenerator constructor .ctor(System.Int32 seed)
+RandomNameGeneratorLibrary.StarNameGenerator constructor .ctor(System.Random randGen)
+RandomNameGeneratorLibrary.StarNameGenerator implements RandomNameGeneratorLibrary.IStarNameGenerator
+RandomNameGeneratorLibrary.StarNameGenerator method System.Collections.Generic.IEnumerable<System.String> GenerateMultipleStarNames(System.Int32 numberOfNames)
+RandomNameGeneratorLibrary.StarNameGenerator method System.String GenerateRandomCatalogStarName()
+RandomNameGeneratorLibrary.StarNameGenerator method System.String GenerateRandomProperStarName()
+RandomNameGeneratorLibrary.StarNameGenerator method System.String GenerateRandomStarName()
+RandomNameGeneratorLibrary.StarNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> DesignatedStarNames { get; }
+RandomNameGeneratorLibrary.StarNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> ProperStarNames { get; }
+RandomNameGeneratorLibrary.StarNameGenerator property System.Collections.Generic.IReadOnlyList<System.String> StarNames { get; }
+RandomNameGeneratorLibrary.StarNameGenerator property System.Int32 CatalogStarNameCount { get; }
+RandomNameGeneratorLibrary.StarNameGenerator type class
