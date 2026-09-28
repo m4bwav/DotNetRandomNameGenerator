@@ -4,7 +4,7 @@
 Retrofit of 2.2.0 to the package-modernize standard, branch `v2-retrofit` (2026-09-28). Phase 0 golden capture 84dbc6b (tests/Golden, never edit). Ruled: every recommendation, plus the place list fixed in place as 2.3.0. Phase 2 done and verified locally and from a fresh clone (202 tests, pack, consumers, actionlint, zizmor). GitHub settings applied (rulesets 24095614 master and 24095615 tags). Plan: plans/2026-09-28-retrofit-and-2.3.0-release.md.
 
 ## In progress
-Phase 3: the independent review (with a differential against the published 2.2.0) and the pull request; then the stop for the maintainer's review.
+At the pull request stop: https://github.com/m4bwav/DotNetRandomNameGenerator/pull/13 (CI green, review fixed, settings applied). Waiting for the maintainer to review and merge.
 
 ## Decisions made this session
 decisions/2026-09-28-retrofit-without-code-changes.md (accepted; the place-list part overruled: fixed now as 2.3.0).

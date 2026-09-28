@@ -15,7 +15,7 @@ RandomNameGeneratorLibrary was modernized on 2026-09-24 and 25 ([the 2.1.0 plan]
 
 ## Status
 
-Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`). Phase 1 ruled 2026-09-28: every recommendation stands except D2, D3 and D4, which the maintainer overruled: "fix the place-list bug now", in place, as 2.3.0 ("I consider it a bug, the old behavior wasn't worth preserving"). Phase 2 done; Phase 3 review running; the pull request stop is next.
+Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`). Phase 1 ruled 2026-09-28: every recommendation stands except D2, D3 and D4, which the maintainer overruled: "fix the place-list bug now", in place, as 2.3.0 ("I consider it a bug, the old behavior wasn't worth preserving"). Phase 3 done: pull request #13 green (CI run 36373549611), the independent review's 10 findings fixed (355af8b). At the pull request stop.
 
 ## Goal
 
@@ -98,9 +98,9 @@ Unchanged: csproj targets, metadata, resources, icon, README packing. Changed: `
 - [x] Place list regenerated (D3), 35 place exceptions per runtime pinned and checked by an oracle (8bebf10)
 - [x] PublicApi and README-examples tests; consumers; workflows from the templates, SHA-pinned, actionlint and zizmor clean; Dependabot; Directory.Build.props; SECURITY.md; README; CHANGELOG; version 2.3.0-beta.1 (3398d5c, 4457d01)
 - [x] Verified locally and from a fresh clone of 4457d01 (202 tests, pack, consumers)
-- [ ] Pushed; pull request with a "For review" list
+- [x] Pushed; pull request #13 with a "For review" list
 ### Phase 3: review
-- [ ] Independent read-only review (prompts/review-subagent.md) including a differential of the new build against the published 2.2.0 over seeded random inputs; findings fixed or answered; summary on the pull request
+- [x] Independent read-only review including a differential against the published 2.2.0 (144,891 comparisons per runtime, 0 differences outside the place list); 10 findings fixed (1e4e416, 355af8b); summary on the pull request
 - [x] Rulesets and security settings applied (L-077): rulesets 24095614 and 24095615, scanning, push protection, private reporting, read-only workflow token, homepage; Releases v2.0.0 and v2.0.1; issue #7 comment.
 - [ ] **Stop** for the pull request review.
 ### Phase 4: CI, merge, cleanup
