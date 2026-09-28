@@ -1,32 +1,30 @@
 ---
-title: GitHub wiki written for 2.3.0 (push waits for the first page)
+title: GitHub wiki written and published for 2.3.0
 kind: note
 date: 2026-09-28
 verified: 2026-09-28
 stale_after: 2027-03-28
 tags: [wiki, docs, 2.3.0, github]
-summary: "the eleven wiki pages, where their git working copy is, why the push failed (GitHub creates the wiki repository only from the web UI) and how to push once it exists; read before touching the wiki or the README's thread-safety sentence"
+summary: "the eleven wiki pages, where their git working copy is, how the wiki was published (the first page must be saved in the web UI before the wiki repository exists) and how to update it; read before touching the wiki or the README's thread-safety sentence"
 ---
 
 # GitHub wiki for 2.3.0
 
 ## Summary
 
-Mark asked for the repository wiki (https://github.com/m4bwav/DotNetRandomNameGenerator/wiki) to be filled with helpful material. Eleven pages were written from the 2.3.0 source, README, CHANGELOG, AGENTS.md, the ai-docs notes and the two closed issues, with every example output verified against the published 2.3.0 package (a .NET 10 file-based app with `#:package RandomNameGeneratorLibrary@2.3.0`, `dotnet fsi`, and PowerShell 7 `Add-Type`). The pages are committed in a git working copy but not yet on GitHub.
+Mark asked for the repository wiki (https://github.com/m4bwav/DotNetRandomNameGenerator/wiki) to be filled with helpful material. Eleven pages were written from the 2.3.0 source, README, CHANGELOG, AGENTS.md, the ai-docs notes and the two closed issues, with every example output verified against the published 2.3.0 package (a .NET 10 file-based app with `#:package RandomNameGeneratorLibrary@2.3.0`, `dotnet fsi`, and PowerShell 7 `Add-Type`). Published on 2026-09-28 as wiki commit 0bf2dd6 after Mark saved the first page; every page answers 200 and the sidebar and footer render.
+
+## Updating the wiki later
+
+Edit the markdown in the working copy below, run the everwrite checker (`python C:\Users\m4bwa\.claude\skills\everwrite\scripts\tells.py *.md`), commit and `git push`. Page names are the file names with hyphens (`Getting-Started.md` is the page "Getting Started"); links between pages are plain markdown (`[Recipes](Recipes)`). When a release changes counts, seeded examples or the version number, the pages to touch are Home, Getting started, API reference, Versions and upgrading, and the footer's version line.
 
 ## Where the pages are
 
 `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki` (a sibling of this clone, outside this repository), branch `master`, remote `origin` = `https://github.com/m4bwav/DotNetRandomNameGenerator.wiki.git`, commit 0bf2dd6. Files: `Home.md`, `Getting-Started.md`, `API-Reference.md`, `Recipes.md`, `Reproducible-Names.md`, `Name-Lists-and-Data-Sources.md`, `Versions-and-Upgrading.md`, `FAQ.md`, `Development.md`, `_Sidebar.md`, `_Footer.md`. Plain markdown links (`[Recipes](Recipes)`), no wikilinks. Everwrite checker: 0 strong, 4 weak (all judged fine).
 
-## Why the push failed
+## How it was published
 
-`git push` answered `Repository not found`. The repository has `has_wiki: true` but no page has ever been created, and GitHub creates the `.wiki.git` repository only when the first page is saved in the web UI. There is no REST or GraphQL API for wiki pages, so an agent cannot do that step.
-
-## How to publish (Mark, then any session)
-
-1. Mark opens https://github.com/m4bwav/DotNetRandomNameGenerator/wiki, clicks "Create the first page" and saves it with any content.
-2. From the working copy: `git push --force -u origin master`. The force replaces GitHub's placeholder Home page with the eleven pages; nothing else is on the remote.
-3. Check https://github.com/m4bwav/DotNetRandomNameGenerator/wiki shows the sidebar and the Home page.
+The first `git push` answered `Repository not found`: the repository had `has_wiki: true` but no page had ever been created, and GitHub creates the `.wiki.git` repository only when the first page is saved in the web UI. There is no REST or GraphQL API for wiki pages, so an agent cannot do that step. Mark saved a first page; `git push --force -u origin master` then replaced GitHub's placeholder commit (8543ca6) with the eleven pages. For any other repository's wiki: run `git ls-remote https://github.com/<owner>/<repo>.wiki.git` first, and ask for the click early when it fails.
 
 ## Facts verified while writing (not in the README)
 

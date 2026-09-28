@@ -81,4 +81,9 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - Mark asked for the repository wiki to be filled. Eleven pages written (Home, Getting started, API reference, Recipes, Reproducible names, Name lists and data sources, Versions and upgrading, FAQ, Development, sidebar, footer); every example output verified against the published 2.3.0 (file-based app, `dotnet fsi`, PowerShell `Add-Type`). Committed as 0bf2dd6 in the sibling working copy `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`.
 - `git push` to `DotNetRandomNameGenerator.wiki.git`: `Repository not found`. GitHub creates the wiki repository only when the first page is saved in the web UI; no API exists. Mark's click, then `git push --force -u origin master` from the working copy. Details: notes/2026-09-28-github-wiki.md.
 - Found while writing: the README's thread-safety sentence overstates the .NET Framework case (a default generator there holds a plain per-instance `Random`). Not changed; recorded in the note and in HANDOFF standing work.
+
+## [2026-09-28] verify | Wiki published
+- Mark saved the first page in the web UI (placeholder commit 8543ca6). `git push --force -u origin master` from the working copy replaced it with 0bf2dd6; `git ls-remote` shows 0bf2dd6, and Home, Getting-Started, API-Reference, Recipes, Reproducible-Names, Name-Lists-and-Data-Sources, Versions-and-Upgrading, FAQ and Development answer 200 with the sidebar and footer rendered.
+- PR #16 updated with the published state.
+## [2026-09-28] index | rebuilt (7 entries)
 ## [2026-09-28] index | rebuilt (7 entries)

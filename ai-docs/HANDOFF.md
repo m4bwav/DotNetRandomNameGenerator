@@ -6,7 +6,7 @@ Retrofit of 2.2.0 to the package-modernize standard, branch `v2-retrofit` (2026-
 ## In progress
 2.3.0 is released and verified (release run 36419884168, verify-published 36421937100 on three OSes, attestation, README images); PR #15 (baseline 2.3.0) merged as 65a3af8. Records done: package-modernization #10 merged (inventory row 4 done), package-modernize #10 merged (L-105, L-106, C-20260928-4).
 
-GitHub wiki (2026-09-28): eleven pages written and committed (0bf2dd6) in the sibling working copy `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`, remote `DotNetRandomNameGenerator.wiki.git`. The push fails with `Repository not found` because the wiki has never had a page; GitHub creates the wiki repository only from the web UI. See notes/2026-09-28-github-wiki.md.
+GitHub wiki (2026-09-28): eleven pages published (wiki commit 0bf2dd6) from the sibling working copy `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`, remote `DotNetRandomNameGenerator.wiki.git`. How to update it: notes/2026-09-28-github-wiki.md.
 
 ## Decisions made this session
 decisions/2026-09-28-retrofit-without-code-changes.md (accepted; the place-list part overruled: fixed now as 2.3.0).
@@ -21,4 +21,4 @@ Dependabot pull requests (seven-day cooldown); Mark's nuget.org deprecations of 
 evergreen: no claims due; dandy: one undated claim, re-check only before relying on it; acestep-music refresh half done (research saved, edits and PR pending, see that repo's HANDOFF on branch refresh-2026-09-27).
 
 ## Next single action
-Mark opens https://github.com/m4bwav/DotNetRandomNameGenerator/wiki, clicks "Create the first page" and saves it. Then, from `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`, run `git push --force -u origin master` and check the wiki shows the sidebar and Home.
+Mark merges PR #16 (records only). Nothing else is owed by the agent for this package; the README thread-safety sentence waits for the next README change.
