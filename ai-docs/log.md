@@ -87,3 +87,6 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - PR #16 updated with the published state.
 ## [2026-09-28] index | rebuilt (7 entries)
 ## [2026-09-28] index | rebuilt (7 entries)
+
+## [2026-09-28] verify | Retrofit closed
+- Mark merged PR #16 (0d9d561); `ci` on master succeeded (run 36458236323). No open pull requests or issues. The nuget.org registration lists no deprecations yet on 1.0.5.1, 1.1.0, 1.1.1, 1.2.0, 1.2.1 (Mark's step, web UI only). Nothing further owed by the agent for 2.3.0.
