@@ -1,0 +1,59 @@
+# From the package-modernize template (IsImageUrlDotNet 2.0.0, 2026-09-27).
+# Run by hand after a release is approved: proves the published package from nuget.org itself. On Linux, macOS and
+# Windows: waits until nuget.org lists the version in both indexes, checks the repository signature, then runs the fresh
+# consumers of tests/consumers/run.sh against nuget.org (net10.0 everywhere, net48 on Windows). The checkout is only for
+# that script; the package itself comes from nuget.org.
+name: verify-published
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to verify, such as 2.0.0
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  verify:
+    name: verify ${{ inputs.version }} (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: 10.0.x
+      - name: nuget.org lists the version in both indexes (they can lag about 15 to 25 minutes)
+        run: |
+          for attempt in $(seq 1 40); do
+            # The flat container (downloads) updates first; the registration index, which restores read, can lag.
+            if curl -fsS "https://api.nuget.org/v3-flatcontainer/randomnamegeneratorlibrary/index.json" | grep -q "\"$VERSION\"" \
+              && curl -fsS --compressed "https://api.nuget.org/v3/registration5-gz-semver2/randomnamegeneratorlibrary/index.json" | grep -q "\"version\":\"$VERSION\""; then
+              echo "RandomNameGeneratorLibrary $VERSION listed"
+              exit 0
+            fi
+            sleep 30
+          done
+          echo "::error::RandomNameGeneratorLibrary $VERSION is not on nuget.org"
+          exit 1
+      - name: The downloaded package carries nuget.org's repository signature
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/p.nupkg" "https://api.nuget.org/v3-flatcontainer/randomnamegeneratorlibrary/$VERSION/randomnamegeneratorlibrary.$VERSION.nupkg"
+          dotnet nuget verify "$RUNNER_TEMP/p.nupkg" --all
+      - name: Fresh consumers restore the published package and answer
+        run: bash tests/consumers/run.sh "$VERSION" nuget.org

@@ -1,10 +1,33 @@
+# Weekly update pull requests. Merge when CI is green; read the release notes before merging a major.
+# The actions are pinned to commit SHAs with the version in a comment; Dependabot updates both.
+# The three-day cooldown keeps brand-new releases out until they have had time to be pulled if bad.
+# From the package-modernize template (CachingServiceWithAOPSupport 2.0.0). The library has no runtime dependencies, so
+# every NuGet update here is a test or build package.
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
   - package-ecosystem: nuget
     directory: /
     schedule:
       interval: weekly
+      day: monday
+    cooldown:
+      default-days: 3
+    groups:
+      test-packages:
+        patterns:
+          - "xunit*"
+          - "Microsoft.Testing.*"
+          - "System.Text.Json"
+  # Updates the SDK version in global.json.
+  - package-ecosystem: dotnet-sdk
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    cooldown:
+      default-days: 3
