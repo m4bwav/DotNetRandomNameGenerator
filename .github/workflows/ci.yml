@@ -75,8 +75,9 @@ jobs:
           fi
           nuspec=$(unzip -p "$nupkg" RandomNameGeneratorLibrary.nuspec | tr -d '\r\n')
           for tfm in .NETStandard2.0 net10.0; do
-            group=$(echo "$nuspec" | grep -o "<group targetFramework=\"$tfm\">.*" | sed 's:</group>.*::')
-            deps=$(echo "$group" | grep -o '<dependency id="[^"]*" version="[^"]*"' | LC_ALL=C sort | tr '\n' ' ')
+            # grep finds nothing in an empty (self-closing) group; under -e and pipefail that would end the step without a message.
+            group=$(echo "$nuspec" | { grep -o "<group targetFramework=\"$tfm\">.*" || true; } | sed 's:</group>.*::')
+            deps=$(echo "$group" | { grep -o '<dependency id="[^"]*" version="[^"]*"' || true; } | LC_ALL=C sort | tr '\n' ' ')
             # No runtime dependencies: both groups are empty.
             want=''
             if [ "$deps" != "$want" ]; then
