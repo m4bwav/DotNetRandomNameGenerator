@@ -90,3 +90,8 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 
 ## [2026-09-28] verify | Retrofit closed
 - Mark merged PR #16 (0d9d561); `ci` on master succeeded (run 36458236323). No open pull requests or issues. The nuget.org registration lists no deprecations yet on 1.0.5.1, 1.1.0, 1.1.1, 1.2.0, 1.2.1 (Mark's step, web UI only). Nothing further owed by the agent for 2.3.0.
+
+## [2026-09-28] update | Wiki under wikiwright's saved-output rule for 2.3.0
+- notes/2026-09-28-wiki-verify.cs written from wikiwright's NuGet template: every output on the pages (seeded values exactly, unseeded examples after a check that they are on their list, the F# and PowerShell snippets run as written with dotnet fsi and pwsh 7.6.6, and the counts the pages state). Two runs identical; output saved LF as notes/2026-09-28-wiki-verify.out.txt.
+- wikiwright 0.2.0's `outputs` read none of the 28 outputs (all shown as comments); 0.3.0 reads them: 28 checked, 0 missing after the page changes.
+- Wiki commit f0bb65b: Recipes' "The longest last name is `Hollingsworth`" corrected (250 last names have 13 letters, some cut off, such as `Christopherso`; two place names share the longest length); three seeded comments quoted; the `dotnet run names.cs` fence tagged `sh`. `check` 0 errors, live check clean.

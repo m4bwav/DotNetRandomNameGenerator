@@ -6,7 +6,7 @@ Retrofit of 2.2.0 to the package-modernize standard, branch `v2-retrofit` (2026-
 ## In progress
 2.3.0 is released and verified (release run 36419884168, verify-published 36421937100 on three OSes, attestation, README images); PR #15 (baseline 2.3.0) merged as 65a3af8; PR #16 (wiki records) merged as 0d9d561, `ci` green on master (run 36458236323). The retrofit is complete. Records done: package-modernization #10 merged (inventory row 4 done), package-modernize #10 merged (L-105, L-106, C-20260928-4).
 
-GitHub wiki (2026-09-28): eleven pages published (wiki commit 0bf2dd6) from the sibling working copy `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`, remote `DotNetRandomNameGenerator.wiki.git`. How to update it: notes/2026-09-28-github-wiki.md.
+GitHub wiki (2026-09-28): eleven pages published (wiki commit 0bf2dd6) from the sibling working copy `D:\m4bwa\Claude\Projects\Ai\labs\DotNetRandomNameGenerator.wiki`, remote `DotNetRandomNameGenerator.wiki.git`. How to update it: notes/2026-09-28-github-wiki.md. Brought under wikiwright's saved-output rule the same day (wiki commit f0bb65b): notes/2026-09-28-wiki-verify.cs prints every page output, its output is saved beside it, and `wikiwright.py outputs` (0.3.0) finds all 28; one Recipes sentence about the longest last name was corrected.
 
 ## Decisions made this session
 decisions/2026-09-28-retrofit-without-code-changes.md (accepted; the place-list part overruled: fixed now as 2.3.0).
