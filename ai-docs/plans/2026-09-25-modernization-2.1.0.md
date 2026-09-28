@@ -1,6 +1,25 @@
+---
+title: RandomNameGeneratorLibrary modernization plan (2.1.0)
+kind: plan
+status: done
+date: 2026-09-25
+verified: 2026-09-28
+stale_after: never
+tags: [v2, plan, nuget, 2.1.0, 3.0]
+summary: "the staged 2.0.1 to 2.1.0 plan of 2026-09-25 (all done) and the 3.0 candidates; read before changing the API or planning 3.0"
+---
+
 # RandomNameGeneratorLibrary modernization plan
 
-Written 2026-09-25 from a full read of the repo at 2.0.1 (commit `7d1162c`). **Status 2026-09-25: stages 1 to 6 done in one pass as 2.1.0, uncommitted on the working tree; see `ai-docs/log/2026-09-25-stages-1-to-6.md`.** Every item is done. Meant to be executed in fresh sessions, one stage per session or PR. Tick boxes as work lands. Ship stages 1 to 5 as **2.1.0** (additive only); anything marked BREAK waits for **3.0**.
+## Status
+
+Done: every stage shipped as 2.1.0 on 2026-09-25 (StarNameGenerator followed as 2.2.0 on 2026-09-27). Superseded for build, release and verification by the package-modernize retrofit plan of 2026-09-28 in this folder; its 3.0 list below still stands.
+
+## Goal
+
+Bring 2.0.1 to an additive 2.1.0 (data fixes, thread-safe lists, docs, CI) and list what waits for 3.0.
+
+Written 2026-09-25 from a full read of the repo at 2.0.1 (commit `7d1162c`). **Status 2026-09-25: stages 1 to 6 done in one pass as 2.1.0, uncommitted on the working tree; see [the 2.1.0 notes](../notes/2026-09-25-stages-1-to-6.md).** Every item is done. Meant to be executed in fresh sessions, one stage per session or PR. Tick boxes as work lands. Ship stages 1 to 5 as **2.1.0** (additive only); anything marked BREAK waits for **3.0**.
 
 Repo: https://github.com/m4bwav/DotNetRandomNameGenerator. Package: https://www.nuget.org/packages/RandomNameGeneratorLibrary. Release procedure: bump `<Version>` in `RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj`, push a `v<version>` tag, approve the `nuget` deployment in Actions (Trusted Publishing, see README "Building and releasing").
 
@@ -8,7 +27,7 @@ Repo: https://github.com/m4bwav/DotNetRandomNameGenerator. Package: https://www.
 
 - csproj: `netstandard2.0;net10.0`, `LangVersion latest`, `Deterministic`, `ContinuousIntegrationBuild` on GitHub, `PublishRepositoryUrl`, `EmbedUntrackedSources`, `snupkg` symbols, `PackageLicenseExpression`, `PackageReadmeFile`, `PackageTags`, repository metadata. SourceLink works (2.0.0 nuspec carries the commit).
 - Embedded resources have explicit `LogicalName`.
-- CI: least-privilege permissions, `id-token: write` only on publish, `environment: nuget`, `NuGet/login@v1`, `--skip-duplicate`, `fetch-depth: 0`, current action majors.
+- CI: least-privilege permissions, id-token set to write only on publish, `environment: nuget`, `NuGet/login@v1`, `--skip-duplicate`, `fetch-depth: 0`, current action majors.
 - `.slnx` solution; xunit 2.9.3, Test.Sdk 18.0.1.
 - Null and negative-count guards on the person generator and its extensions.
 - Person lists are clean: LF, ASCII, Title-case, no blanks or duplicates (88,799 last / 4,275 female / 1,219 male).
@@ -30,7 +49,7 @@ Facts verified 2026-09-25:
 
 - [x] `BaseNameGenerator.cs` lines 25 to 31: delete the `#if NET40` block; `GetTypeInfo()` is unnecessary on both targets.
 - [x] `BaseNameGenerator.ReadResourceByLine` lines 36 to 47: dispose the stream and reader with `using`; throw `InvalidOperationException` naming the resource when `GetManifestResourceStream` returns null.
-- [x] `PersonNameGenerator.InitNames` (144 to 156) and `PlaceNameGenerator.InitPlaceNames` (42 to 48): unsynchronised `if (x == null) x = ...`. Replace with `static readonly Lazy<string[]>` per list so each file is parsed once and only when first used.
+- [x] `PersonNameGenerator.InitNames` (144 to 156) and `PlaceNameGenerator.InitPlaceNames` (42 to 48): unsynchronised `if (x == null) x = ...`. Replace with one lazily initialised static field per list so each file is parsed once and only when first used.
 - [x] `BaseNameGenerator` line 15 `new Random()`: on .NET Framework it is time-seeded, so two generators made in the same tick repeat each other. Use `Random.Shared` under `#if NET6_0_OR_GREATER`, and on netstandard2.0 a process-wide seeded `Random` behind a lock to hand out seeds.
 - [x] Document that a generator holding a caller-supplied `Random` is not thread-safe (one generator per thread), in XML docs and README.
 - [x] `RandomPlaceNameExtensions.cs` lines 8 to 16: add the same null and negative guards the person extensions have, with the right parameter name.
@@ -82,4 +101,8 @@ Facts verified 2026-09-25:
 ## Related
 
 - Site consumer: `m4bwav/markdavidrogers-web` references this package (2.0.1 as of PR #10); its `random_name` MCP tool and `/api/random-name` use `PersonNameGenerator` and `PlaceNameGenerator`.
-- Sibling library plan: `DotNetJsonPrettyPrinter/ai-docs/plans/modernization-plan.md`.
+- Sibling library plan: the modernization plan in m4bwav/DotNetJsonPrettyPrinter's ai-docs.
+
+## Next single action
+
+None here; see the retrofit plan.

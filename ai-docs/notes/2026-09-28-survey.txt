@@ -1,0 +1,357 @@
+# NuGet survey: RandomNameGeneratorLibrary (2026-09-28T02:32Z)
+
+## Versions (flat container, includes unlisted)
+$ curl -s https://api.nuget.org/v3-flatcontainer/randomnamegeneratorlibrary/index.json
+1.0.0 1.0.1 1.0.3 1.0.5 1.0.5.1 1.1.0 1.1.1 1.2.0 1.2.1 1.2.2 2.0.0 2.0.1 2.1.0 2.2.0
+
+## Search entry: total downloads, verified owner, listed versions
+$ curl -s 'https://azuresearch-usnc.nuget.org/query?q=packageid:RandomNameGeneratorLibrary&prerelease=true'
+{
+ "id": "RandomNameGeneratorLibrary",
+ "latest": "2.2.0",
+ "totalDownloads": 3887857,
+ "verified": false,
+ "owners": [
+  "rogersm0"
+ ],
+ "authors": [
+  "Mark Rogers"
+ ],
+ "license": "https://www.nuget.org/packages/RandomNameGeneratorLibrary/2.2.0/license",
+ "project": "https://github.com/m4bwav/DotNetRandomNameGenerator",
+ "tags": [
+  "random",
+  "name",
+  "generator",
+  "census",
+  "person",
+  "place",
+  "star",
+  "astronomy",
+  "fake",
+  "test-data"
+ ],
+ "deprecation": null,
+ "vulnerabilities": []
+}
+ 1.0.5.1 downloads=67776
+ 1.1.0 downloads=8336
+ 1.1.1 downloads=3460
+ 1.2.0 downloads=3475
+ 1.2.1 downloads=7072
+ 1.2.2 downloads=3786606
+ 2.0.0 downloads=46
+ 2.0.1 downloads=64
+ 2.1.0 downloads=169
+ 2.2.0 downloads=0
+
+## Registration index: per-version listed flag, published date, deprecation, target frameworks
+$ curl -s --compressed https://api.nuget.org/v3/registration5-gz-semver2/randomnamegeneratorlibrary/index.json
+1.0.0 listed=false published=1900-01-01
+1.0.1 listed=false published=1900-01-01
+1.0.3 listed=false published=1900-01-01
+1.0.5 listed=false published=1900-01-01
+1.0.5.1 listed=true published=2014-04-01
+1.1.0 listed=true published=2016-08-07
+1.1.1 listed=true published=2016-08-07
+1.2.0 listed=true published=2016-08-07
+1.2.1 listed=true published=2016-08-07
+1.2.2 listed=true published=2016-10-17
+   .NETFramework4.0: 
+   .NETStandard1.6: NETStandard.Library [1.6.0, )
+2.0.0 listed=true published=2026-09-25
+   net10.0: 
+   .NETStandard2.0: 
+2.0.1 listed=true published=2026-09-25
+   net10.0: 
+   .NETStandard2.0: 
+2.1.0 listed=true published=2026-09-25
+   net10.0: 
+   .NETStandard2.0: 
+2.2.0 listed=true published=2026-09-27
+   net10.0: 
+   .NETStandard2.0: 
+
+## Package files of every version, newest ten (nupkg is a zip); a DLL outside lib/ installs nothing
+$ curl -s -o pkg.nupkg https://api.nuget.org/v3-flatcontainer/randomnamegeneratorlibrary/<version>/randomnamegeneratorlibrary.<version>.nupkg; unzip -l pkg.nupkg
+
+### 1.0.5.1
+511 _rels/.rels
+1434 RandomNameGeneratorLibrary.nuspec
+1121792 lib/net45/RandomNameGeneratorLibrary.dll
+1078 package/services/metadata/core-properties/da38220755154885a9b119ce56f26478.psmdcp
+448 [Content_Types].xml
+9464 .signature.p7s
+
+### 1.1.0
+524 _rels/.rels
+1262 RandomNameGeneratorLibrary.nuspec
+187 App.config
+1330 BaseNameGenerator.cs
+3874 CensusListStripper.cs
+1214 FileCompressor.cs
+952 IPersonNameGenerator.cs
+259 IPlaceNameGenerator.cs
+4331 PersonNameGenerator.cs
+1186 PlaceNameGenerator.cs
+2972 RandomNameGeneratorLibrary.csproj
+784221 Resources.dist.all.last.stripped
+34317 Resources.dist.female.first.stripped
+9412 Resources.dist.male.first.stripped
+281697 Resources.places2k.txt.stripped
+6121 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+0 obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+0 obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+0 obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+6125 obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+0 obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+0 obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+0 obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+1360 Properties/AssemblyInfo.cs
+707 [Content_Types].xml
+1153 package/services/metadata/core-properties/8a837f51a2864f91a8eb5913414be8d9.psmdcp
+9464 .signature.p7s
+
+### 1.1.1
+524 _rels/.rels
+1262 RandomNameGeneratorLibrary.nuspec
+1121280 lib/RandomNameGeneratorLibrary.dll
+459 [Content_Types].xml
+1153 package/services/metadata/core-properties/47544dfe94c248e3a151cb232ca7781b.psmdcp
+9465 .signature.p7s
+
+### 1.2.0
+524 _rels/.rels
+1262 RandomNameGeneratorLibrary.nuspec
+1122816 lib/RandomNameGeneratorLibrary.dll
+459 [Content_Types].xml
+1153 package/services/metadata/core-properties/77ab735e0acd490a90c34d5ad1eb41b1.psmdcp
+9465 .signature.p7s
+
+### 1.2.1
+524 _rels/.rels
+1349 RandomNameGeneratorLibrary.nuspec
+1122816 lib/RandomNameGeneratorLibrary.dll
+459 [Content_Types].xml
+1240 package/services/metadata/core-properties/b3b3a4dc8f6e49c68a0d4fbc8dac7749.psmdcp
+9464 .signature.p7s
+
+### 1.2.2
+294 _rels/.rels
+1597 RandomNameGeneratorLibrary.nuspec
+1124352 lib/net40/RandomNameGeneratorLibrary.dll
+1124864 lib/netstandard1.6/RandomNameGeneratorLibrary.dll
+350 [Content_Types].xml
+9465 .signature.p7s
+
+### 2.0.0
+489 _rels/.rels
+1323 RandomNameGeneratorLibrary.nuspec
+4087 README.md
+1003520 lib/net10.0/RandomNameGeneratorLibrary.dll
+143 lib/net10.0/RandomNameGeneratorLibrary.xml
+1004032 lib/netstandard2.0/RandomNameGeneratorLibrary.dll
+143 lib/netstandard2.0/RandomNameGeneratorLibrary.xml
+582 [Content_Types].xml
+903 package/services/metadata/core-properties/nuget.psmdcp
+12983 .signature.p7s
+
+### 2.0.1
+489 _rels/.rels
+1323 RandomNameGeneratorLibrary.nuspec
+5148 README.md
+1003520 lib/net10.0/RandomNameGeneratorLibrary.dll
+143 lib/net10.0/RandomNameGeneratorLibrary.xml
+1004032 lib/netstandard2.0/RandomNameGeneratorLibrary.dll
+143 lib/netstandard2.0/RandomNameGeneratorLibrary.xml
+582 [Content_Types].xml
+903 package/services/metadata/core-properties/nuget.psmdcp
+12982 .signature.p7s
+
+### 2.1.0
+489 _rels/.rels
+1822 RandomNameGeneratorLibrary.nuspec
+7197 README.md
+601 icon.png
+929792 lib/net10.0/RandomNameGeneratorLibrary.dll
+26622 lib/net10.0/RandomNameGeneratorLibrary.xml
+930816 lib/netstandard2.0/RandomNameGeneratorLibrary.dll
+26622 lib/netstandard2.0/RandomNameGeneratorLibrary.xml
+644 [Content_Types].xml
+903 package/services/metadata/core-properties/nuget.psmdcp
+12983 .signature.p7s
+
+### 2.2.0
+489 _rels/.rels
+1868 RandomNameGeneratorLibrary.nuspec
+10001 README.md
+601 icon.png
+993792 lib/net10.0/RandomNameGeneratorLibrary.dll
+33845 lib/net10.0/RandomNameGeneratorLibrary.xml
+994816 lib/netstandard2.0/RandomNameGeneratorLibrary.dll
+33845 lib/netstandard2.0/RandomNameGeneratorLibrary.xml
+644 [Content_Types].xml
+1053 package/services/metadata/core-properties/nuget.psmdcp
+12982 .signature.p7s
+nuspec:
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>RandomNameGeneratorLibrary</id>
+    <version>2.2.0</version>
+    <title>Random Name Generator</title>
+    <authors>Mark Rogers</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/m4bwav/DotNetRandomNameGenerator</projectUrl>
+    <description>Generates random people and place names drawn from freely available US census data, and the names of real stars from the IAU star-name list and the Bright Star, Henry Draper and Hipparcos catalogues. Create a PersonNameGenerator, PlaceNameGenerator or StarNameGenerator and call a method such as GenerateRandomFirstAndLastName(); every method name says literally what it does.</description>
+    <releaseNotes>2.2.0: new StarNameGenerator and IStarNameGenerator for real star names: 640 IAU proper names (Sirius, Betelgeuse), 3,076 Bayer and Flamsteed designations covering every naked-eye star (Tau Ceti, 61 Cygni), and 343,518 Henry Draper and Hipparcos catalogue designations (HD 209458, HIP 70890); Random extension methods GenerateRandomStarName and GenerateMultipleStarNames. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</releaseNotes>
+    <copyright>Copyright (c) 2014-2026 Mark Rogers</copyright>
+    <tags>random name generator census person place star astronomy fake test-data</tags>
+    <repository type="git" url="https://github.com/m4bwav/DotNetRandomNameGenerator" commit="b734c1988f34976cbc219f88c1b9ae17cee4b842" />
+    <dependencies>
+      <group targetFramework="net10.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>
+
+# GitHub side (m4bwav/DotNetRandomNameGenerator)
+# GitHub survey: m4bwav/DotNetRandomNameGenerator (2026-09-28T02:32Z)
+
+## Repository
+$ gh repo view m4bwav/DotNetRandomNameGenerator --json name,description,defaultBranchRef,pushedAt,createdAt,licenseInfo,stargazerCount,forkCount,isArchived,homepageUrl --jq '{name,description,defaultBranch:.defaultBranchRef.name,pushedAt,createdAt,license:.licenseInfo.key,stars:.stargazerCount,forks:.forkCount,archived:.isArchived,homepage:.homepageUrl}'
+{"archived":false,"createdAt":"2014-03-25T18:15:35Z","defaultBranch":"master","description":"Random Person or Place Name Generator Library for .net based on Free US Census Data.  Now with Stars!","forks":24,"homepage":"http://www.markdavidrogers.com/random-name-generator-net-library/","license":"mit","name":"DotNetRandomNameGenerator","pushedAt":"2026-09-27T22:30:44Z","stars":95}
+
+## Settings and security features
+$ gh api repos/m4bwav/DotNetRandomNameGenerator --jq '{delete_branch_on_merge, has_wiki, has_projects, allow_squash_merge, web_commit_signoff_required, security_and_analysis}'
+{"allow_squash_merge":true,"delete_branch_on_merge":false,"has_projects":true,"has_wiki":true,"security_and_analysis":{"dependabot_security_updates":{"status":"disabled"},"secret_scanning":{"status":"disabled"},"secret_scanning_non_provider_patterns":{"status":"disabled"},"secret_scanning_push_protection":{"status":"disabled"},"secret_scanning_validity_checks":{"status":"disabled"}},"web_commit_signoff_required":false}
+
+## Default workflow permissions
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/actions/permissions/workflow
+{"default_workflow_permissions":"write","can_approve_pull_request_reviews":true}
+## Branches
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/branches --paginate --jq '.[].name'
+master
+
+## Rulesets and branch protection
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/rulesets --jq '.[] | "\(.id) \(.name) \(.enforcement)"'; gh api repos/m4bwav/DotNetRandomNameGenerator/branches/$(gh repo view m4bwav/DotNetRandomNameGenerator --json defaultBranchRef --jq .defaultBranchRef.name)/protection --jq . 2>/dev/null || echo '(no classic branch protection)'
+{"message":"Branch not protected","documentation_url":"https://docs.github.com/rest/branches/branch-protection#get-branch-protection","status":"404"}(no classic branch protection)
+
+## Issues (all states)
+$ gh issue list -R m4bwav/DotNetRandomNameGenerator --state all --limit 100 --json number,title,state,author,createdAt,closedAt --jq '.[] | "#\(.number) \(.state) \(.createdAt[:10]) \(.author.login): \(.title)"'
+#7 CLOSED 2022-06-08 AtlantisDe: random bug
+#5 CLOSED 2020-04-01 JimmyCushnie: Readme should have examples of generated names
+
+## Pull requests (all states)
+$ gh pr list -R m4bwav/DotNetRandomNameGenerator --state all --limit 100 --json number,title,state,author,headRefName,createdAt --jq '.[] | "#\(.number) \(.state) \(.createdAt[:10]) \(.author.login) [\(.headRefName)]: \(.title)"'
+#12 CLOSED 2026-09-25 app/dependabot [dependabot/nuget/RandomNameGeneratorUnitTests/xunit.runner.visualstudio-4.0.0]: Bump xunit.runner.visualstudio from 3.1.5 to 4.0.0
+#11 CLOSED 2026-09-25 app/dependabot [dependabot/github_actions/softprops/action-gh-release-3]: Bump softprops/action-gh-release from 2 to 3
+#10 CLOSED 2026-09-25 app/dependabot [dependabot/github_actions/actions/checkout-7]: Bump actions/checkout from 6 to 7
+#9 CLOSED 2026-09-25 app/dependabot [dependabot/github_actions/actions/setup-dotnet-6]: Bump actions/setup-dotnet from 5 to 6
+#8 MERGED 2026-09-25 m4bwav [modernize-net10]: Rebuild for netstandard2.0 and net10.0 (2.0.0)
+#6 CLOSED 2022-05-23 torbjorn-hansson-stratsys [master]: Converted to .NET Standard
+#4 MERGED 2020-01-03 Atupele4 [patch-1]: Update README.md
+#3 MERGED 2016-10-02 bjcull [master]: Updated to support .NET Core
+#2 MERGED 2016-08-07 amadare42 [master]: Extended constructors for generators with Random argument
+#1 MERGED 2016-05-15 gitter-badger [gitter-badge]: Add a Gitter chat badge to README.md
+
+## Open Dependabot alerts by severity, package and scope
+$ gh api "repos/m4bwav/DotNetRandomNameGenerator/dependabot/alerts?state=open&per_page=100" --paginate --jq '.[] | "\(.security_advisory.severity) \(.dependency.package.name) \(.dependency.scope)"' | sort | uniq -c | sort -rn
+
+## Open Dependabot alerts, count
+$ gh api "repos/m4bwav/DotNetRandomNameGenerator/dependabot/alerts?state=open&per_page=100" --paginate --jq length
+0
+
+## Webhooks (dead services leave these)
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/hooks --jq '.[] | "\(.id) \(.config.url) active=\(.active) events=\(.events|join(","))"'
+
+## Actions secrets (count) and variables
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/actions/secrets --jq '{total_count, names:[.secrets[].name]}'; gh api repos/m4bwav/DotNetRandomNameGenerator/actions/variables --jq '{total_count, names:[.variables[].name]}'
+{"names":[],"total_count":0}
+{"names":[],"total_count":0}
+
+## Environments
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/environments --jq '.environments[]? | "\(.name) reviewers=\([.protection_rules[]? | select(.type=="required_reviewers") | .reviewers[]?.reviewer.login] | join(","))"'
+nuget reviewers=m4bwav
+
+## Workflows
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/actions/workflows --jq '.workflows[] | "\(.name) \(.path) \(.state)"'
+CI .github/workflows/ci.yml active
+Dependabot Updates dynamic/dependabot/dependabot-updates active
+
+## Action pins in the default branch's workflows, with each action's runtime
+$ action_pins (git tree, contents API, action.yml at each ref)
+.github/workflows/ci.yml NuGet/login@v1 -> node24
+.github/workflows/ci.yml actions/checkout@v7 -> node24
+.github/workflows/ci.yml actions/download-artifact@v8 -> node24
+.github/workflows/ci.yml actions/setup-dotnet@v6 -> node24
+.github/workflows/ci.yml actions/upload-artifact@v7 -> node24
+.github/workflows/ci.yml softprops/action-gh-release@v3 -> node24
+
+## Forks
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/forks --jq '.[] | "\(.full_name) pushed=\(.pushed_at[:10])"'
+BrettLaw/DotNetRandomNameGeneratorUpdated pushed=2024-11-28
+madhon/DotNetRandomNameGenerator pushed=2023-04-12
+SpasovPS/DotNetRandomNameGenerator pushed=2022-05-23
+torbjorn-hansson-stratsys/DotNetRandomNameGenerator pushed=2022-05-23
+Tsessebe/DotNetRandomNameGenerator pushed=2020-01-03
+Urriellu/DotNetRandomNameGenerator pushed=2021-08-08
+danhajduk/DotNetRandomNameGenerator pushed=2020-01-03
+statpeek/DotNetRandomNameGenerator pushed=2020-01-03
+phmayer67/DotNetRandomNameGenerator pushed=2020-01-03
+novecento/DotNetRandomNameGenerator pushed=2020-01-03
+Atupele4/DotNetRandomNameGenerator pushed=2020-01-03
+nipunasudha/DotNetRandomNameGenerator pushed=2019-05-03
+tomguo001/DotNetRandomNameGenerator pushed=2016-10-17
+sanderstad/DotNetRandomNameGenerator pushed=2016-10-17
+wolfnightblack/DotNetRandomNameGenerator pushed=2016-10-17
+DeadBlazer/DotNetRandomNameGenerator pushed=2016-10-17
+s158298261/DotNetRandomNameGenerator pushed=2016-10-17
+dbelcham/DotNetRandomNameGenerator pushed=2016-10-17
+hatuanbao/DotNetRandomNameGenerator pushed=2016-10-17
+TMPxyz/DotNetRandomNameGenerator pushed=2016-10-17
+bjcull/DotNetRandomNameGenerator pushed=2016-10-02
+amadare42/DotNetRandomNameGenerator pushed=2016-08-07
+gitter-badger/DotNetRandomNameGenerator pushed=2016-05-15
+tienery/DotNetRandomNameGenerator pushed=2014-04-03
+
+## Releases and tags
+$ gh release list -R m4bwav/DotNetRandomNameGenerator --limit 20; gh api repos/m4bwav/DotNetRandomNameGenerator/tags --jq '.[].name' | head -30
+v2.2.0	Latest	v2.2.0	2026-09-27T22:41:39Z
+v2.1.0		v2.1.0	2026-09-25T03:01:03Z
+v2.2.0
+v2.1.0
+v2.0.1
+v2.0.0
+
+## Dead-service files in the default branch
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/git/trees/HEAD?recursive=1 --jq '.tree[].path' | grep -Ei '^(\.travis\.yml|\.snyk|\.synk|\.sonarcloud\.properties|sonar-project\.properties|\.coveralls\.yml|codecov\.yml|\.codecov\.yml|appveyor\.yml|\.circleci/|\.npmignore|\.nuspec|\.vscode/)' || echo '(none)'
+(none)
+
+## Dotfiles at the root of the default branch
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/contents --jq '.[].name' | grep '^\.' || echo '(none)'
+.editorconfig
+.gitattributes
+.github
+.gitignore
+
+## Branches with no open pull request (stale work or bot leftovers; each needs a disposition)
+$ comm -23 <(gh api repos/m4bwav/DotNetRandomNameGenerator/branches --paginate --jq '.[].name' | sort) <( (gh pr list -R m4bwav/DotNetRandomNameGenerator --state open --limit 200 --json headRefName --jq '.[].headRefName'; gh repo view m4bwav/DotNetRandomNameGenerator --json defaultBranchRef --jq .defaultBranchRef.name) | sort) || echo '(none)'
+
+## Badges in the README
+$ gh api repos/m4bwav/DotNetRandomNameGenerator/readme --jq .content | base64 -d 2>/dev/null | grep -Eo 'https?://[^ )]*(shields\.io|travis-ci|david-dm|snyk\.io|coveralls|codecov|gitter|sonarcloud|nodei\.co|badgen|badge)[^ )]*' | sort -u || echo '(none)'
+https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml/badge.svg
+https://img.shields.io/nuget/v/RandomNameGeneratorLibrary.svg
+
+## Things only the maintainer can see
+- Installed GitHub Apps and authorized OAuth apps: github.com/settings/installations and github.com/settings/applications (the API refuses the gh token).
+- Whether a token in history is still live: revoke it at the provider regardless.
+
+## Next: in the clone
+- Read every .csproj, .sln or .slnx, Directory.Build.props, .nuspec, packages.config, global.json, the tests, the README and every dotfile.
+- dotnet --list-sdks; dotnet restore; dotnet build; dotnet test as they are (an old project may need a .NET Framework reference assembly pack or the Windows SDK).
+- dotnet list package --outdated --include-transitive; dotnet list package --vulnerable --include-transitive.
+- Then the golden capture from the PUBLISHED package in a scratch console project (scripts/golden-capture-nuget.template.cs).
