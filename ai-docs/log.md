@@ -62,3 +62,9 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - Mark approved release run 36375599177 (approval by m4bwav); push to nuget.org and the GitHub Release succeeded at 03:59 UTC, so NuGet/login works under the edited policy (release.yml).
 - GitHub Release v2.3.0-beta.1: prerelease, nupkg and snupkg attached. `gh attestation verify ... --format json` on the run's nupkg: verified, build signer release.yml@refs/tags/v2.3.0-beta.1, source e3d610a.
 - verify-published run 36376068013 for 2.3.0-beta.1: green on Ubuntu, Windows and macOS (both indexes, repository signature, consumers from nuget.org).
+
+## [2026-09-28] add | Phase 6: 2.3.0 merged, tagged, waiting at the approval gate
+- Mark merged PR #14 as merge commit 48ba7db (2026-09-28T12:06:19Z).
+- ci on master run 36419689493: green.
+- Tag v2.3.0 on 48ba7db pushed (ls-remote confirms).
+- release.yml run 36419884168: build and test, Windows net48 and net10.0, attest all green; "push to nuget.org (after approval)" waiting at the nuget environment.
