@@ -19,7 +19,7 @@
 
   <PropertyGroup Label="Package">
     <PackageId>RandomNameGeneratorLibrary</PackageId>
-    <Version>2.3.0-beta.1</Version>
+    <Version>2.3.0</Version>
     <Authors>Mark Rogers</Authors>
     <Copyright>Copyright (c) 2014-2026 Mark Rogers</Copyright>
     <Title>Random Name Generator</Title>
