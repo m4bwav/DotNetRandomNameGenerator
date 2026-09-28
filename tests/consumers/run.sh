@@ -61,15 +61,36 @@ EOF
     # Empty MSBuild files stop the consumer from inheriting this repository's props when the work folder is inside it.
     printf '<Project>\n</Project>\n' > "$dir/Directory.Build.props"
     printf '<Project>\n</Project>\n' > "$dir/Directory.Build.targets"
-    dotnet new nugetconfig -o "$dir" >/dev/null
+    # A nuget.config of its own. With a local SOURCE, source mapping sends RandomNameGeneratorLibrary to that folder only, so a copy of the
+    # same version on nuget.org cannot stand in for the packed one; everything else comes from nuget.org.
     if [ "$source" != nuget.org ]; then
-      dotnet nuget add source "$source" -n local --configfile "$dir/nuget.config" >/dev/null
+      cat > "$dir/nuget.config" <<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="local" value="$source" />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+  </packageSources>
+  <packageSourceMapping>
+    <packageSource key="local">
+      <package pattern="RandomNameGeneratorLibrary" />
+    </packageSource>
+    <packageSource key="nuget.org">
+      <package pattern="*" />
+    </packageSource>
+  </packageSourceMapping>
+</configuration>
+EOF
+    else
+      dotnet new nugetconfig -o "$dir" >/dev/null
     fi
     echo "== $combo on $tfm"
     out=$(NUGET_PACKAGES="$work/packages-$combo-$tfm" dotnet run --project "$dir/Consumer.csproj" -c Release 2>&1) || { echo "$out"; exit 1; }
     echo "$out" | tail -5
     while IFS= read -r want; do
-      echo "$out" | grep -qF "$want" || { echo "::error::$combo on $tfm: expected '$want'"; exit 1; }
+      # Whole lines: "... 2.3.0" must not match a consumer that printed "... 2.3.0-beta.1".
+      echo "$out" | grep -qxF "$want" || { echo "::error::$combo on $tfm: expected '$want'"; exit 1; }
     done < <(expected "$combo")
   done
 done

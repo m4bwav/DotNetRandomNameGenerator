@@ -13,7 +13,7 @@ The NuGet package `RandomNameGeneratorLibrary` (namespace `RandomNameGeneratorLi
 - **Tests cover every artifact.** Golden, unit, package validation at pack time, the consumers in `tests/consumers/run.sh` (packed package in CI, nuget.org in `verify-published.yml`). A behaviour change lands with its test. Tests never touch the network.
 - **Nothing reaches nuget.org without the maintainer.** No API key is stored anywhere; `release.yml` publishes through Trusted Publishing from a job that waits at the `nuget` environment for the maintainer's approval. Never push a package from a machine.
 - **Releases follow one ritual.** Update `CHANGELOG.md` (a release heading carries its date), set `<Version>` in `RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj`, merge, wait for `ci` to be green on `master`, then tag `v<version>` and push the tag. `release.yml` builds, tests, packs, attests, waits for the approval, pushes and creates the GitHub Release. Then run `verify-published` with the version. Tag only after green: a tag on a failing commit burns the version number, because tags are not force-pushed here.
-- **Dependencies.** The library has none; keep it that way. Lock files are committed (`RestorePackagesWithLockFile`); run plain `dotnet restore` after changing a PackageReference and commit the lock file; CI restores with `--locked-mode`. Dependabot opens weekly pull requests (nuget, dotnet-sdk, github-actions); merge when `ci` is green. Actions are pinned to commit SHAs; keep it that way. New package versions wait three days before use.
+- **Dependencies.** The library has none; keep it that way. Lock files are committed (`RestorePackagesWithLockFile`); run plain `dotnet restore` after changing a PackageReference and commit the lock file; CI restores with `--locked-mode`. Dependabot opens weekly pull requests (nuget, dotnet-sdk, github-actions); merge when `ci` is green. Actions are pinned to commit SHAs; keep it that way. New package versions wait seven days before Dependabot proposes them, and three days before an agent installs them by hand.
 - **Research beats recall.** SDK, package and action versions change; re-verify any version older than three months.
 - **Document for handoff.** Anything learned, decided or built goes into `ai-docs/` before you finish; rewrite `ai-docs/HANDOFF.md` when work is left unfinished.
 - **No AI attribution anywhere.**
@@ -28,14 +28,14 @@ dotnet build -c Release
 dotnet test -c Release                              # net10.0 and net48 (net48 executes only on Windows)
 dotnet restore -p:AuditPipeline=true --force        # fails on any NuGetAudit finding, as CI does
 dotnet pack RandomNameGeneratorLibrary -c Release -o artifacts   # package validation against PackageValidationBaselineVersion
-bash tests/consumers/run.sh artifacts               # fresh consumers of the packed package
+bash tests/consumers/run.sh VERSION artifacts       # fresh consumers of the packed package (VERSION as in the csproj)
 ```
 
 ## Layout and traps
 
 - `RandomNameGeneratorLibrary/Resources.*.stripped` are the embedded lists (LogicalName `RandomNameGeneratorLibrary.Resources.<file>`). `tools/CensusTools` and `tools/StarLists/build_star_lists.py` rebuild them; a rebuild changes seeded output and is a golden-contract decision, not a chore.
 - `tests/Golden/2.2.0.net48-windows.json` and `2.2.0.net10.0-windows.json` were captured from the published 2.2.0 by the program in `tests/Golden/Capture` (whose empty `Directory.Build.*` files keep this repository's MSBuild settings out). Seeded names are the same on both runtimes; exception messages, the default `Random` and `FileCompressor`'s bytes differ, so each runtime has its own recording.
-- A locked-mode lock file for a multi-OS matrix must not depend on anything the SDK infers per OS: `Microsoft.NETFramework.ReferenceAssemblies` is referenced explicitly with `PrivateAssets="all"`, and the net48 test exe pins `RuntimeIdentifier win-x86` with `SelfContained false`.
+- A locked-mode lock file for a multi-OS matrix must not depend on anything the SDK infers per OS: `Microsoft.NETFramework.ReferenceAssemblies` is referenced explicitly with `PrivateAssets="all"`, and the net48 test exes pin a RuntimeIdentifier with `SelfContained false`: win-x86 for the unit tests, win-x64 for the golden replay, because the net48 recording came from a 64-bit process and one OutOfMemoryException message differs in a 32-bit one.
 - The Visual Studio `.gitignore` ignores every `log/` folder; everlast's `ai-docs/log.md` is a file and is unaffected.
 - The publish job has no checkout, so it pins `dotnet-version` instead of reading `global.json`.
 - After a release, set `PackageValidationBaselineVersion` to the released version.

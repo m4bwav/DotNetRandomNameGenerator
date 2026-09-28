@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Text.RegularExpressions;
 using System.Threading;
 using GoldenCapture;
 using Xunit;
@@ -120,9 +119,48 @@ namespace RandomNameGeneratorLibrary.GoldenTests
     /// </summary>
     public class GoldenTests : IClassFixture<GoldenRun>
     {
-        // Only a case whose name says it involves places may be a place exception (plan D3), plus the one mixed case
-        // that draws person, place and star names through the interfaces.
-        private static readonly Regex PlaceCase = new Regex("Place|places2k|Shared Random|non-ASCII|^Multiple [|] an interface call gives the same names, seed 99$", RegexOptions.CultureInvariant);
+        // The 35 cases the place-list rebuild may change (plan D3), exactly; any other difference fails.
+        private static readonly HashSet<string> AllowedPlaceExceptions = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "Resources | RandomNameGeneratorLibrary.Resources.places2k.txt.stripped",
+            "Lists | PlaceNameGenerator.PlaceNames",
+            "Lists | names with non-ASCII characters, all lists",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed 0",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed 1",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed 42",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed 12345",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed 20260924",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed -1",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed -12345",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed 2147483647",
+            "Seeded PlaceNameGenerator | GenerateRandomPlaceName seed -2147483648",
+            "Seeded large | GenerateRandomPlaceName x10000 seed 7",
+            "Seeded large | GenerateRandomPlaceName x10000 seed 2026",
+            "Multiple | PlaceNameGenerator.GenerateMultiplePlaceNames count 1",
+            "Multiple | PlaceNameGenerator.GenerateMultiplePlaceNames count 3",
+            "Multiple | PlaceNameGenerator.GenerateMultiplePlaceNames count 25",
+            "Multiple | PlaceNameGenerator.GenerateMultiplePlaceNames count 10000",
+            "Multiple | an interface call gives the same names, seed 99",
+            "Random extensions | GenerateRandomPlaceName x10 on one Random, seed 5",
+            "Random extensions | GenerateMultiplePlaceNames count 3 twice on one Random, seed 5",
+            "Shared Random | person, place, star, extensions and the caller's own draws on one Random, seed 314",
+            "Random calls | PlaceNameGenerator.GenerateRandomPlaceName, seed 2024",
+            "Random calls | PlaceNameGenerator.GenerateMultiplePlaceNames count 3, seed 2024",
+            "Random calls | Random.GenerateRandomPlaceName, seed 2024",
+            "Random calls | Random.GenerateMultiplePlaceNames count 3, seed 2024",
+            "Scripted Random | GenerateRandomPlaceName first",
+            "Scripted Random | Random.GenerateRandomPlaceName first",
+            "Scripted Random | GenerateRandomPlaceName last",
+            "Scripted Random | Random.GenerateRandomPlaceName last",
+            "Scripted Random | GenerateRandomPlaceName max (out of range)",
+            "Scripted Random | Random.GenerateRandomPlaceName max (out of range)",
+            "Scripted Random | GenerateRandomPlaceName min - 1 (out of range)",
+            "Scripted Random | Random.GenerateRandomPlaceName min - 1 (out of range)",
+            "Subclass | ReadResourceByLine places2k.txt.stripped",
+        };
+
+        // The resource SHA-256 of the tools/CensusTools output recorded in tools/CensusTools/SOURCES.md's rebuild.
+        private const string PlaceListSha256 = "f409cb412ffce410eece666c38d9f4ba76bea119a720613ea16997dcdbb7d85e";
 
         private readonly GoldenRun _run;
 
@@ -145,9 +183,129 @@ namespace RandomNameGeneratorLibrary.GoldenTests
             foreach (var p in _run.Places)
             {
                 Assert.True(_run.Recorded.ContainsKey(p.Key), p.Key + " is not a recorded case");
-                Assert.Matches(PlaceCase, p.Key);
+                Assert.Contains(p.Key, AllowedPlaceExceptions);
                 Assert.False(GoldenRun.JsonEqual(_run.Recorded[p.Key], p.Value), p.Key + " equals 2.2.0 and needs no exception");
             }
+        }
+
+        [Fact]
+        public void The_place_exceptions_are_exactly_the_ruled_cases()
+        {
+            Assert.Equal(AllowedPlaceExceptions.OrderBy(k => k, StringComparer.Ordinal), _run.Places.Keys.OrderBy(k => k, StringComparer.Ordinal));
+        }
+
+        [Fact]
+        public void Every_place_exception_matches_an_oracle_independent_of_the_generators()
+        {
+            var names = PlaceNameGenerator.PlaceNames;
+            var n = names.Count;
+            Func<Random, int, List<string>> draw = (r, count) => Enumerable.Range(0, count).Select(_ => names[r.Next(0, n)]).ToList();
+            var checkedKeys = new HashSet<string>(StringComparer.Ordinal);
+
+            JsonElement Ex(string key)
+            {
+                checkedKeys.Add(key);
+                return _run.Places[key];
+            }
+
+            List<string> Strings(JsonElement e) => e.EnumerateArray().Select(x => x.GetString()!).ToList();
+
+            // The data: the resource is the CensusTools rebuild, and every view of it agrees.
+            var resource = Ex("Resources | RandomNameGeneratorLibrary.Resources.places2k.txt.stripped");
+            Assert.Equal(PlaceListSha256, resource.GetProperty("sha256").GetString());
+            Assert.Equal(n, resource.GetProperty("lineFeeds").GetInt32());
+            var list = Ex("Lists | PlaceNameGenerator.PlaceNames");
+            Assert.Equal(n, list.GetProperty("count").GetInt32());
+            Assert.Equal(Sha(names), list.GetProperty("sha256").GetString());
+            Assert.Equal(n, Ex("Subclass | ReadResourceByLine places2k.txt.stripped").GetProperty("count").GetInt32());
+            var nonAscii = PersonNameGenerator.MaleFirstNames.Concat(PersonNameGenerator.FemaleFirstNames).Concat(PersonNameGenerator.LastNames)
+                .Concat(names).Concat(StarNameGenerator.StarNames).Where(x => x.Any(c => c > (char)127)).Take(40).ToList();
+            Assert.Equal(nonAscii, Strings(Ex("Lists | names with non-ASCII characters, all lists")));
+
+            // Seeded draws: one Next(0, count) per name, as 2.2.0 recorded in the "Random calls" cases.
+            foreach (var seed in new[] { 0, 1, 42, 12345, 20260924, -1, -12345, int.MaxValue, int.MinValue })
+            {
+                Assert.Equal(draw(new Random(seed), 10), Strings(Ex("Seeded PlaceNameGenerator | GenerateRandomPlaceName seed " + seed.ToString(CultureInfo.InvariantCulture))));
+            }
+
+            foreach (var seed in new[] { 7, 2026 })
+            {
+                var large = Ex("Seeded large | GenerateRandomPlaceName x10000 seed " + seed.ToString(CultureInfo.InvariantCulture));
+                var expected = draw(new Random(seed), 10000);
+                Assert.Equal(Sha(expected), large.GetProperty("sha256").GetString());
+                Assert.Equal(expected.Distinct(StringComparer.Ordinal).Count(), large.GetProperty("distinct").GetInt32());
+            }
+
+            foreach (var count in new[] { 1, 3, 25 })
+            {
+                var multiple = Ex("Multiple | PlaceNameGenerator.GenerateMultiplePlaceNames count " + count.ToString(CultureInfo.InvariantCulture));
+                Assert.Equal(draw(new Random(99), count), Strings(multiple.GetProperty("names")));
+            }
+
+            Assert.Equal(Sha(draw(new Random(99), 10000)), Ex("Multiple | PlaceNameGenerator.GenerateMultiplePlaceNames count 10000").GetProperty("sha256").GetString());
+            Assert.Equal(draw(new Random(5), 10), Strings(Ex("Random extensions | GenerateRandomPlaceName x10 on one Random, seed 5")));
+            var twice = Ex("Random extensions | GenerateMultiplePlaceNames count 3 twice on one Random, seed 5");
+            var five = new Random(5);
+            Assert.Equal(draw(five, 3), Strings(twice.GetProperty("first")));
+            Assert.Equal(draw(five, 3), Strings(twice.GetProperty("second")));
+
+            // Mixed cases: the place answers follow the oracle and every other answer equals 2.2.0's.
+            var mixed = Strings(Ex("Multiple | an interface call gives the same names, seed 99"));
+            var mixedOld = Strings(_run.Recorded["Multiple | an interface call gives the same names, seed 99"]);
+            var places99 = draw(new Random(99), 4);
+            Assert.Equal(places99.Take(3), mixed.Skip(3).Take(3));
+            Assert.Equal(places99[3], mixed[10]);
+            foreach (var i in Enumerable.Range(0, mixed.Count).Except(new[] { 3, 4, 5, 10 }))
+            {
+                Assert.Equal(mixedOld[i], mixed[i]);
+            }
+
+            var shared = _run.Places["Shared Random | person, place, star, extensions and the caller's own draws on one Random, seed 314"].EnumerateArray().ToList();
+            checkedKeys.Add("Shared Random | person, place, star, extensions and the caller's own draws on one Random, seed 314");
+            var sharedOld = _run.Recorded["Shared Random | person, place, star, extensions and the caller's own draws on one Random, seed 314"].EnumerateArray().ToList();
+            Assert.Equal(sharedOld.Count, shared.Count);
+            for (var i = 0; i < shared.Count; i++)
+            {
+                if (i % 6 != 1)
+                {
+                    Assert.Equal(sharedOld[i].GetRawText(), shared[i].GetRawText());
+                }
+            }
+
+            // Recorded Random calls: the same draws against the new count, the same names the oracle gives.
+            foreach (var key in new[] { "Random calls | PlaceNameGenerator.GenerateRandomPlaceName, seed 2024", "Random calls | Random.GenerateRandomPlaceName, seed 2024" })
+            {
+                var r = new Random(2024);
+                var v = r.Next(0, n);
+                var e = Ex(key);
+                Assert.Equal(names[v], e.GetProperty("result").GetString());
+                Assert.Equal(new[] { "Next(0," + n.ToString(CultureInfo.InvariantCulture) + ")=" + v.ToString(CultureInfo.InvariantCulture) }, Strings(e.GetProperty("calls")));
+            }
+
+            foreach (var key in new[] { "Random calls | PlaceNameGenerator.GenerateMultiplePlaceNames count 3, seed 2024", "Random calls | Random.GenerateMultiplePlaceNames count 3, seed 2024" })
+            {
+                var r = new Random(2024);
+                var v = Enumerable.Range(0, 3).Select(_ => r.Next(0, n)).ToList();
+                var e = Ex(key);
+                Assert.Equal(v.Select(i => names[i]), Strings(e.GetProperty("result")));
+                Assert.Equal(v.Select(i => "Next(0," + n.ToString(CultureInfo.InvariantCulture) + ")=" + i.ToString(CultureInfo.InvariantCulture)), Strings(e.GetProperty("calls")));
+            }
+
+            // Scripted bounds: 2.2.0's answers with the new count and last index (the first and last names did not change).
+            foreach (var key in AllowedPlaceExceptions.Where(k => k.StartsWith("Scripted Random | ", StringComparison.Ordinal)))
+            {
+                var expected = _run.Recorded[key].GetRawText().Replace("16873", n.ToString(CultureInfo.InvariantCulture)).Replace("16872", (n - 1).ToString(CultureInfo.InvariantCulture));
+                using var doc = JsonDocument.Parse(expected);
+                Assert.True(GoldenRun.JsonEqual(doc.RootElement, Ex(key)), key);
+            }
+
+            Assert.Equal(AllowedPlaceExceptions.OrderBy(k => k, StringComparer.Ordinal), checkedKeys.OrderBy(k => k, StringComparer.Ordinal));
+        }
+
+        private static string Sha(IEnumerable<string> lines)
+        {
+            using var sha = System.Security.Cryptography.SHA256.Create();
+            return string.Concat(sha.ComputeHash(Encoding.UTF8.GetBytes(string.Join("\n", lines))).Select(b => b.ToString("x2", CultureInfo.InvariantCulture)));
         }
 
         [Fact]

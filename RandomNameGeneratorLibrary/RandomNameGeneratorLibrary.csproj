@@ -31,7 +31,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReleaseNotes>2.3.0: the place list is rebuilt from the Census 2000 places file. Earlier versions cut a name at the first "town", "city", "village" or similar anywhere in it (Georgetown was listed as George, Felicity as Feli); 16,969 names now, and every seeded place name differs from 2.2.0. Person and star names are unchanged. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>2.3.0: the place list is rebuilt from the Census 2000 places file. Earlier versions cut a name at the first "town", "city", "village" or similar anywhere in it (Georgetown was listed as George, Felicity as Feli); 16,969 names now, and almost every seeded place name differs from 2.2.0. Person and star names are unchanged. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>

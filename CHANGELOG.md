@@ -6,7 +6,7 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 
 ## [2.3.0-beta.1] - 2026-09-28
 
-The release rehearsal of 2.3.0: the same code and notes as the 2.3.0 section below, published as a prerelease to prove the new release path (release.yml, the approval gate, verification from nuget.org).
+The release rehearsal of 2.3.0, published as a prerelease to prove the new release path (release.yml, the approval gate, verification from nuget.org). It has the same code as 2.3.0: the place list is rebuilt from the Census 2000 file, so names such as Georgetown are no longer cut to "George", and almost every seeded place name differs from 2.2.0. Full notes: the 2.3.0 section of https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md
 
 ## [2.3.0]
 
@@ -18,7 +18,7 @@ The release rehearsal of 2.3.0: the same code and notes as the 2.3.0 section bel
 
 ### Changed
 
-- Every seeded place name differs from 2.2.0 (`new PlaceNameGenerator(42)`, `new Random(42).GenerateRandomPlaceName()`), because the list changed. Seeded person and star names are unchanged. For the record: seeded place names also changed in 2.1.0, when duplicates were removed, which that release did not say; seeded person names are the same as in 1.2.2.
+- Seeded place names differ from 2.2.0 (`new PlaceNameGenerator(42)`, `new Random(42).GenerateRandomPlaceName()`) because the list changed: about 98 percent of them, and none can be relied on to stay the same. Seeded person and star names are unchanged. For the record: seeded place names also changed in 2.1.0, when duplicates were removed, which that release did not say; seeded person names are the same as in 1.2.2.
 
 ### Added
 
