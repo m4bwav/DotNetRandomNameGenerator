@@ -62,3 +62,16 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - Mark approved release run 36375599177 (approval by m4bwav); push to nuget.org and the GitHub Release succeeded at 03:59 UTC, so NuGet/login works under the edited policy (release.yml).
 - GitHub Release v2.3.0-beta.1: prerelease, nupkg and snupkg attached. `gh attestation verify ... --format json` on the run's nupkg: verified, build signer release.yml@refs/tags/v2.3.0-beta.1, source e3d610a.
 - verify-published run 36376068013 for 2.3.0-beta.1: green on Ubuntu, Windows and macOS (both indexes, repository signature, consumers from nuget.org).
+
+## [2026-09-28] add | Phase 6: 2.3.0 merged, tagged, waiting at the approval gate
+- Mark merged PR #14 as merge commit 48ba7db (2026-09-28T12:06:19Z).
+- ci on master run 36419689493: green.
+- Tag v2.3.0 on 48ba7db pushed (ls-remote confirms).
+- release.yml run 36419884168: build and test, Windows net48 and net10.0, attest all green; "push to nuget.org (after approval)" waiting at the nuget environment.
+
+## [2026-09-28] verify | 2.3.0 released and verified (Phase 6 done)
+- Mark approved release run 36419884168; every job green, including the push and the GitHub Release (v2.3.0, not a prerelease, nupkg and snupkg attached).
+- `gh attestation verify` on the Release's nupkg: build signer release.yml@refs/tags/v2.3.0, source 48ba7db.
+- nuget.org flat-container index lists 2.3.0. verify-published run 36421937100 for 2.3.0: green on Ubuntu, Windows and macOS.
+- check-readme-images.mjs on the README inside the 2.3.0 nupkg with `--registry nuget`: 3 images, every one works, exit 0. (Without the flag it checks for npm; pass `--registry nuget` for NuGet.)
+- Branch baseline-2.3.0: PackageValidationBaselineVersion 2.2.0 to 2.3.0 (D5, after publication).
