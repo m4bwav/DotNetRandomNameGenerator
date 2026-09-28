@@ -57,3 +57,8 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 
 ## [2026-09-28] update | Correction to the entry above
 - Mark said "I merged everything"; he did not say whether the nuget.org policy edit (workflow ci.yml to release.yml) is done. The beta's push job will show it: a NuGet/login failure there means the policy still names ci.yml.
+
+## [2026-09-28] verify | 2.3.0-beta.1 released and verified (Phase 5 done)
+- Mark approved release run 36375599177 (approval by m4bwav); push to nuget.org and the GitHub Release succeeded at 03:59 UTC, so NuGet/login works under the edited policy (release.yml).
+- GitHub Release v2.3.0-beta.1: prerelease, nupkg and snupkg attached. `gh attestation verify ... --format json` on the run's nupkg: verified, build signer release.yml@refs/tags/v2.3.0-beta.1, source e3d610a.
+- verify-published run 36376068013 for 2.3.0-beta.1: green on Ubuntu, Windows and macOS (both indexes, repository signature, consumers from nuget.org).
