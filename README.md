@@ -3,13 +3,13 @@ DotNetRandomNameGenerator
 
 Generates random people and place names drawn from freely available US census data, and the names of real stars.
 
-[![NuGet](https://img.shields.io/nuget/v/RandomNameGeneratorLibrary.svg)](https://www.nuget.org/packages/RandomNameGeneratorLibrary/) [![CI](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml/badge.svg)](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml)
+[![NuGet](https://img.shields.io/nuget/v/RandomNameGeneratorLibrary.svg)](https://www.nuget.org/packages/RandomNameGeneratorLibrary/) [![Downloads](https://img.shields.io/nuget/dt/RandomNameGeneratorLibrary.svg)](https://www.nuget.org/packages/RandomNameGeneratorLibrary/) [![CI](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml/badge.svg)](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml)
 
 ```
 dotnet add package RandomNameGeneratorLibrary
 ```
 
-Targets `netstandard2.0` (any .NET Framework 4.6.2+, .NET Core, Mono, Unity) and `net10.0`, with no dependencies. Version 2.2 keeps the 1.2.2 / 2.0 API, and adds star names (2.2) and seed constructors and read-only access to the lists (2.1); see `CHANGELOG.md`. Try it live at https://www.markdavidrogers.com/tools (random names) or through the site's MCP server tool `random_name`.
+Targets `netstandard2.0` (any .NET Framework 4.6.2+, .NET Core, Mono, Unity) and `net10.0`, with no dependencies. Version 2.3 keeps the 1.2.2 / 2.0 API, rebuilds the place list without the truncated names of earlier versions (2.3), and adds star names (2.2) and seed constructors and read-only access to the lists (2.1); see `CHANGELOG.md` and "Seeded output across versions" below. Try it live at https://www.markdavidrogers.com/tools (random names) or through the site's MCP server tool `random_name`.
 
 ## What the names look like
 
@@ -21,7 +21,7 @@ Eight of each, straight from the library. Each row comes from a fresh generator 
 | Female first name | Hildegard, Laurel, Gertie, Jodee, Deneen, Margaretta, Margorie, Alona |
 | Male first name | Benny, Jon, Lowell, Quincy, Tyson, Winfred, Aurelio, Alonso |
 | Last name | Drouillard, Batres, Rohl, Tabar, Babilonia, Vanvolkinburg, Vendrick, Absalon |
-| Place name | Phillips, Nebo Center, Smithton, Mindenmines, Popponesset, Lyndhurst, Little Silver, Vega Baja zona urbana |
+| Place name | Prophetstown, Norco, Steeleville, Mount Leonard, South Deerfield, Mercerville-Hamilton Square, Margate City, Vega Baja zona urbana |
 | Star name | 26 Vulpeculae, Revati, 28 Cygni, 78 Ursae Majoris, 55 Sagittarii, Alpha Muscae, Alpha Monocerotis, Zeta¹ Scorpii |
 | Proper star name | Elkurud, Ankaa, Enduri Senggu, Meissa, Keid, Muning, Muning, Áldu |
 | Catalogue star name | HD 107420, HD 44143, HD 109927, HD 189997, HD 160253, HD 207433, HD 207333, HIP 118218 |
@@ -113,12 +113,12 @@ The `netstandard2.0` build works in Unity: no dependencies, no runtime reflectio
 | Male first names | 1,219 | 1990 US Census name frequency file `dist.male.first` |
 | Female first names | 4,275 | 1990 US Census name frequency file `dist.female.first` |
 | Last names | 88,799 | 1990 US Census name frequency file `dist.all.last` |
-| Place names | 16,873 | Census 2000 places file `places2k.txt`, one entry per distinct name |
+| Place names | 16,969 | Census 2000 places file `places2k.txt`, one entry per distinct name |
 | Proper star names | 640 | IAU Catalog of Star Names, IAU Working Group on Star Names ([exopla.net](https://exopla.net/star-names/modern-iau-star-names/)), fetched 2026-09-27 |
 | Designated star names | 3,076 | Bayer and Flamsteed names in the Yale Bright Star Catalogue, 5th ed. (Hoffleit and Warren 1991, VizieR `V/50`) |
 | Catalogue star names | 343,518 | Henry Draper catalogue HD 1 to HD 225300 and the 118,218 stars of the Hipparcos catalogue (ESA 1997, VizieR `I/239`) |
 
-Person names are ASCII and Title case (`Mark`, `Rogers`). The place list drops the state and the classification word (`city`, `town`, `CDP`, ...), keeps accents on Puerto Rico names (`Bayamón zona urbana`, `Mayagüez zona urbana`) and lists a name once no matter how many states have it, so `Franklin` is exactly as likely as `Popponesset`.
+Person names are ASCII and Title case (`Mark`, `Rogers`). The place list drops the state and the classification word (`city`, `town`, `CDP`, ...) that follows the name, keeps accents on Puerto Rico names (`Bayamón zona urbana`, `Mayagüez zona urbana`) and lists a name once no matter how many states have it, so `Franklin` is exactly as likely as `Popponesset`. Up to 2.2.0 the list cut a name at the first of those words anywhere in it, so Georgetown was listed as `George` and Felicity as `Feli` (150 such entries, 246 real names missing); 2.3.0 rebuilt it from the Census file.
 
 `GenerateRandomFirstName` picks male or female with equal probability first, then a name from that list, so any one male name is about 3.5 times likelier than any one female name. Use the gendered methods if you want uniform odds within a list.
 
@@ -132,7 +132,23 @@ No package can hold every known star: Gaia alone has catalogued about 1.8 billio
 
 `tools/StarLists/build_star_lists.py` downloads the three sources and rebuilds the star resources. IAU material is published under Creative Commons Attribution; please keep the credit above if you redistribute the lists.
 
-The lists are embedded resources (`RandomNameGeneratorLibrary/Resources.*.stripped`, LF line endings, UTF-8). They were produced by the `tools/CensusTools` console project in this repository, which reads the Census files as Latin-1 and removes duplicates; it is not part of the package. The `CensusListStripper` and `FileCompressor` classes still in the library are the original one-off tools, marked obsolete, and will be removed in 3.0.
+The lists are embedded resources (`RandomNameGeneratorLibrary/Resources.*.stripped`, LF line endings, UTF-8). The person and place lists are what the `tools/CensusTools` console project in this repository produces from the Census files (it reads them as Latin-1 and removes duplicates); `tools/CensusTools/SOURCES.md` has the download addresses and the SHA-256 of each source file. The tool is not part of the package. The `CensusListStripper` and `FileCompressor` classes still in the library are the original one-off tools, marked obsolete, and will be removed in 3.0.
+
+### Seeded output across versions
+
+A seeded generator (`new PersonNameGenerator(42)`, `new Random(42).GenerateRandomPlaceName()`) gives the same names on .NET Framework and .NET, and from one version to the next unless a list changes:
+
+| Names | Same as 1.2.2? | Changed in |
+| --- | --- | --- |
+| Person names | yes | never |
+| Place names | no | 2.1.0 (duplicates removed, accents fixed) and 2.3.0 (list rebuilt without truncated names) |
+| Star names | new in 2.2.0 | |
+
+The golden tests in `tests/` hold every answer 2.2.0 gave, per runtime, and fail on any other change.
+
+### Known issues
+
+- The list properties (`PersonNameGenerator.LastNames`, `PlaceNameGenerator.PlaceNames`, ...) return the library's own arrays typed as `IReadOnlyList<string>`. Casting one to `string[]` and writing to it changes the names every generator in the process draws from; copy the list instead.
 
 ## Building and releasing
 
@@ -141,7 +157,9 @@ dotnet test
 dotnet pack RandomNameGeneratorLibrary -c Release -o artifacts
 ```
 
-CI (`.github/workflows/ci.yml`) restores in locked mode, builds, checks formatting, runs the tests on Linux (net10.0) and Windows (net10.0 and net48, which exercises the netstandard2.0 build), collects coverage and packs on every push. To publish: add the entry to `CHANGELOG.md`, bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, tag the commit `v<version>` and push the tag. The `publish` job checks that the tag matches the version, signs in to nuget.org with Trusted Publishing (GitHub OIDC, no stored API key; a `NUGET_USER` secret holding the nuget.org profile name lives in the `nuget` environment), pushes the package and creates a GitHub Release with the `.nupkg` and `.snupkg` attached. Package validation compares the public API against 2.0.1 at pack time, so an accidental breaking change fails the build.
+CI (`.github/workflows/ci.yml`) restores in locked mode, checks formatting, builds, fails on any NuGet audit finding, runs the tests on Linux (net10.0) and Windows (net10.0 and net48, which exercises the netstandard2.0 build), packs with package validation against 2.2.0, checks the package's contents and runs fresh consumers of the packed package. The golden tests replay every case recorded from the published 2.2.0 (`tests/Golden`).
+
+To publish: add the entry to `CHANGELOG.md`, bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, merge, wait for CI to pass on `master`, then tag the commit `v<version>` and push the tag. `.github/workflows/release.yml` checks that the tag matches the version and sits on `master`, tests on Linux and Windows, attests the package, and waits for the maintainer's approval on the `nuget` environment before it signs in to nuget.org with Trusted Publishing (GitHub OIDC, no stored API key) and pushes. It then creates the GitHub Release with the changelog section and the packages. `.github/workflows/verify-published.yml` checks the published version from nuget.org on Linux, Windows and macOS.
 
 ## License
 

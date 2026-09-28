@@ -19,7 +19,7 @@
 
   <PropertyGroup Label="Package">
     <PackageId>RandomNameGeneratorLibrary</PackageId>
-    <Version>2.2.0</Version>
+    <Version>2.3.0-beta.1</Version>
     <Authors>Mark Rogers</Authors>
     <Copyright>Copyright (c) 2014-2026 Mark Rogers</Copyright>
     <Title>Random Name Generator</Title>
@@ -31,7 +31,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReleaseNotes>2.2.0: new StarNameGenerator and IStarNameGenerator for real star names: 640 IAU proper names (Sirius, Betelgeuse), 3,076 Bayer and Flamsteed designations covering every naked-eye star (Tau Ceti, 61 Cygni), and 343,518 Henry Draper and Hipparcos catalogue designations (HD 209458, HIP 70890); Random extension methods GenerateRandomStarName and GenerateMultipleStarNames. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>2.3.0: the place list is rebuilt from the Census 2000 places file. Earlier versions cut a name at the first "town", "city", "village" or similar anywhere in it (Georgetown was listed as George, Felicity as Feli); 16,969 names now, and almost every seeded place name differs from 2.2.0. Person and star names are unchanged. Full history: https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -39,7 +39,7 @@
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <PackageValidationBaselineVersion>2.0.1</PackageValidationBaselineVersion>
+    <PackageValidationBaselineVersion>2.2.0</PackageValidationBaselineVersion>
   </PropertyGroup>
 
   <ItemGroup>

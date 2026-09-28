@@ -1,114 +1,116 @@
-# Build, test and pack on every push and pull request; the .nupkg and .snupkg are kept as a run artifact.
-# Linux runs the net10.0 tests; Windows also runs them on net48, which exercises the netstandard2.0 build.
-# Publishing to NuGet happens only from a v* tag (see README "Building and releasing") through nuget.org Trusted
-# Publishing: the job trades GitHub's OIDC token for a one-hour NuGet key, so no long-lived API key is stored anywhere.
-# It needs a NUGET_USER secret (the nuget.org profile name) in the repository's "nuget" environment.
-name: CI
+# From the package-modernize template (CachingServiceWithAOPSupport 2.0.0, 2026-09-27). Every push to master and every
+# pull request: locked restore, dotnet format, build, the NuGet audit, the tests on Linux and Windows (net10.0 on both;
+# net48 on Windows, which runs the netstandard2.0 build; the golden replay is tests/RandomNameGeneratorLibrary.GoldenTests),
+# a pack with package validation and a content check, fresh consumers of the packed package, and the final `ci` job the
+# ruleset on master requires. Publishing is release.yml. Tests run on Microsoft.Testing.Platform (global.json), so
+# coverage comes from --coverage instead of a VSTest logger.
+name: ci
 
 on:
   push:
     branches: [master]
-    tags: ['v*']
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build:
+    name: build and test (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-24.04, windows-latest]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0 # SourceLink needs the commit history
-
-      - uses: actions/setup-dotnet@v6
+          fetch-depth: 0 # Source Link records the commit
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
           global-json-file: global.json
           cache: true
           cache-dependency-path: '**/packages.lock.json'
-
-      - name: Show evaluated target frameworks (diagnoses NU1004 lock-file mismatches)
-        run: dotnet msbuild RandomNameGeneratorUnitTests/RandomNameGeneratorUnitTests.csproj -getProperty:TargetFrameworks -getProperty:TargetFramework
       - run: dotnet restore --locked-mode
+      - run: dotnet format --no-restore --verify-no-changes
       - run: dotnet build --no-restore -c Release
-
-      - name: Check formatting
-        if: runner.os == 'Linux'
-        run: dotnet format --no-restore --verify-no-changes
-
-      # xunit.v3 on Microsoft.Testing.Platform (global.json "test.runner"); --coverage comes from Microsoft.Testing.Extensions.CodeCoverage.
+      # A dedicated restore that fails on any audit finding, so a future advisory blocks a merge but not a local build.
+      - name: NuGet audit as errors
+        run: dotnet restore -p:AuditPipeline=true --force
       - name: Test (net10.0)
-        if: runner.os == 'Linux'
-        run: dotnet test --no-build -c Release -f net10.0 --coverage --coverage-output-format cobertura --results-directory coverage
-      - name: Test (net10.0 and net48)
+        run: dotnet test --no-build -c Release -f net10.0 --coverage --coverage-output-format cobertura --results-directory TestResults
+      - name: Test (net48, Windows only; exercises the netstandard2.0 build)
         if: runner.os == 'Windows'
-        run: dotnet test --no-build -c Release --coverage --coverage-output-format cobertura --results-directory coverage
-
-      - uses: actions/upload-artifact@v7
+        run: dotnet test --no-build -c Release -f net48 --results-directory TestResults
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
         with:
-          name: coverage-${{ matrix.os }}
-          path: coverage/*.cobertura.xml
+          name: test-results-${{ matrix.os }}
+          path: TestResults
           retention-days: 30
-
-      - if: runner.os == 'Linux'
+      - name: Pack
         run: dotnet pack RandomNameGeneratorLibrary --no-build -c Release -o artifacts
-
-      - if: runner.os == 'Linux'
-        uses: actions/upload-artifact@v7
+      - name: The package holds exactly what it should and declares its dependencies
+        if: runner.os == 'Linux'
+        run: |
+          # The expected list is in C-locale order (uppercase first), as the sort below produces it.
+          nupkg=$(ls artifacts/RandomNameGeneratorLibrary.[0-9]*.nupkg)
+          expected=$'README.md\nRandomNameGeneratorLibrary.nuspec\nicon.png\nlib/net10.0/RandomNameGeneratorLibrary.dll\nlib/net10.0/RandomNameGeneratorLibrary.xml\nlib/netstandard2.0/RandomNameGeneratorLibrary.dll\nlib/netstandard2.0/RandomNameGeneratorLibrary.xml'
+          actual=$(unzip -Z1 "$nupkg" | grep -Ev '^(_rels/|package/|\[Content_Types\])' | LC_ALL=C sort)
+          if [ "$actual" != "$expected" ]; then
+            echo "::error::unexpected package contents"
+            diff <(echo "$expected") <(echo "$actual")
+            exit 1
+          fi
+          nuspec=$(unzip -p "$nupkg" RandomNameGeneratorLibrary.nuspec | tr -d '\r\n')
+          for tfm in .NETStandard2.0 net10.0; do
+            # grep finds nothing in an empty (self-closing) group; under -e and pipefail that would end the step without a message.
+            group=$(echo "$nuspec" | { grep -o "<group targetFramework=\"$tfm\">.*" || true; } | sed 's:</group>.*::')
+            deps=$(echo "$group" | { grep -o '<dependency id="[^"]*" version="[^"]*"' || true; } | LC_ALL=C sort | tr '\n' ' ')
+            # No runtime dependencies: both groups are empty.
+            want=''
+            if [ "$deps" != "$want" ]; then
+              echo "::error::$tfm dependencies: $deps"
+              exit 1
+            fi
+          done
+      # Fresh consumers of the packed package (tests/consumers/run.sh and Program.cs): net10.0 everywhere, net48 on Windows.
+      - name: Fresh consumers of the packed package
+        run: |
+          version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj)
+          bash tests/consumers/run.sh "$version" artifacts
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: runner.os == 'Linux'
         with:
-          name: package
+          name: packages
           path: artifacts/*nupkg
           retention-days: 30
 
-  publish:
-    if: startsWith(github.ref, 'refs/tags/v')
-    needs: build
-    runs-on: ubuntu-latest
-    environment: nuget
-    permissions:
-      id-token: write   # lets the job request the GitHub OIDC token that nuget.org exchanges for a temporary key
-      contents: write   # lets the job create the GitHub Release
+  ci:
+    name: ci
+    if: ${{ always() }}
+    needs: [build]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v7
-
-      - name: Check that the tag matches the csproj version
-        run: |
-          version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' RandomNameGeneratorLibrary/RandomNameGeneratorLibrary.csproj)
-          tag=${GITHUB_REF_NAME#v}
-          if [ "$version" != "$tag" ]; then
-            echo "Tag v$tag does not match <Version>$version</Version>; bump the csproj or retag." >&2
-            exit 1
-          fi
-
-      - uses: actions/download-artifact@v8
-        with:
-          name: package
-          path: artifacts
-      - uses: actions/setup-dotnet@v6
-        with:
-          global-json-file: global.json
-      - name: NuGet login (OIDC to temporary API key)
-        uses: NuGet/login@v1
-        id: login
-        with:
-          user: ${{ secrets.NUGET_USER }}
-      - run: dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+      - name: Every job passed
         env:
-          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
-
-      - name: GitHub Release
-        uses: softprops/action-gh-release@v3
-        with:
-          files: |
-            artifacts/*.nupkg
-            artifacts/*.snupkg
-          body: See CHANGELOG.md for this version's entry.
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "job results: $RESULTS"
+          for result in $RESULTS; do
+            if [ "$result" != success ]; then
+              exit 1
+            fi
+          done

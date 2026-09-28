@@ -1,0 +1,5265 @@
+{
+  "package": "RandomNameGeneratorLibrary@2.2.0",
+  "assembly": "RandomNameGeneratorLibrary 2.2.0.0",
+  "assemblySha256": "2398427fc7c937528e1b4f4249b0565882593268e5e29f27da513d007e3656cd",
+  "runtime": ".NET Framework 4.8.9345.0",
+  "os": "windows",
+  "culture": "invariant",
+  "captured": "2026-09-28",
+  "note": "Golden outputs of the published RandomNameGeneratorLibrary 2.2.0, recorded by tests/Golden/Capture. Never edit; never regenerate from new code.",
+  "caseCount": 426,
+  "cases": [
+    {
+      "group": "Resources",
+      "name": "manifest resource names",
+      "result": [
+        "RandomNameGeneratorLibrary.Resources.dist.all.last.stripped",
+        "RandomNameGeneratorLibrary.Resources.dist.female.first.stripped",
+        "RandomNameGeneratorLibrary.Resources.dist.male.first.stripped",
+        "RandomNameGeneratorLibrary.Resources.places2k.txt.stripped",
+        "RandomNameGeneratorLibrary.Resources.stars.designations.stripped",
+        "RandomNameGeneratorLibrary.Resources.stars.hipgaps.stripped",
+        "RandomNameGeneratorLibrary.Resources.stars.proper.stripped"
+      ]
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.dist.all.last.stripped",
+      "result": {
+        "bytes": 695422,
+        "sha256": "dbc31bb769ed0e477e3627bc7f60ca89177e6d6edfc4ab54e429e8151ebdb7bc",
+        "lineFeeds": 88799,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.dist.female.first.stripped",
+      "result": {
+        "bytes": 30042,
+        "sha256": "404c310676c99fa66e15fb747ca48cac28d5105390edb815d3f9b2b274218266",
+        "lineFeeds": 4275,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.dist.male.first.stripped",
+      "result": {
+        "bytes": 8193,
+        "sha256": "53c96f3cff6afe7cd71b8e088d758a75a2a90e04c9eacabe624fb33850bd0f57",
+        "lineFeeds": 1219,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.places2k.txt.stripped",
+      "result": {
+        "bytes": 180553,
+        "sha256": "e3a868ed52ec273deeb46497425c5471f08baef8ae52bd22efc36a681aa1f399",
+        "lineFeeds": 16873,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.stars.designations.stripped",
+      "result": {
+        "bytes": 40623,
+        "sha256": "9807284d846418dfebb18a050f04110b8f6284a504b8c8414576f7d70f788071",
+        "lineFeeds": 3076,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.stars.hipgaps.stripped",
+      "result": {
+        "bytes": 15266,
+        "sha256": "7294caf378aa9a884d6aab105d4b659f04a43069828a907d474bbe0a0fea860c",
+        "lineFeeds": 2199,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.stars.proper.stripped",
+      "result": {
+        "bytes": 5242,
+        "sha256": "c99ec6dbbe2de22f344b0810a9b31e1f367077caee56e75095c5eb71857373ef",
+        "lineFeeds": 640,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "PersonNameGenerator.MaleFirstNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 1219,
+        "sha256": "5b8b66c95f455e609a76e0a7d052a535ce9cca2f8f4b803ff3c21dcfa9a3e631",
+        "distinct": 1219,
+        "first": [
+          "James",
+          "John",
+          "Robert"
+        ],
+        "last": [
+          "Darell",
+          "Broderick",
+          "Alonso"
+        ],
+        "nonAscii": 0,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 11,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "PersonNameGenerator.FemaleFirstNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 4275,
+        "sha256": "31e2c9911e2595655394efc07738025aa7f0ca40857dfb1e5c687ab85e59d3c1",
+        "distinct": 4275,
+        "first": [
+          "Mary",
+          "Patricia",
+          "Linda"
+        ],
+        "last": [
+          "Angila",
+          "Alona",
+          "Allyn"
+        ],
+        "nonAscii": 0,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 11,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "PersonNameGenerator.LastNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 88799,
+        "sha256": "59232dec3153d3d9ae132ece4f9784b2312f187f035fdf0681bead2353a8f303",
+        "distinct": 88799,
+        "first": [
+          "Smith",
+          "Johnson",
+          "Williams"
+        ],
+        "last": [
+          "Aanderud",
+          "Aalund",
+          "Aalderink"
+        ],
+        "nonAscii": 0,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 13,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "PlaceNameGenerator.PlaceNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 16873,
+        "sha256": "a4b83595b066871460c43a01d98a718516b1c2761f0d3b47c40ed6687882b3c0",
+        "distinct": 16873,
+        "first": [
+          "Abbeville",
+          "Adamsville",
+          "Addison"
+        ],
+        "last": [
+          "Yabucoa zona urbana",
+          "Yauco zona urbana",
+          "Yaurel comunidad"
+        ],
+        "nonAscii": 49,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 35,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "StarNameGenerator.ProperStarNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 640,
+        "sha256": "cc3ec47aa8f800f020ba374c714503a886edabcad4931780af333fe9cf64285a",
+        "distinct": 640,
+        "first": [
+          "Absolutno",
+          "Acamar",
+          "Achernar"
+        ],
+        "last": [
+          "Zubeneschamali",
+          "Zuoqi",
+          "Áldu"
+        ],
+        "nonAscii": 23,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 18,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "StarNameGenerator.DesignatedStarNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 3076,
+        "sha256": "c62e82de27b320b4c760e4a1aeb47d336d8d635c2819c2f57c0789ceca5c3b3c",
+        "distinct": 3076,
+        "first": [
+          "1 Aquarii",
+          "1 Arietis",
+          "1 Boötis"
+        ],
+        "last": [
+          "Zeta¹ Reticuli",
+          "Zeta¹ Scorpii",
+          "Zeta⁴ Librae"
+        ],
+        "nonAscii": 397,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 27,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "StarNameGenerator.StarNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 3716,
+        "sha256": "8b1a9c0dbd2884d1f0309528389cb62d61e2319d42698d49be8b64c58f2c91df",
+        "distinct": 3716,
+        "first": [
+          "Absolutno",
+          "Acamar",
+          "Achernar"
+        ],
+        "last": [
+          "Zeta¹ Reticuli",
+          "Zeta¹ Scorpii",
+          "Zeta⁴ Librae"
+        ],
+        "nonAscii": 420,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 27,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "StarNames is ProperStarNames then DesignatedStarNames",
+      "result": true
+    },
+    {
+      "group": "Lists",
+      "name": "StarNameGenerator.CatalogStarNameCount",
+      "result": 343518
+    },
+    {
+      "group": "Lists",
+      "name": "names with non-ASCII characters, all lists",
+      "result": [
+        "Añasco zona urbana",
+        "Antón Ruíz comunidad",
+        "Bayamón zona urbana",
+        "Bayamón comunidad",
+        "Benítez comunidad",
+        "Boquerón comunidad",
+        "Breñas comunidad",
+        "Búfalo comunidad",
+        "Cabán comunidad",
+        "Canóvanas zona urbana",
+        "Cataño zona urbana",
+        "Comerío zona urbana",
+        "Coquí comunidad",
+        "Corazón comunidad",
+        "El Mangó comunidad",
+        "Fránquez comunidad",
+        "Guánica zona urbana",
+        "Imbéry comunidad",
+        "Juana Díaz zona urbana",
+        "Las Marías comunidad",
+        "Las Marías zona urbana",
+        "Liborio Negrón Torres comunidad",
+        "Loíza zona urbana",
+        "Luis Lloréns Torres comunidad",
+        "Manatí zona urbana",
+        "María Antonia comunidad",
+        "Mariano Colón comunidad",
+        "Marueño comunidad",
+        "Mayagüez zona urbana",
+        "Pájaros comunidad",
+        "Parcelas Peñuelas comunidad",
+        "Peña Pobre comunidad",
+        "Peñuelas zona urbana",
+        "Pueblito del Río comunidad",
+        "Rafael Capó comunidad",
+        "Rafael González comunidad",
+        "Rafael Hernández comunidad",
+        "Rincón zona urbana",
+        "Río Blanco comunidad",
+        "Río Cañas Abajo comunidad"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed 0",
+      "result": [
+        "Lakita Schaetzle",
+        "Araceli Salts",
+        "Otilia Cherven",
+        "Rudolph Aldaz",
+        "Marilou Bumba",
+        "Lawerence Aroca",
+        "Tiana Glyn",
+        "Jeannetta Amador",
+        "Larisa Kilogan",
+        "Hiroko Isenberg"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed 0",
+      "result": [
+        "Lakita",
+        "Madaline",
+        "Cole",
+        "Otilia",
+        "Lettie",
+        "Burton",
+        "Marilou",
+        "Charlotte",
+        "Chassidy",
+        "Tiana"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed 0",
+      "result": [
+        "Donatello",
+        "Gioffre",
+        "Schaetzle",
+        "Schappert",
+        "Charlebois",
+        "Salts",
+        "Northwood",
+        "Serdula",
+        "Cherven",
+        "Protsman"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed 0",
+      "result": [
+        "Phylicia",
+        "Lakita",
+        "Aleen",
+        "Madaline",
+        "Araceli",
+        "Jutta",
+        "Lael",
+        "Otilia",
+        "Avril",
+        "Lettie"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed 0",
+      "result": [
+        "Nigel",
+        "Walker",
+        "Prince",
+        "Donnell",
+        "Guy",
+        "Cole",
+        "Ike",
+        "Sterling",
+        "Patricia",
+        "Carlton"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed 0",
+      "result": [
+        "Phylicia Gioffre",
+        "Aleen Schappert",
+        "Araceli Salts",
+        "Lael Serdula",
+        "Avril Protsman",
+        "Haydee Aldaz",
+        "Tianna Wammack",
+        "Sunni Bess",
+        "Rickie Aroca",
+        "Shavonne Brimm"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed 0",
+      "result": [
+        "Nigel Gioffre",
+        "Prince Schappert",
+        "Guy Salts",
+        "Ike Serdula",
+        "Patricia Protsman",
+        "Rudolph Aldaz",
+        "Sonny Wammack",
+        "Edmundo Bess",
+        "Lawerence Aroca",
+        "Major Brimm"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 0",
+      "result": [
+        "Pleasant City",
+        "Walnutport",
+        "Sumpter",
+        "Purdy",
+        "Molino",
+        "Rhineland",
+        "Tynan",
+        "Fryeburg",
+        "Vesper",
+        "Barrington"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed 0",
+      "result": [
+        "Gamma Pegasi",
+        "Nu Leonis",
+        "Kappa Piscium",
+        "8 Leonis",
+        "12 Boötis",
+        "8 Leporis",
+        "Sigma Ceti",
+        "5 Trianguli",
+        "Zeta Apodis",
+        "20 Boötis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed 0",
+      "result": [
+        "Quadrans",
+        "Sika",
+        "Sadalsuud",
+        "Menkar",
+        "Bharani",
+        "Menkar",
+        "Tianyue",
+        "Jordanus",
+        "Yuyu",
+        "Dalim"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed 0",
+      "result": [
+        "HIP 24198",
+        "HIP 55526",
+        "HIP 38572",
+        "HD 191739",
+        "HD 70777",
+        "HD 191987",
+        "HIP 86036",
+        "HD 151897",
+        "HIP 110634",
+        "HD 94023"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed 1",
+      "result": [
+        "Don Antinoro",
+        "Verdie Capes",
+        "Nicky Roane",
+        "Shannon Olivero",
+        "Vincenzo Santhuff",
+        "Christal Ringquist",
+        "Aracelis Griesmeyer",
+        "Charlie Doble",
+        "Bernadine Magliulo",
+        "Noble Sarrell"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed 1",
+      "result": [
+        "Don",
+        "Lenard",
+        "Corene",
+        "Nicky",
+        "Gale",
+        "Fredrick",
+        "Vincenzo",
+        "Evelin",
+        "Branden",
+        "Aracelis"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed 1",
+      "result": [
+        "Mccaskey",
+        "Gerena",
+        "Antinoro",
+        "Rosazza",
+        "Bocklage",
+        "Capes",
+        "Nein",
+        "Hevessy",
+        "Roane",
+        "Ginnings"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed 1",
+      "result": [
+        "Belle",
+        "Essie",
+        "Wynona",
+        "Ressie",
+        "Verdie",
+        "Corene",
+        "Kendall",
+        "Maxima",
+        "Mercedes",
+        "Maryam"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed 1",
+      "result": [
+        "Arturo",
+        "Don",
+        "Burton",
+        "Lenard",
+        "Erin",
+        "Ethan",
+        "Jody",
+        "Nicky",
+        "Melvin",
+        "Gale"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed 1",
+      "result": [
+        "Belle Gerena",
+        "Wynona Rosazza",
+        "Verdie Capes",
+        "Kendall Hevessy",
+        "Mercedes Ginnings",
+        "Shannon Olivero",
+        "Gertie Bereda",
+        "Clarita Cake",
+        "Christal Ringquist",
+        "Shery Lominy"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed 1",
+      "result": [
+        "Arturo Gerena",
+        "Burton Rosazza",
+        "Erin Capes",
+        "Jody Hevessy",
+        "Melvin Ginnings",
+        "Andrew Olivero",
+        "Lowell Bereda",
+        "Dusty Cake",
+        "Roderick Ringquist",
+        "Jamar Lominy"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 1",
+      "result": [
+        "Sharon",
+        "Fort Bragg",
+        "Seabrook",
+        "Beech Creek",
+        "St. Johnsville",
+        "Laplace",
+        "Blakesburg",
+        "North Creek",
+        "Charter Oak",
+        "Holtsville"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed 1",
+      "result": [
+        "17 Hydrae",
+        "Noquisi",
+        "55 Virginis",
+        "Kappa² Coronae Australis",
+        "Delta Indi",
+        "49 Camelopardalis",
+        "33 Pegasi",
+        "Theta Pavonis",
+        "Mizar",
+        "Chi Leonis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed 1",
+      "result": [
+        "Chamukuy",
+        "Aludra",
+        "Keid",
+        "Safina",
+        "Okab",
+        "Izar",
+        "Gaja",
+        "Uúba",
+        "Alsephina",
+        "Noquisi"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed 1",
+      "result": [
+        "HD 85423",
+        "HD 38043",
+        "HD 160427",
+        "HIP 39804",
+        "HIP 570",
+        "HD 148669",
+        "HD 121635",
+        "HIP 99050",
+        "HD 34787",
+        "HD 220696"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed 42",
+      "result": [
+        "Alisa Streets",
+        "Rhoda Verhey",
+        "Patience Marbury",
+        "Jade Maron",
+        "Gertie Fechtner",
+        "Reggie Sweat",
+        "Yen Machlin",
+        "Manuel Labady",
+        "Ngoc Wild",
+        "Kirsten Norbo"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed 42",
+      "result": [
+        "Alisa",
+        "Avery",
+        "Homer",
+        "Patience",
+        "Edgardo",
+        "Dana",
+        "Gertie",
+        "Trevor",
+        "Megan",
+        "Yen"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed 42",
+      "result": [
+        "Vis",
+        "Stall",
+        "Streets",
+        "Marichalar",
+        "Chace",
+        "Verhey",
+        "Eldert",
+        "Schinkel",
+        "Marbury",
+        "Staffen"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed 42",
+      "result": [
+        "Marguerita",
+        "Alisa",
+        "Lottie",
+        "Beckie",
+        "Rhoda",
+        "Caren",
+        "Waneta",
+        "Patience",
+        "Mia",
+        "Latarsha"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed 42",
+      "result": [
+        "Morton",
+        "Gordon",
+        "Tom",
+        "Avery",
+        "Nathaniel",
+        "Homer",
+        "Eliseo",
+        "Rusty",
+        "Ben",
+        "Edgardo"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed 42",
+      "result": [
+        "Marguerita Stall",
+        "Lottie Marichalar",
+        "Rhoda Verhey",
+        "Waneta Schinkel",
+        "Mia Staffen",
+        "Jade Maron",
+        "Kevin Rendall",
+        "Felisha Derrow",
+        "Gia Sweat",
+        "Mayola Huttle"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed 42",
+      "result": [
+        "Morton Stall",
+        "Tom Marichalar",
+        "Nathaniel Verhey",
+        "Eliseo Schinkel",
+        "Ben Staffen",
+        "Salvador Maron",
+        "Bryon Rendall",
+        "Percy Derrow",
+        "Reggie Sweat",
+        "Bradly Huttle"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 42",
+      "result": [
+        "Beech Mountain",
+        "Santa Paula",
+        "Mettler",
+        "Wykoff",
+        "Timnath",
+        "Bonners Ferry",
+        "North Royalton",
+        "Oronoco",
+        "Pawcatuck",
+        "Coos Bay"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed 42",
+      "result": [
+        "Delta² Gruis",
+        "Sika",
+        "Ran",
+        "69 Aquilae",
+        "Yuyu",
+        "19 Leporis",
+        "Gamma Mensae",
+        "66 Andromedae",
+        "1 Canis Minoris",
+        "Kappa Cygni"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed 42",
+      "result": [
+        "Parumleo",
+        "Arin-majlep",
+        "Angetenar",
+        "Macondo",
+        "Avior",
+        "Copernicus",
+        "Qigong",
+        "Lintangkumba",
+        "Azha",
+        "Saclateni"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed 42",
+      "result": [
+        "HIP 4210",
+        "HD 48405",
+        "HD 43118",
+        "HD 179579",
+        "HD 57861",
+        "HD 90206",
+        "HIP 23567",
+        "HD 176199",
+        "HD 59653",
+        "HIP 36242"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed 12345",
+      "result": [
+        "Ernest Ranjel",
+        "Toi Domitrovich",
+        "Kieth Devin",
+        "Noelle Yankee",
+        "Gary Prout",
+        "Suzette Sankaran",
+        "Ira Motta",
+        "Joycelyn Klang",
+        "Earleen Champey",
+        "Sherryl Zych"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed 12345",
+      "result": [
+        "Ernest",
+        "Alejandrina",
+        "Setsuko",
+        "Kieth",
+        "Bryon",
+        "Moses",
+        "Gary",
+        "Jerold",
+        "Kelley",
+        "Ira"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed 12345",
+      "result": [
+        "Claudio",
+        "Ewald",
+        "Ranjel",
+        "Skehan",
+        "Letko",
+        "Domitrovich",
+        "Thetford",
+        "Brenhaug",
+        "Devin",
+        "Warila"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed 12345",
+      "result": [
+        "Velma",
+        "Claire",
+        "Leonia",
+        "Alejandrina",
+        "Toi",
+        "Setsuko",
+        "Bianca",
+        "Williemae",
+        "Ariel",
+        "Florencia"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed 12345",
+      "result": [
+        "Russell",
+        "Ernest",
+        "Mel",
+        "Ned",
+        "Brice",
+        "Quintin",
+        "Ruben",
+        "Kieth",
+        "Trevor",
+        "Bryon"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed 12345",
+      "result": [
+        "Velma Ewald",
+        "Leonia Skehan",
+        "Toi Domitrovich",
+        "Bianca Brenhaug",
+        "Ariel Warila",
+        "Noelle Yankee",
+        "Maura Busby",
+        "Consuelo Bastine",
+        "Suzette Sankaran",
+        "Shaquana Hausladen"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed 12345",
+      "result": [
+        "Russell Ewald",
+        "Mel Skehan",
+        "Brice Domitrovich",
+        "Ruben Brenhaug",
+        "Trevor Warila",
+        "Daryl Yankee",
+        "Wallace Busby",
+        "Darrell Bastine",
+        "Fernando Sankaran",
+        "Sol Hausladen"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 12345",
+      "result": [
+        "Black Rock",
+        "Coy",
+        "Carmichaels",
+        "Nevis",
+        "Mount Holly Springs",
+        "India Hook",
+        "Raymer",
+        "Asher",
+        "Pupukea",
+        "Kerkhoven"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed 12345",
+      "result": [
+        "Haedus",
+        "Honores",
+        "Kappa¹ Lupi",
+        "65 Geminorum",
+        "Mu Draconis",
+        "Nu¹ Lyrae",
+        "Xamidimura",
+        "Gamma¹ Leonis",
+        "19 Canum Venaticorum",
+        "63 Virginis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed 12345",
+      "result": [
+        "Alkes",
+        "Almach",
+        "Saiph",
+        "Lilii Borea",
+        "Sham",
+        "Solaris",
+        "Aurwandilsta",
+        "Rasalgethi",
+        "Citalá",
+        "Libertas"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed 12345",
+      "result": [
+        "HD 22929",
+        "HD 24102",
+        "HIP 40891",
+        "HD 175586",
+        "HIP 48703",
+        "HIP 58963",
+        "HD 57010",
+        "HIP 27599",
+        "HD 89390",
+        "HD 173822"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed 20260924",
+      "result": [
+        "Jon Rohl",
+        "Deneen Vanvolkinburg",
+        "Alona Glordano",
+        "Norris Veltz",
+        "Wes Tomopoulos",
+        "Peter Melito",
+        "Stephanie Niceswander",
+        "Erich Dunnagan",
+        "German Maiolo",
+        "Russell Cadlett"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed 20260924",
+      "result": [
+        "Jon",
+        "Quincy",
+        "Winfred",
+        "Alona",
+        "Margot",
+        "Dallas",
+        "Wes",
+        "Odell",
+        "Terrance",
+        "Stephanie"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed 20260924",
+      "result": [
+        "Drouillard",
+        "Batres",
+        "Rohl",
+        "Tabar",
+        "Babilonia",
+        "Vanvolkinburg",
+        "Vendrick",
+        "Absalon",
+        "Glordano",
+        "Wineinger"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed 20260924",
+      "result": [
+        "Hildegard",
+        "Laurel",
+        "Gertie",
+        "Jodee",
+        "Deneen",
+        "Margaretta",
+        "Margorie",
+        "Alona",
+        "Maurice",
+        "Margot"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed 20260924",
+      "result": [
+        "Benny",
+        "Jon",
+        "Lowell",
+        "Quincy",
+        "Tyson",
+        "Winfred",
+        "Aurelio",
+        "Alonso",
+        "Genaro",
+        "Tracy"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed 20260924",
+      "result": [
+        "Hildegard Batres",
+        "Gertie Tabar",
+        "Deneen Vanvolkinburg",
+        "Margorie Absalon",
+        "Maurice Wineinger",
+        "Jonelle Veltz",
+        "Tiara Husul",
+        "Ailene Palys",
+        "Megan Melito",
+        "Melvin Mercer"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed 20260924",
+      "result": [
+        "Benny Batres",
+        "Lowell Tabar",
+        "Tyson Vanvolkinburg",
+        "Aurelio Absalon",
+        "Genaro Wineinger",
+        "Norris Veltz",
+        "Johnathan Husul",
+        "Olin Palys",
+        "Peter Melito",
+        "Weston Mercer"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 20260924",
+      "result": [
+        "Phillips",
+        "Nebo Center",
+        "Smithton",
+        "Mindenmines",
+        "Popponesset",
+        "Lyndhurst",
+        "Little Silver",
+        "Vega Baja zona urbana",
+        "Hillburn",
+        "Hiawassee"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed 20260924",
+      "result": [
+        "26 Vulpeculae",
+        "Revati",
+        "28 Cygni",
+        "78 Ursae Majoris",
+        "55 Sagittarii",
+        "Alpha Muscae",
+        "Alpha Monocerotis",
+        "Zeta¹ Scorpii",
+        "Chi Herculis",
+        "16 Arietis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed 20260924",
+      "result": [
+        "Elkurud",
+        "Ankaa",
+        "Enduri Senggu",
+        "Meissa",
+        "Keid",
+        "Muning",
+        "Muning",
+        "Áldu",
+        "Ninnisig",
+        "Castula"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed 20260924",
+      "result": [
+        "HD 107420",
+        "HD 44143",
+        "HD 109927",
+        "HD 189997",
+        "HD 160253",
+        "HD 207433",
+        "HD 207333",
+        "HIP 118218",
+        "HD 220597",
+        "HD 81741"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed -1",
+      "result": [
+        "Don Antinoro",
+        "Verdie Capes",
+        "Nicky Roane",
+        "Shannon Olivero",
+        "Vincenzo Santhuff",
+        "Christal Ringquist",
+        "Aracelis Griesmeyer",
+        "Charlie Doble",
+        "Bernadine Magliulo",
+        "Noble Sarrell"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed -1",
+      "result": [
+        "Don",
+        "Lenard",
+        "Corene",
+        "Nicky",
+        "Gale",
+        "Fredrick",
+        "Vincenzo",
+        "Evelin",
+        "Branden",
+        "Aracelis"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed -1",
+      "result": [
+        "Mccaskey",
+        "Gerena",
+        "Antinoro",
+        "Rosazza",
+        "Bocklage",
+        "Capes",
+        "Nein",
+        "Hevessy",
+        "Roane",
+        "Ginnings"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed -1",
+      "result": [
+        "Belle",
+        "Essie",
+        "Wynona",
+        "Ressie",
+        "Verdie",
+        "Corene",
+        "Kendall",
+        "Maxima",
+        "Mercedes",
+        "Maryam"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed -1",
+      "result": [
+        "Arturo",
+        "Don",
+        "Burton",
+        "Lenard",
+        "Erin",
+        "Ethan",
+        "Jody",
+        "Nicky",
+        "Melvin",
+        "Gale"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed -1",
+      "result": [
+        "Belle Gerena",
+        "Wynona Rosazza",
+        "Verdie Capes",
+        "Kendall Hevessy",
+        "Mercedes Ginnings",
+        "Shannon Olivero",
+        "Gertie Bereda",
+        "Clarita Cake",
+        "Christal Ringquist",
+        "Shery Lominy"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed -1",
+      "result": [
+        "Arturo Gerena",
+        "Burton Rosazza",
+        "Erin Capes",
+        "Jody Hevessy",
+        "Melvin Ginnings",
+        "Andrew Olivero",
+        "Lowell Bereda",
+        "Dusty Cake",
+        "Roderick Ringquist",
+        "Jamar Lominy"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed -1",
+      "result": [
+        "Sharon",
+        "Fort Bragg",
+        "Seabrook",
+        "Beech Creek",
+        "St. Johnsville",
+        "Laplace",
+        "Blakesburg",
+        "North Creek",
+        "Charter Oak",
+        "Holtsville"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed -1",
+      "result": [
+        "17 Hydrae",
+        "Noquisi",
+        "55 Virginis",
+        "Kappa² Coronae Australis",
+        "Delta Indi",
+        "49 Camelopardalis",
+        "33 Pegasi",
+        "Theta Pavonis",
+        "Mizar",
+        "Chi Leonis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed -1",
+      "result": [
+        "Chamukuy",
+        "Aludra",
+        "Keid",
+        "Safina",
+        "Okab",
+        "Izar",
+        "Gaja",
+        "Uúba",
+        "Alsephina",
+        "Noquisi"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed -1",
+      "result": [
+        "HD 85423",
+        "HD 38043",
+        "HD 160427",
+        "HIP 39804",
+        "HIP 570",
+        "HD 148669",
+        "HD 121635",
+        "HIP 99050",
+        "HD 34787",
+        "HD 220696"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed -12345",
+      "result": [
+        "Ernest Ranjel",
+        "Toi Domitrovich",
+        "Kieth Devin",
+        "Noelle Yankee",
+        "Gary Prout",
+        "Suzette Sankaran",
+        "Ira Motta",
+        "Joycelyn Klang",
+        "Earleen Champey",
+        "Sherryl Zych"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed -12345",
+      "result": [
+        "Ernest",
+        "Alejandrina",
+        "Setsuko",
+        "Kieth",
+        "Bryon",
+        "Moses",
+        "Gary",
+        "Jerold",
+        "Kelley",
+        "Ira"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed -12345",
+      "result": [
+        "Claudio",
+        "Ewald",
+        "Ranjel",
+        "Skehan",
+        "Letko",
+        "Domitrovich",
+        "Thetford",
+        "Brenhaug",
+        "Devin",
+        "Warila"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed -12345",
+      "result": [
+        "Velma",
+        "Claire",
+        "Leonia",
+        "Alejandrina",
+        "Toi",
+        "Setsuko",
+        "Bianca",
+        "Williemae",
+        "Ariel",
+        "Florencia"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed -12345",
+      "result": [
+        "Russell",
+        "Ernest",
+        "Mel",
+        "Ned",
+        "Brice",
+        "Quintin",
+        "Ruben",
+        "Kieth",
+        "Trevor",
+        "Bryon"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed -12345",
+      "result": [
+        "Velma Ewald",
+        "Leonia Skehan",
+        "Toi Domitrovich",
+        "Bianca Brenhaug",
+        "Ariel Warila",
+        "Noelle Yankee",
+        "Maura Busby",
+        "Consuelo Bastine",
+        "Suzette Sankaran",
+        "Shaquana Hausladen"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed -12345",
+      "result": [
+        "Russell Ewald",
+        "Mel Skehan",
+        "Brice Domitrovich",
+        "Ruben Brenhaug",
+        "Trevor Warila",
+        "Daryl Yankee",
+        "Wallace Busby",
+        "Darrell Bastine",
+        "Fernando Sankaran",
+        "Sol Hausladen"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed -12345",
+      "result": [
+        "Black Rock",
+        "Coy",
+        "Carmichaels",
+        "Nevis",
+        "Mount Holly Springs",
+        "India Hook",
+        "Raymer",
+        "Asher",
+        "Pupukea",
+        "Kerkhoven"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed -12345",
+      "result": [
+        "Haedus",
+        "Honores",
+        "Kappa¹ Lupi",
+        "65 Geminorum",
+        "Mu Draconis",
+        "Nu¹ Lyrae",
+        "Xamidimura",
+        "Gamma¹ Leonis",
+        "19 Canum Venaticorum",
+        "63 Virginis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed -12345",
+      "result": [
+        "Alkes",
+        "Almach",
+        "Saiph",
+        "Lilii Borea",
+        "Sham",
+        "Solaris",
+        "Aurwandilsta",
+        "Rasalgethi",
+        "Citalá",
+        "Libertas"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed -12345",
+      "result": [
+        "HD 22929",
+        "HD 24102",
+        "HIP 40891",
+        "HD 175586",
+        "HIP 48703",
+        "HIP 58963",
+        "HD 57010",
+        "HIP 27599",
+        "HD 89390",
+        "HD 173822"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed 2147483647",
+      "result": [
+        "Lakita Schaetzle",
+        "Araceli Salts",
+        "Otilia Cherven",
+        "Rudolph Aldaz",
+        "Marilou Bumba",
+        "Lawerence Aroca",
+        "Tiana Glyn",
+        "Jeannetta Amador",
+        "Larisa Kilogan",
+        "Hiroko Isenberg"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed 2147483647",
+      "result": [
+        "Lakita",
+        "Madaline",
+        "Cole",
+        "Otilia",
+        "Lettie",
+        "Burton",
+        "Marilou",
+        "Charlotte",
+        "Chassidy",
+        "Tiana"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed 2147483647",
+      "result": [
+        "Donatello",
+        "Gioffre",
+        "Schaetzle",
+        "Schappert",
+        "Charlebois",
+        "Salts",
+        "Northwood",
+        "Serdula",
+        "Cherven",
+        "Protsman"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed 2147483647",
+      "result": [
+        "Phylicia",
+        "Lakita",
+        "Aleen",
+        "Madaline",
+        "Araceli",
+        "Jutta",
+        "Lael",
+        "Otilia",
+        "Avril",
+        "Lettie"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed 2147483647",
+      "result": [
+        "Nigel",
+        "Walker",
+        "Prince",
+        "Donnell",
+        "Guy",
+        "Cole",
+        "Ike",
+        "Sterling",
+        "Patricia",
+        "Carlton"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed 2147483647",
+      "result": [
+        "Phylicia Gioffre",
+        "Aleen Schappert",
+        "Araceli Salts",
+        "Lael Serdula",
+        "Avril Protsman",
+        "Haydee Aldaz",
+        "Tianna Wammack",
+        "Sunni Bess",
+        "Rickie Aroca",
+        "Shavonne Brimm"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed 2147483647",
+      "result": [
+        "Nigel Gioffre",
+        "Prince Schappert",
+        "Guy Salts",
+        "Ike Serdula",
+        "Patricia Protsman",
+        "Rudolph Aldaz",
+        "Sonny Wammack",
+        "Edmundo Bess",
+        "Lawerence Aroca",
+        "Major Brimm"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 2147483647",
+      "result": [
+        "Pleasant City",
+        "Walnutport",
+        "Sumpter",
+        "Purdy",
+        "Molino",
+        "Rhineland",
+        "Tynan",
+        "Fryeburg",
+        "Vesper",
+        "Barrington"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed 2147483647",
+      "result": [
+        "Gamma Pegasi",
+        "Nu Leonis",
+        "Kappa Piscium",
+        "8 Leonis",
+        "12 Boötis",
+        "8 Leporis",
+        "Sigma Ceti",
+        "5 Trianguli",
+        "Zeta Apodis",
+        "20 Boötis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed 2147483647",
+      "result": [
+        "Quadrans",
+        "Sika",
+        "Sadalsuud",
+        "Menkar",
+        "Bharani",
+        "Menkar",
+        "Tianyue",
+        "Jordanus",
+        "Yuyu",
+        "Dalim"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed 2147483647",
+      "result": [
+        "HIP 24198",
+        "HIP 55526",
+        "HIP 38572",
+        "HD 191739",
+        "HD 70777",
+        "HD 191987",
+        "HIP 86036",
+        "HD 151897",
+        "HIP 110634",
+        "HD 94023"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstAndLastName seed -2147483648",
+      "result": [
+        "Lakita Schaetzle",
+        "Araceli Salts",
+        "Otilia Cherven",
+        "Rudolph Aldaz",
+        "Marilou Bumba",
+        "Lawerence Aroca",
+        "Tiana Glyn",
+        "Jeannetta Amador",
+        "Larisa Kilogan",
+        "Hiroko Isenberg"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFirstName seed -2147483648",
+      "result": [
+        "Lakita",
+        "Madaline",
+        "Cole",
+        "Otilia",
+        "Lettie",
+        "Burton",
+        "Marilou",
+        "Charlotte",
+        "Chassidy",
+        "Tiana"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomLastName seed -2147483648",
+      "result": [
+        "Donatello",
+        "Gioffre",
+        "Schaetzle",
+        "Schappert",
+        "Charlebois",
+        "Salts",
+        "Northwood",
+        "Serdula",
+        "Cherven",
+        "Protsman"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstName seed -2147483648",
+      "result": [
+        "Phylicia",
+        "Lakita",
+        "Aleen",
+        "Madaline",
+        "Araceli",
+        "Jutta",
+        "Lael",
+        "Otilia",
+        "Avril",
+        "Lettie"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstName seed -2147483648",
+      "result": [
+        "Nigel",
+        "Walker",
+        "Prince",
+        "Donnell",
+        "Guy",
+        "Cole",
+        "Ike",
+        "Sterling",
+        "Patricia",
+        "Carlton"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomFemaleFirstAndLastName seed -2147483648",
+      "result": [
+        "Phylicia Gioffre",
+        "Aleen Schappert",
+        "Araceli Salts",
+        "Lael Serdula",
+        "Avril Protsman",
+        "Haydee Aldaz",
+        "Tianna Wammack",
+        "Sunni Bess",
+        "Rickie Aroca",
+        "Shavonne Brimm"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "GenerateRandomMaleFirstAndLastName seed -2147483648",
+      "result": [
+        "Nigel Gioffre",
+        "Prince Schappert",
+        "Guy Salts",
+        "Ike Serdula",
+        "Patricia Protsman",
+        "Rudolph Aldaz",
+        "Sonny Wammack",
+        "Edmundo Bess",
+        "Lawerence Aroca",
+        "Major Brimm"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed -2147483648",
+      "result": [
+        "Pleasant City",
+        "Walnutport",
+        "Sumpter",
+        "Purdy",
+        "Molino",
+        "Rhineland",
+        "Tynan",
+        "Fryeburg",
+        "Vesper",
+        "Barrington"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomStarName seed -2147483648",
+      "result": [
+        "Gamma Pegasi",
+        "Nu Leonis",
+        "Kappa Piscium",
+        "8 Leonis",
+        "12 Boötis",
+        "8 Leporis",
+        "Sigma Ceti",
+        "5 Trianguli",
+        "Zeta Apodis",
+        "20 Boötis"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomProperStarName seed -2147483648",
+      "result": [
+        "Quadrans",
+        "Sika",
+        "Sadalsuud",
+        "Menkar",
+        "Bharani",
+        "Menkar",
+        "Tianyue",
+        "Jordanus",
+        "Yuyu",
+        "Dalim"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "GenerateRandomCatalogStarName seed -2147483648",
+      "result": [
+        "HIP 24198",
+        "HIP 55526",
+        "HIP 38572",
+        "HD 191739",
+        "HD 70777",
+        "HD 191987",
+        "HIP 86036",
+        "HD 151897",
+        "HIP 110634",
+        "HD 94023"
+      ]
+    },
+    {
+      "group": "Seeded PersonNameGenerator",
+      "name": "every method in turn on one generator, seed 2024",
+      "result": [
+        "Rubin Mushero",
+        "Evelyn",
+        "Damas",
+        "Merrill",
+        "Fermin",
+        "Karolyn Mccourtney",
+        "Rocky Kochler",
+        "Tyson Dunakin",
+        "Jonas",
+        "Stotesberry",
+        "Shasta",
+        "Anthony",
+        "Sylvie Askari",
+        "Fred Pinard",
+        "Forrest Hutt",
+        "Collen",
+        "Shuey",
+        "Jazmin",
+        "Johnathon",
+        "Merle Clayburg",
+        "Clay Pelo"
+      ]
+    },
+    {
+      "group": "Seeded StarNameGenerator",
+      "name": "every method in turn on one generator, seed 2024",
+      "result": [
+        "Parumleo",
+        "Pistol Star",
+        "HD 178532",
+        "83 Leonis",
+        "Adhara",
+        "HD 112690",
+        "Kappa² Sculptoris",
+        "Syrma",
+        "HD 130589",
+        "Beta Hydri",
+        "Jian",
+        "HD 217568",
+        "Beehive Proplyd",
+        "Keid",
+        "HIP 23841"
+      ]
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomFirstAndLastName x10000 seed 7",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "91853edad29a7e06068352d69de0ddadac9fe423573ea097bc410b6bf699bfa5",
+        "distinct": 10000,
+        "first": [
+          "Lacy Astrologo",
+          "Darrel Standford",
+          "Hosea Bisconer"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomPlaceName x10000 seed 7",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "a616df71e9a90b8f1949f6772b122db33e9db0920cfe8eebe0e8717aefb7eb9d",
+        "distinct": 7586,
+        "first": [
+          "Thurman",
+          "Frankston",
+          "Springs"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomStarName x10000 seed 7",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "f290e6746e2325ac186e5446e7c08db97efc3e10a2cf9bafb9d843bd50b801a6",
+        "distinct": 3489,
+        "first": [
+          "39 Leonis",
+          "Pi² Cancri",
+          "Delta Pavonis"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomCatalogStarName x10000 seed 7",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "88816ada4fa4d2fb4fa5ee62d647b6cf84697cdfebb203be690db814826d18ea",
+        "distinct": 9835,
+        "first": [
+          "HD 131644",
+          "HIP 74078",
+          "HIP 1747"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomFirstAndLastName x10000 seed 2026",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "a6c8e30b4bcb9dd340bf7c5d8521f7f3543cb664094245dd9812d14c9c687de5",
+        "distinct": 9999,
+        "first": [
+          "Kerry Marrello",
+          "Yoshie Pellerin",
+          "Dorthey Malandrino"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomPlaceName x10000 seed 2026",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "2df9882b417d8e4b0e7262eff61394b4f272a06663474dd9c5b937e36cd610d7",
+        "distinct": 7526,
+        "first": [
+          "Gypsum",
+          "Dalzell",
+          "Tremonton"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomStarName x10000 seed 2026",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "63585e849b11a159376d3e107abe730f0cfff5a75baf73d5bb3517254c67c8b5",
+        "distinct": 3466,
+        "first": [
+          "Tusizuo",
+          "21 Monocerotis",
+          "Tau Centauri"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomCatalogStarName x10000 seed 2026",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "f981168effaffce6fa0a179d8c808f15a43725bc684f0bf9616ddc0471b25547",
+        "distinct": 9843,
+        "first": [
+          "HD 54939",
+          "HD 97369",
+          "HIP 90049"
+        ]
+      }
+    },
+    {
+      "group": "Constructors",
+      "name": "PersonNameGenerator(new Random(seed)) equals PersonNameGenerator(seed), seed 7",
+      "result": true
+    },
+    {
+      "group": "Constructors",
+      "name": "PlaceNameGenerator(new Random(seed)) equals PlaceNameGenerator(seed), seed 7",
+      "result": true
+    },
+    {
+      "group": "Constructors",
+      "name": "StarNameGenerator(new Random(seed)) equals StarNameGenerator(seed), seed 7",
+      "result": true
+    },
+    {
+      "group": "Constructors",
+      "name": "PersonNameGenerator(new Random(seed)) equals PersonNameGenerator(seed), seed -7",
+      "result": true
+    },
+    {
+      "group": "Constructors",
+      "name": "PlaceNameGenerator(new Random(seed)) equals PlaceNameGenerator(seed), seed -7",
+      "result": true
+    },
+    {
+      "group": "Constructors",
+      "name": "StarNameGenerator(new Random(seed)) equals StarNameGenerator(seed), seed -7",
+      "result": true
+    },
+    {
+      "group": "Constructors",
+      "name": "PersonNameGenerator(null Random)",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Constructors",
+      "name": "PlaceNameGenerator(null Random)",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Constructors",
+      "name": "StarNameGenerator(null Random)",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Constructors",
+      "name": "interfaces implemented",
+      "result": [
+        "True",
+        "True",
+        "True",
+        "True",
+        "True",
+        "True"
+      ]
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Emmitt Diak"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Emmitt Diak",
+          "Nguyet Kistler",
+          "Joel Pieroni"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Emmitt Diak",
+          "Nguyet Kistler",
+          "Joel Pieroni",
+          "Ines Tablada",
+          "Deetta Claro",
+          "Zenobia Manhardt",
+          "Arron Davos",
+          "Jules Pollet",
+          "Cody Poland",
+          "Jordon Heiken",
+          "Sung Lansing",
+          "Armando Pilcher",
+          "Isaias Lamboy",
+          "Alvaro Lemmer",
+          "Dannielle Segarra",
+          "Kathryn Hatfield",
+          "Aura Miniuk",
+          "Odell Bossen",
+          "Colin Esters",
+          "Jean Longhini",
+          "Perry Cail",
+          "Jonathan Mcraven",
+          "Lelia Skillen",
+          "Willy Lucich",
+          "Cory Stoughton"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "bef537676d936d034528e88a3b9d78410ae265ef5b9cd07d8dbc209b1de5de21",
+        "distinct": 10000,
+        "first": [
+          "Emmitt Diak",
+          "Nguyet Kistler",
+          "Joel Pieroni"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Passon"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Passon",
+          "Tumolillo",
+          "Diak"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Passon",
+          "Tumolillo",
+          "Diak",
+          "Pieloch",
+          "Ovadilla",
+          "Kistler",
+          "Schmitmeyer",
+          "Knorr",
+          "Pieroni",
+          "Patient",
+          "Ellery",
+          "Tablada",
+          "Pata",
+          "Condreay",
+          "Claro",
+          "Wholly",
+          "Pronk",
+          "Manhardt",
+          "Klement",
+          "Dubson",
+          "Davos",
+          "Yunker",
+          "Evanich",
+          "Pollet",
+          "Gierhart"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "573e829c1323ecf0e9e70bf1f8dda7a2941a95e929ea2800d9dc81ab9f95d733",
+        "distinct": 9468,
+        "first": [
+          "Passon",
+          "Tumolillo",
+          "Diak"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Ouida Tumolillo"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Ouida Tumolillo",
+          "Leonida Pieloch",
+          "Nguyet Kistler"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Ouida Tumolillo",
+          "Leonida Pieloch",
+          "Nguyet Kistler",
+          "Marisela Knorr",
+          "Angelique Patient",
+          "Ines Tablada",
+          "Iluminada Condreay",
+          "Roxanna Wholly",
+          "Zenobia Manhardt",
+          "Marilee Dubson",
+          "Hwa Yunker",
+          "Alease Pollet",
+          "Melonie Behler",
+          "Agnes Rico",
+          "Elmer Heiken",
+          "Yung Harkley",
+          "Elvira Ulicki",
+          "Lessie Pilcher",
+          "Jill Aragundi",
+          "Catharine Palazzolo",
+          "Chi Lemmer",
+          "Lanelle Robers",
+          "Rochelle Chandrasekhar",
+          "Kathryn Hatfield",
+          "Jonie Rung"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "6ac1c1f72269b60e9705a20c2dbf12eb06342235be0c5f9c68aadbaa8dc412e9",
+        "distinct": 10000,
+        "first": [
+          "Ouida Tumolillo",
+          "Leonida Pieloch",
+          "Nguyet Kistler"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Cleveland Tumolillo"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Cleveland Tumolillo",
+          "Harland Pieloch",
+          "Erasmo Kistler"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Cleveland Tumolillo",
+          "Harland Pieloch",
+          "Erasmo Kistler",
+          "Gerard Knorr",
+          "Byron Patient",
+          "Clifton Tablada",
+          "Chance Condreay",
+          "Wilbur Wholly",
+          "Darwin Manhardt",
+          "Wilfred Dubson",
+          "Kraig Yunker",
+          "Jules Pollet",
+          "Elijah Behler",
+          "Ralph Rico",
+          "Jordon Heiken",
+          "Normand Harkley",
+          "Frederick Ulicki",
+          "Armando Pilcher",
+          "Henry Aragundi",
+          "Marco Palazzolo",
+          "Alvaro Lemmer",
+          "Berry Robers",
+          "Francis Chandrasekhar",
+          "Jason Hatfield",
+          "Tyree Rung"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "f754233520a6656c9d3c04748da66f67e998925efedaf654e960241c7bfc1755",
+        "distinct": 10000,
+        "first": [
+          "Cleveland Tumolillo",
+          "Harland Pieloch",
+          "Erasmo Kistler"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Ouida"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Ouida",
+          "Marhta",
+          "Leonida"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Ouida",
+          "Marhta",
+          "Leonida",
+          "Johana",
+          "Nguyet",
+          "Brandi",
+          "Marisela",
+          "Lorena",
+          "Angelique",
+          "Cherilyn",
+          "Ines",
+          "Shanae",
+          "Iluminada",
+          "Deetta",
+          "Roxanna",
+          "Adena",
+          "Zenobia",
+          "Evonne",
+          "Marilee",
+          "Shoshana",
+          "Hwa",
+          "Jewell",
+          "Alease",
+          "Louanne",
+          "Melonie"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "6e1327c3007e0b6dd9f956729f90a95cf2c401ada571a8fa8aa7a7d7f9cbb508",
+        "distinct": 3859,
+        "first": [
+          "Ouida",
+          "Marhta",
+          "Leonida"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Cleveland"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Cleveland",
+          "Emmitt",
+          "Harland"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Cleveland",
+          "Emmitt",
+          "Harland",
+          "Sandy",
+          "Erasmo",
+          "Shawn",
+          "Gerard",
+          "Joel",
+          "Byron",
+          "Bud",
+          "Clifton",
+          "Claudio",
+          "Chance",
+          "Arlie",
+          "Wilbur",
+          "Teodoro",
+          "Darwin",
+          "Noah",
+          "Wilfred",
+          "Arron",
+          "Kraig",
+          "Floyd",
+          "Jules",
+          "Clair",
+          "Elijah"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "13b7b50536f5f9cf3c742e7839f58a7d431aa835cdedbe36c5445eba56343f09",
+        "distinct": 1218,
+        "first": [
+          "Cleveland",
+          "Emmitt",
+          "Harland"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Boonsboro"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Boonsboro",
+          "Cuney",
+          "Kennan"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Boonsboro",
+          "Cuney",
+          "Kennan",
+          "Varnam",
+          "Study Butte-Terlingua",
+          "Greenbrier",
+          "Deary",
+          "Empire",
+          "Winter Garden",
+          "Duncansville",
+          "Ball Ground",
+          "Wapanucka",
+          "Winston-Salem",
+          "Rib Lake",
+          "Carmi",
+          "Bayside",
+          "Greater Galesburg",
+          "Osterdock",
+          "Coburg",
+          "Montour Falls",
+          "Mondovi",
+          "Rio del Mar",
+          "Ney",
+          "Galisteo",
+          "Palco"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "c7deba49fc065cae8149a0cb49b5e3c3559a82d7e860a05496f9a30bddf1db2a",
+        "distinct": 7529,
+        "first": [
+          "Boonsboro",
+          "Cuney",
+          "Kennan"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 0",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "50 Sagittarii"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "50 Sagittarii",
+          "Pi Herculis",
+          "Xi Gruis"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "50 Sagittarii",
+          "Pi Herculis",
+          "Xi Gruis",
+          "Epsilon Tauri",
+          "Sigma Andromedae",
+          "Jabbah",
+          "19 Ophiuchi",
+          "Nenque",
+          "14 Ceti",
+          "Lambda Columbae",
+          "14 Pegasi",
+          "Kappa Aurigae",
+          "Epsilon Ursae Majoris",
+          "Xi² Lupi",
+          "20 Virginis",
+          "Phi² Lupi",
+          "58 Ophiuchi",
+          "37 Tauri",
+          "34 Hydrae",
+          "Chi¹ Sagittarii",
+          "Xi Piscium",
+          "Segin",
+          "Gamma Librae",
+          "Beta Cancri",
+          "42 Aurigae"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: The number of names to generate cannot be negative."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "95cbe3e63781aff770abc1d5cf1681a66c3f22c7a605519be65caa537224a831",
+        "distinct": 3467,
+        "first": [
+          "50 Sagittarii",
+          "Pi Herculis",
+          "Xi Gruis"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "an interface call gives the same names, seed 99",
+      "result": [
+        "Emmitt Diak",
+        "Nguyet Kistler",
+        "Joel Pieroni",
+        "Boonsboro",
+        "Cuney",
+        "Kennan",
+        "50 Sagittarii",
+        "Pi Herculis",
+        "Xi Gruis",
+        "Ines Tablada",
+        "Varnam",
+        "HIP 11397",
+        "Tiansi"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFirstName x10 on one Random, seed 5",
+      "result": [
+        "Abraham",
+        "Jacques",
+        "Fausto",
+        "Jospeh",
+        "Aimee",
+        "Magnolia",
+        "Phillip",
+        "Clyde",
+        "Mable",
+        "Chong"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFirstName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomLastName x10 on one Random, seed 5",
+      "result": [
+        "Luhn",
+        "Ozaki",
+        "Swearngin",
+        "Mcowen",
+        "Carnall",
+        "Laasaga",
+        "Olea",
+        "Grabauskas",
+        "Battee",
+        "Rosson"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomLastName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFemaleFirstName x10 on one Random, seed 5",
+      "result": [
+        "Easter",
+        "Leota",
+        "Lona",
+        "Rosia",
+        "Denna",
+        "Golden",
+        "Lacey",
+        "Eura",
+        "Audrea",
+        "Aimee"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFemaleFirstName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomMaleFirstName x10 on one Random, seed 5",
+      "result": [
+        "Sammy",
+        "Abraham",
+        "Homer",
+        "Jacques",
+        "Jamal",
+        "Fausto",
+        "Dan",
+        "Jospeh",
+        "Charley",
+        "Leroy"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomMaleFirstName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFemaleFirstAndLastName x10 on one Random, seed 5",
+      "result": [
+        "Easter Ozaki",
+        "Lona Mcowen",
+        "Denna Laasaga",
+        "Lacey Grabauskas",
+        "Audrea Rosson",
+        "Corrin Sackman",
+        "Katrina Waites",
+        "Claribel Bergan",
+        "Nicholle Lebel",
+        "Onita Glandon"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFemaleFirstAndLastName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomMaleFirstAndLastName x10 on one Random, seed 5",
+      "result": [
+        "Sammy Ozaki",
+        "Homer Mcowen",
+        "Jamal Laasaga",
+        "Dan Grabauskas",
+        "Charley Rosson",
+        "Winford Sackman",
+        "Ernest Waites",
+        "Kermit Bergan",
+        "Man Lebel",
+        "Waldo Glandon"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomMaleFirstAndLastName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFirstAndLastName x10 on one Random, seed 5",
+      "result": [
+        "Abraham Swearngin",
+        "Denna Laasaga",
+        "Jospeh Battee",
+        "Winford Sackman",
+        "Phillip Modena",
+        "Man Lebel",
+        "Chong Muray",
+        "Keenan Penski",
+        "Fritz Micek",
+        "Hsiu Cutright"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomFirstAndLastName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomPlaceName x10 on one Random, seed 5",
+      "result": [
+        "Ladoga",
+        "Dix",
+        "Carey",
+        "Adams Center",
+        "Green Harbor-Cedar Crest",
+        "Patrick Springs",
+        "Tobin",
+        "Wapato",
+        "Bogota",
+        "Kentfield"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomPlaceName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomStarName x10 on one Random, seed 5",
+      "result": [
+        "30 Herculis",
+        "21 Pegasi",
+        "19 Lyrae",
+        "Beta Horologii",
+        "55 Arietis",
+        "Tau¹ Gruis",
+        "Sulafat",
+        "Theta¹ Crucis",
+        "Alpha Columbae",
+        "Phoenicia"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomStarName on a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Abraham Swearngin",
+          "Denna Laasaga",
+          "Jospeh Battee"
+        ],
+        "second": [
+          "Winford Sackman",
+          "Phillip Modena",
+          "Man Lebel"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFirstAndLastNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Luhn",
+          "Ozaki",
+          "Swearngin"
+        ],
+        "second": [
+          "Mcowen",
+          "Carnall",
+          "Laasaga"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleLastNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Easter Ozaki",
+          "Lona Mcowen",
+          "Denna Laasaga"
+        ],
+        "second": [
+          "Lacey Grabauskas",
+          "Audrea Rosson",
+          "Corrin Sackman"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstAndLastNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Sammy Ozaki",
+          "Homer Mcowen",
+          "Jamal Laasaga"
+        ],
+        "second": [
+          "Dan Grabauskas",
+          "Charley Rosson",
+          "Winford Sackman"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstAndLastNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Easter",
+          "Leota",
+          "Lona"
+        ],
+        "second": [
+          "Rosia",
+          "Denna",
+          "Golden"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleFemaleFirstNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Sammy",
+          "Abraham",
+          "Homer"
+        ],
+        "second": [
+          "Jacques",
+          "Jamal",
+          "Fausto"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleMaleFirstNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Ladoga",
+          "Dix",
+          "Carey"
+        ],
+        "second": [
+          "Adams Center",
+          "Green Harbor-Cedar Crest",
+          "Patrick Springs"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames count 0 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [],
+        "second": []
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "30 Herculis",
+          "21 Pegasi",
+          "19 Lyrae"
+        ],
+        "second": [
+          "Beta Horologii",
+          "55 Arietis",
+          "Tau¹ Gruis"
+        ]
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames count -1",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames count -2147483648",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames count 2147483647",
+      "result": {
+        "$throws": "System.OutOfMemoryException: Array dimensions exceeded supported range."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames on a null Random, count 3",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultipleStarNames on a null Random, count -1",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Shared Random",
+      "name": "person, place, star, extensions and the caller's own draws on one Random, seed 314",
+      "result": [
+        "Eulah Harvison",
+        "Clatonia",
+        "Xi Telescopii",
+        "HIP 105564",
+        "Belinski",
+        971,
+        "Gwendolyn Meadville",
+        "Sussex",
+        "60 Aquarii",
+        "HIP 59775",
+        "Reusswig",
+        129,
+        "Carisa Mclennan",
+        "Robs",
+        "72 Herculis",
+        "HIP 78380",
+        "Bushey",
+        727,
+        "Scotty Percey",
+        "Panthersville",
+        "20 Ophiuchi",
+        "HIP 105985",
+        "Knorr",
+        163,
+        "Sharolyn Moskal",
+        "Marne",
+        "Sadalmelik",
+        "HD 127663",
+        "Monette",
+        247
+      ]
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomFirstAndLastName, seed 2024",
+      "result": {
+        "result": "Rubin Mushero",
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=849",
+          "Next(0,88799)=46150"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomFirstName, seed 2024",
+      "result": {
+        "result": "Rubin",
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=849"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomLastName, seed 2024",
+      "result": {
+        "result": "Hoeft",
+        "calls": [
+          "Next(0,88799)=10218"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomFemaleFirstName, seed 2024",
+      "result": {
+        "result": "Ebony",
+        "calls": [
+          "Next(0,4275)=491"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomMaleFirstName, seed 2024",
+      "result": {
+        "result": "Alexander",
+        "calls": [
+          "Next(0,1219)=140"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomFemaleFirstAndLastName, seed 2024",
+      "result": {
+        "result": "Ebony Midcap",
+        "calls": [
+          "Next(0,4275)=491",
+          "Next(0,88799)=61858"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateRandomMaleFirstAndLastName, seed 2024",
+      "result": {
+        "result": "Alexander Midcap",
+        "calls": [
+          "Next(0,1219)=140",
+          "Next(0,88799)=61858"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PlaceNameGenerator.GenerateRandomPlaceName, seed 2024",
+      "result": {
+        "result": "Home Gardens",
+        "calls": [
+          "Next(0,16873)=1941"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "StarNameGenerator.GenerateRandomStarName, seed 2024",
+      "result": {
+        "result": "Parumleo",
+        "calls": [
+          "Next(0,3716)=427"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "StarNameGenerator.GenerateRandomProperStarName, seed 2024",
+      "result": {
+        "result": "Alwasl",
+        "calls": [
+          "Next(0,640)=73"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "StarNameGenerator.GenerateRandomCatalogStarName, seed 2024",
+      "result": {
+        "result": "HD 39532",
+        "calls": [
+          "Next(0,343518)=39531"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateMultipleFirstAndLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Rubin Mushero",
+          "Evelyn Damas",
+          "Jule Gipple"
+        ],
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=849",
+          "Next(0,88799)=46150",
+          "Next(0,2)=1",
+          "Next(0,4275)=56",
+          "Next(0,88799)=29130",
+          "Next(0,2)=1",
+          "Next(0,4275)=3639",
+          "Next(0,88799)=33757"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateMultipleLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Hoeft",
+          "Midcap",
+          "Mushero"
+        ],
+        "calls": [
+          "Next(0,88799)=10218",
+          "Next(0,88799)=61858",
+          "Next(0,88799)=46150"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Ebony Midcap",
+          "Michel Morrall",
+          "Evelyn Damas"
+        ],
+        "calls": [
+          "Next(0,4275)=491",
+          "Next(0,88799)=61858",
+          "Next(0,4275)=2221",
+          "Next(0,88799)=50318",
+          "Next(0,4275)=56",
+          "Next(0,88799)=29130"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Alexander Midcap",
+          "Kris Morrall",
+          "Kenneth Damas"
+        ],
+        "calls": [
+          "Next(0,1219)=140",
+          "Next(0,88799)=61858",
+          "Next(0,1219)=633",
+          "Next(0,88799)=50318",
+          "Next(0,1219)=16",
+          "Next(0,88799)=29130"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateMultipleFemaleFirstNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Ebony",
+          "Shenita",
+          "Michel"
+        ],
+        "calls": [
+          "Next(0,4275)=491",
+          "Next(0,4275)=2977",
+          "Next(0,4275)=2221"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PersonNameGenerator.GenerateMultipleMaleFirstNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Alexander",
+          "Rubin",
+          "Kris"
+        ],
+        "calls": [
+          "Next(0,1219)=140",
+          "Next(0,1219)=849",
+          "Next(0,1219)=633"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Home Gardens",
+          "Kensal",
+          "The Lakes"
+        ],
+        "calls": [
+          "Next(0,16873)=1941",
+          "Next(0,16873)=11753",
+          "Next(0,16873)=8769"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "StarNameGenerator.GenerateMultipleStarNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Parumleo",
+          "Eta Centauri",
+          "68 Aquilae"
+        ],
+        "calls": [
+          "Next(0,3716)=427",
+          "Next(0,3716)=2588",
+          "Next(0,3716)=1931"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomFirstName, seed 2024",
+      "result": {
+        "result": "Rubin",
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=849"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomLastName, seed 2024",
+      "result": {
+        "result": "Hoeft",
+        "calls": [
+          "Next(0,88799)=10218"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomFemaleFirstName, seed 2024",
+      "result": {
+        "result": "Ebony",
+        "calls": [
+          "Next(0,4275)=491"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomMaleFirstName, seed 2024",
+      "result": {
+        "result": "Alexander",
+        "calls": [
+          "Next(0,1219)=140"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomFemaleFirstAndLastName, seed 2024",
+      "result": {
+        "result": "Ebony Midcap",
+        "calls": [
+          "Next(0,4275)=491",
+          "Next(0,88799)=61858"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomMaleFirstAndLastName, seed 2024",
+      "result": {
+        "result": "Alexander Midcap",
+        "calls": [
+          "Next(0,1219)=140",
+          "Next(0,88799)=61858"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomFirstAndLastName, seed 2024",
+      "result": {
+        "result": "Rubin Mushero",
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=849",
+          "Next(0,88799)=46150"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomPlaceName, seed 2024",
+      "result": {
+        "result": "Home Gardens",
+        "calls": [
+          "Next(0,16873)=1941"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomStarName, seed 2024",
+      "result": {
+        "result": "Parumleo",
+        "calls": [
+          "Next(0,3716)=427"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleFirstAndLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Rubin Mushero",
+          "Evelyn Damas",
+          "Jule Gipple"
+        ],
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=849",
+          "Next(0,88799)=46150",
+          "Next(0,2)=1",
+          "Next(0,4275)=56",
+          "Next(0,88799)=29130",
+          "Next(0,2)=1",
+          "Next(0,4275)=3639",
+          "Next(0,88799)=33757"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Hoeft",
+          "Midcap",
+          "Mushero"
+        ],
+        "calls": [
+          "Next(0,88799)=10218",
+          "Next(0,88799)=61858",
+          "Next(0,88799)=46150"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleFemaleFirstAndLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Ebony Midcap",
+          "Michel Morrall",
+          "Evelyn Damas"
+        ],
+        "calls": [
+          "Next(0,4275)=491",
+          "Next(0,88799)=61858",
+          "Next(0,4275)=2221",
+          "Next(0,88799)=50318",
+          "Next(0,4275)=56",
+          "Next(0,88799)=29130"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleMaleFirstAndLastNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Alexander Midcap",
+          "Kris Morrall",
+          "Kenneth Damas"
+        ],
+        "calls": [
+          "Next(0,1219)=140",
+          "Next(0,88799)=61858",
+          "Next(0,1219)=633",
+          "Next(0,88799)=50318",
+          "Next(0,1219)=16",
+          "Next(0,88799)=29130"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleFemaleFirstNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Ebony",
+          "Shenita",
+          "Michel"
+        ],
+        "calls": [
+          "Next(0,4275)=491",
+          "Next(0,4275)=2977",
+          "Next(0,4275)=2221"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleMaleFirstNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Alexander",
+          "Rubin",
+          "Kris"
+        ],
+        "calls": [
+          "Next(0,1219)=140",
+          "Next(0,1219)=849",
+          "Next(0,1219)=633"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultiplePlaceNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Home Gardens",
+          "Kensal",
+          "The Lakes"
+        ],
+        "calls": [
+          "Next(0,16873)=1941",
+          "Next(0,16873)=11753",
+          "Next(0,16873)=8769"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultipleStarNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Parumleo",
+          "Eta Centauri",
+          "68 Aquilae"
+        ],
+        "calls": [
+          "Next(0,3716)=427",
+          "Next(0,3716)=2588",
+          "Next(0,3716)=1931"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "constructors only, seed 2024",
+      "result": {
+        "result": "constructed",
+        "calls": []
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomMaleFirstName first",
+      "result": {
+        "result": "James",
+        "calls": [
+          "Next(0,1219)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFemaleFirstName first",
+      "result": {
+        "result": "Mary",
+        "calls": [
+          "Next(0,4275)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomLastName first",
+      "result": {
+        "result": "Smith",
+        "calls": [
+          "Next(0,88799)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName first",
+      "result": {
+        "result": "Abbeville",
+        "calls": [
+          "Next(0,16873)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomStarName first",
+      "result": {
+        "result": "Absolutno",
+        "calls": [
+          "Next(0,3716)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomProperStarName first",
+      "result": {
+        "result": "Absolutno",
+        "calls": [
+          "Next(0,640)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName first",
+      "result": {
+        "result": "HD 1",
+        "calls": [
+          "Next(0,343518)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName first",
+      "result": {
+        "result": "Abbeville",
+        "calls": [
+          "Next(0,16873)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomMaleFirstName last",
+      "result": {
+        "result": "Alonso",
+        "calls": [
+          "Next(0,1219)=1218"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFemaleFirstName last",
+      "result": {
+        "result": "Allyn",
+        "calls": [
+          "Next(0,4275)=4274"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomLastName last",
+      "result": {
+        "result": "Aalderink",
+        "calls": [
+          "Next(0,88799)=88798"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName last",
+      "result": {
+        "result": "Yaurel comunidad",
+        "calls": [
+          "Next(0,16873)=16872"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomStarName last",
+      "result": {
+        "result": "Zeta⁴ Librae",
+        "calls": [
+          "Next(0,3716)=3715"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomProperStarName last",
+      "result": {
+        "result": "Áldu",
+        "calls": [
+          "Next(0,640)=639"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName last",
+      "result": {
+        "result": "HIP 120416",
+        "calls": [
+          "Next(0,343518)=343517"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName last",
+      "result": {
+        "result": "Yaurel comunidad",
+        "calls": [
+          "Next(0,16873)=16872"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomMaleFirstName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,1219)=1219"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFemaleFirstName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,4275)=4275"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomLastName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,88799)=88799"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16873)=16873"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomStarName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,3716)=3716"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomProperStarName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,640)=640"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,343518)=343518"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16873)=16873"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomMaleFirstName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,1219)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFemaleFirstName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,4275)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomLastName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,88799)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16873)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomStarName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,3716)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomProperStarName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,640)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName min - 1 (out of range)",
+      "result": {
+        "result": "HD 0",
+        "calls": [
+          "Next(0,343518)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16873)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomStarName at the last proper name",
+      "result": {
+        "result": "Áldu",
+        "calls": [
+          "Next(0,3716)=639"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomStarName at the first designation",
+      "result": {
+        "result": "1 Aquarii",
+        "calls": [
+          "Next(0,3716)=640"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName at HD 225300",
+      "result": {
+        "result": "HD 225300",
+        "calls": [
+          "Next(0,343518)=225299"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName at the first HIP",
+      "result": {
+        "result": "HIP 1",
+        "calls": [
+          "Next(0,343518)=225300"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomCatalogStarName at the second HIP",
+      "result": {
+        "result": "HIP 2",
+        "calls": [
+          "Next(0,343518)=225301"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFirstName with the gender draw 0",
+      "result": {
+        "result": "James",
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFirstName with the gender draw 1",
+      "result": {
+        "result": "Mary",
+        "calls": [
+          "Next(0,2)=1",
+          "Next(0,4275)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFirstName with the gender draw 2",
+      "result": {
+        "result": "Mary",
+        "calls": [
+          "Next(0,2)=2",
+          "Next(0,4275)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFirstName with the gender draw -1",
+      "result": {
+        "result": "Mary",
+        "calls": [
+          "Next(0,2)=-1",
+          "Next(0,4275)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFirstAndLastName, all first",
+      "result": {
+        "result": "James Smith",
+        "calls": [
+          "Next(0,2)=0",
+          "Next(0,1219)=0",
+          "Next(0,88799)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFirstAndLastName, all last",
+      "result": {
+        "result": "Allyn Aalderink",
+        "calls": [
+          "Next(0,2)=1",
+          "Next(0,4275)=4274",
+          "Next(0,88799)=88798"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomFemaleFirstAndLastName, all last",
+      "result": {
+        "result": "Allyn Aalderink",
+        "calls": [
+          "Next(0,4275)=4274",
+          "Next(0,88799)=88798"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomMaleFirstAndLastName, all first",
+      "result": {
+        "result": "James Smith",
+        "calls": [
+          "Next(0,1219)=0",
+          "Next(0,88799)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateMultipleLastNames count 2 when the script ends after one",
+      "result": {
+        "result": {
+          "$throws": "System.InvalidOperationException: script exhausted"
+        },
+        "calls": [
+          "Next(0,88799)=0"
+        ]
+      }
+    },
+    {
+      "group": "Default generators",
+      "name": "PersonNameGenerator() names come from the lists",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "PlaceNameGenerator() names come from the list",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "StarNameGenerator() names come from the lists",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "catalogue names are HD 1 to HD 225300 or HIP numbers",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "two PersonNameGenerator() made back to back give different names",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "two PlaceNameGenerator() made back to back give different names",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "default generators on 8 threads at once give names from the lists",
+      "result": true
+    },
+    {
+      "group": "Default generators",
+      "name": "the default Random's type",
+      "result": "System.Random"
+    },
+    {
+      "group": "Default generators",
+      "name": "two default generators share one Random",
+      "result": false
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine dist.male.first.stripped",
+      "result": {
+        "count": 1219,
+        "sha256": "5b8b66c95f455e609a76e0a7d052a535ce9cca2f8f4b803ff3c21dcfa9a3e631",
+        "first": [
+          "James",
+          "John"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine dist.female.first.stripped",
+      "result": {
+        "count": 4275,
+        "sha256": "31e2c9911e2595655394efc07738025aa7f0ca40857dfb1e5c687ab85e59d3c1",
+        "first": [
+          "Mary",
+          "Patricia"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine dist.all.last.stripped",
+      "result": {
+        "count": 88799,
+        "sha256": "59232dec3153d3d9ae132ece4f9784b2312f187f035fdf0681bead2353a8f303",
+        "first": [
+          "Smith",
+          "Johnson"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine places2k.txt.stripped",
+      "result": {
+        "count": 16873,
+        "sha256": "a4b83595b066871460c43a01d98a718516b1c2761f0d3b47c40ed6687882b3c0",
+        "first": [
+          "Abbeville",
+          "Adamsville"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine stars.proper.stripped",
+      "result": {
+        "count": 640,
+        "sha256": "cc3ec47aa8f800f020ba374c714503a886edabcad4931780af333fe9cf64285a",
+        "first": [
+          "Absolutno",
+          "Acamar"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine stars.designations.stripped",
+      "result": {
+        "count": 3076,
+        "sha256": "c62e82de27b320b4c760e4a1aeb47d336d8d635c2819c2f57c0789ceca5c3b3c",
+        "first": [
+          "1 Aquarii",
+          "1 Arietis"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine stars.hipgaps.stripped",
+      "result": {
+        "count": 2199,
+        "sha256": "6920f854bda1059583fc7c62f9efa9e1b12ad09362be62dc801722b0aa61263a",
+        "first": [
+          "120416",
+          "672"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine 'nope'",
+      "result": {
+        "$throws": "System.InvalidOperationException: Embedded resource 'RandomNameGeneratorLibrary.Resources.nope' was not found in {ASSEMBLY}."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine ''",
+      "result": {
+        "$throws": "System.InvalidOperationException: Embedded resource 'RandomNameGeneratorLibrary.Resources.' was not found in {ASSEMBLY}."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine (null)",
+      "result": {
+        "$throws": "System.InvalidOperationException: Embedded resource 'RandomNameGeneratorLibrary.Resources.' was not found in {ASSEMBLY}."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine 'Resources.dist.male.first.stripped'",
+      "result": {
+        "$throws": "System.InvalidOperationException: Embedded resource 'RandomNameGeneratorLibrary.Resources.Resources.dist.male.first.stripped' was not found in {ASSEMBLY}."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine 'DIST.MALE.FIRST.STRIPPED'",
+      "result": {
+        "$throws": "System.InvalidOperationException: Embedded resource 'RandomNameGeneratorLibrary.Resources.DIST.MALE.FIRST.STRIPPED' was not found in {ASSEMBLY}."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine '../dist.male.first.stripped'",
+      "result": {
+        "$throws": "System.InvalidOperationException: Embedded resource 'RandomNameGeneratorLibrary.Resources.../dist.male.first.stripped' was not found in {ASSEMBLY}."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine returns a new array each call",
+      "result": true
+    },
+    {
+      "group": "Subclass",
+      "name": "constructor with a null Random",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "constructor keeps the caller's Random",
+      "result": true
+    },
+    {
+      "group": "Culture",
+      "name": "seeded names under tr-TR, seed 77",
+      "result": [
+        "HIP 102195",
+        "HD 141035",
+        "HD 202710",
+        "HIP 116042",
+        "HIP 108189",
+        "HIP 66431",
+        "HD 139604",
+        "HD 24692",
+        "Nelle Collamore",
+        "Jong Arigo",
+        "Todd Almas",
+        "Wanda Geffken"
+      ]
+    },
+    {
+      "group": "Culture",
+      "name": "seeded names under fa-IR, seed 77",
+      "result": [
+        "HIP 102195",
+        "HD 141035",
+        "HD 202710",
+        "HIP 116042",
+        "HIP 108189",
+        "HIP 66431",
+        "HD 139604",
+        "HD 24692",
+        "Nelle Collamore",
+        "Jong Arigo",
+        "Todd Almas",
+        "Wanda Geffken"
+      ]
+    },
+    {
+      "group": "Culture",
+      "name": "seeded names under ar-SA, seed 77",
+      "result": [
+        "HIP 102195",
+        "HD 141035",
+        "HD 202710",
+        "HIP 116042",
+        "HIP 108189",
+        "HIP 66431",
+        "HD 139604",
+        "HD 24692",
+        "Nelle Collamore",
+        "Jong Arigo",
+        "Todd Almas",
+        "Wanda Geffken"
+      ]
+    },
+    {
+      "group": "Culture",
+      "name": "seeded names under hi-IN, seed 77",
+      "result": [
+        "HIP 102195",
+        "HD 141035",
+        "HD 202710",
+        "HIP 116042",
+        "HIP 108189",
+        "HIP 66431",
+        "HD 139604",
+        "HD 24692",
+        "Nelle Collamore",
+        "Jong Arigo",
+        "Todd Almas",
+        "Wanda Geffken"
+      ]
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits 0061 0062 0063 0031 0032 0033",
+      "result": "abc"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits ",
+      "result": ""
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits 006e 006f 0020 0064 0069 0067 0069 0074 0073",
+      "result": "no digits"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits 0032 0030 0032 0030 0020 0043 0065 006e 0073 0075 0073 0020 0039 0039",
+      "result": " Census "
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits 0663 0664 0061",
+      "result": "a"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits ff11 ff12 0062",
+      "result": "b"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits 0078 00b2 0079",
+      "result": "x²y"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "RemoveDigits null",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile three rows",
+      "result": "James{NL}John{NL}Mary-ann{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile CRLF rows",
+      "result": "Smith{NL}Johnson{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile one name, no statistics",
+      "result": "O'neil{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile a blank row",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Index and length must refer to a location within the string."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile a leading space",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Index and length must refer to a location within the string."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile Latin-1 bytes",
+      "result": "Mu�oz{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile empty file",
+      "result": ""
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile a city",
+      "result": "Abbeville{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile zona urbana",
+      "result": "Adjuntas zona urbana{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile New York city",
+      "result": "New York{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile a CDP whose name contains town",
+      "result": "New{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile a village",
+      "result": "Addison{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile a balance",
+      "result": "Athens-Clarke County{NL}"
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile state only",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile one character",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Index and count must refer to a location within the string."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile blank line",
+      "result": {
+        "$throws": "System.ArgumentOutOfRangeException: Index and count must refer to a location within the string."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile with a missing input",
+      "result": {
+        "$throws": "System.IO.FileNotFoundException: Could not find file '{WORK}/missing.txt'."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPlaceNameFile with a missing input",
+      "result": {
+        "$throws": "System.IO.FileNotFoundException: Could not find file '{WORK}/missing.txt'."
+      }
+    },
+    {
+      "group": "CensusListStripper",
+      "name": "StripStatisticsFromPersonNameFile with a null path",
+      "result": {
+        "$throws": "System.ArgumentNullException: Value cannot be null."
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "round trip hello world",
+      "result": {
+        "roundTrips": true,
+        "compressedBytes": 13,
+        "compressedSha256": "4d1790028a0db3273f094ac66f28ad620198166f52f9a766fbfe3730f62b268a"
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "round trip empty",
+      "result": {
+        "roundTrips": true,
+        "compressedBytes": 0,
+        "compressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "round trip accents and a surrogate pair",
+      "result": {
+        "roundTrips": true,
+        "compressedBytes": 15,
+        "compressedSha256": "a9ea0c652c8a2ab0eac72d9ff9065e9cdd19244946f171df8b60f17e2caff719"
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "round trip every last name",
+      "result": {
+        "roundTrips": true,
+        "compressedBytes": 329448,
+        "compressedSha256": "13754a5ebb38a70a70f772675acc8c7e9228ef3834056c914d40d3b97a6cab71"
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "CompressStringToFile null text",
+      "result": ""
+    },
+    {
+      "group": "FileCompressor",
+      "name": "DecompressFileToString of a stored deflate block",
+      "result": "abc"
+    },
+    {
+      "group": "FileCompressor",
+      "name": "DecompressFileToString of plain text",
+      "result": {
+        "$throws": "System.IO.InvalidDataException: Found invalid data while decoding."
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "DecompressFileToString of an empty file",
+      "result": ""
+    },
+    {
+      "group": "FileCompressor",
+      "name": "DecompressFileToString of a missing file",
+      "result": {
+        "$throws": "System.IO.FileNotFoundException: Could not find file '{WORK}/missing.bin'."
+      }
+    },
+    {
+      "group": "FileCompressor",
+      "name": "CompressStringToFile into a missing folder",
+      "result": {
+        "$throws": "System.IO.DirectoryNotFoundException: Could not find a part of the path '{WORK}/no-such-folder/x.bin'."
+      }
+    }
+  ]
+}

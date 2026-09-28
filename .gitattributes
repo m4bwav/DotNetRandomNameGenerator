@@ -1,9 +1,11 @@
-* text=auto
-*.stripped text eol=lf
-*.cs text
-*.md text
-*.yml text
-*.json text
-*.csproj text
-*.slnx text
+# Keep LF everywhere so dotnet format (end_of_line = lf in .editorconfig) agrees on every OS.
+* text=auto eol=lf
 *.png binary
+*.nupkg binary
+*.snupkg binary
+# The embedded name lists are data: their bytes are recorded by the golden tests.
+*.stripped text eol=lf
+# The golden recordings, the API list and the ruled exceptions are compared byte for byte; keep them exactly as captured.
+tests/Golden/*.json -text
+tests/Golden/PublicApi-*.txt -text
+tests/RandomNameGeneratorLibrary.GoldenTests/Exceptions/*.json -text

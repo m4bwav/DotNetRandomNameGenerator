@@ -34,6 +34,41 @@ namespace RandomNameGeneratorUnitTests
             Assert.Equal(fromRandom, fromSeed);
         }
 
+        // 2.3.0 regenerated the list from places2k.txt with tools/CensusTools. The 2014 stripper cut a name at the first
+        // "town", "city", "village", ... anywhere in it, so Georgetown was listed as "George" and Felicity as "Feli".
+        [Theory]
+        [InlineData("Georgetown")]
+        [InlineData("Allentown")]
+        [InlineData("Hagerstown")]
+        [InlineData("Middletown")]
+        [InlineData("Newtown")]
+        [InlineData("Felicity")]
+        [InlineData("Quakertown")]
+        public void PlaceNamesKeepWordsThatContainAClassification(string name)
+        {
+            Assert.Contains(name, PlaceNameGenerator.PlaceNames);
+        }
+
+        [Theory]
+        [InlineData("Feli")]
+        [InlineData("Hagers")]
+        [InlineData("Gilber")]
+        [InlineData("G")]
+        [InlineData("H")]
+        [InlineData("New Middle")]
+        public void PlaceNamesHaveNoTruncatedEntries(string truncated)
+        {
+            Assert.DoesNotContain(truncated, PlaceNameGenerator.PlaceNames);
+        }
+
+        [Fact]
+        public void PlaceNamesEndWithoutAClassificationWord()
+        {
+            var words = new[] { " town", " city", " CDP", " village", " municipality", " borough", " (balance)" };
+
+            Assert.DoesNotContain(PlaceNameGenerator.PlaceNames, n => words.Any(w => n.EndsWith(w, StringComparison.Ordinal)));
+        }
+
         [Fact]
         public void GenerateMultiplePlaceNamesReturnsTheRequestedCountFromTheList()
         {

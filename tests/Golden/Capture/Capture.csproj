@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Golden capture of the PUBLISHED RandomNameGeneratorLibrary 2.2.0 (package-modernize retrofit, Phase 0), in the split
+    shape of CachingServiceWithAOPSupport's capture. 2.2.0 ships lib/netstandard2.0 and lib/net10.0, so the capture runs
+    on both runtimes a caller can have: net48 (which loads the netstandard2.0 build) and net10.0 (the net10.0 build).
+    Run: dotnet run -c Release -f net48 (or net10.0) -p:SatelliteResourceLanguages=en with the output path as the
+    program's one argument (see Program.cs), for example ../2.2.0.net48-windows.json.
+    The Directory.Build.* and Directory.Packages.props files beside this one are empty on purpose: they stop MSBuild
+    from importing the repository's own props, so later changes to the repository cannot change this recording.
+  -->
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net10.0;net48</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <RootNamespace>GoldenCapture</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RandomNameGeneratorLibrary" Version="[2.2.0]" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

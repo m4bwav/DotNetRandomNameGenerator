@@ -1,0 +1,583 @@
+{
+  "note": "Answers of the 2.3.0 build that differ from 2.2.0 because the place list was regenerated (plan D3). Written by GOLDEN_WRITE_DIFFERENCES from the release build, reviewed, never edited by hand.",
+  "runtime": "net10.0",
+  "cases": [
+    {
+      "group": "Resources",
+      "name": "RandomNameGeneratorLibrary.Resources.places2k.txt.stripped",
+      "result": {
+        "bytes": 182362,
+        "sha256": "f409cb412ffce410eece666c38d9f4ba76bea119a720613ea16997dcdbb7d85e",
+        "lineFeeds": 16969,
+        "carriageReturns": 0,
+        "bom": false
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "PlaceNameGenerator.PlaceNames",
+      "result": {
+        "type": "System.String[]",
+        "sameInstance": true,
+        "isReadOnly": true,
+        "count": 16969,
+        "sha256": "a67c105d0bf2ed59287e3380a6e5b10dd73c7387d6ac806e497936105489b152",
+        "distinct": 16969,
+        "first": [
+          "Abbeville",
+          "Adamsville",
+          "Addison"
+        ],
+        "last": [
+          "Yabucoa zona urbana",
+          "Yauco zona urbana",
+          "Yaurel comunidad"
+        ],
+        "nonAscii": 52,
+        "replacementChar": 0,
+        "blankOrPadded": 0,
+        "maxLength": 35,
+        "indexer -1": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')"
+        },
+        "indexer Count": {
+          "$throws": "System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')"
+        }
+      }
+    },
+    {
+      "group": "Lists",
+      "name": "names with non-ASCII characters, all lists",
+      "result": [
+        "Añasco zona urbana",
+        "Antón Ruíz comunidad",
+        "Bayamón zona urbana",
+        "Bayamón comunidad",
+        "Benítez comunidad",
+        "Boquerón comunidad",
+        "Breñas comunidad",
+        "Búfalo comunidad",
+        "Cabán comunidad",
+        "Canóvanas zona urbana",
+        "Cataño zona urbana",
+        "Comerío zona urbana",
+        "Coquí comunidad",
+        "Corazón comunidad",
+        "El Mangó comunidad",
+        "Fránquez comunidad",
+        "G. L. García comunidad",
+        "Guánica zona urbana",
+        "H. Rivera Colón comunidad",
+        "Imbéry comunidad",
+        "Juana Díaz zona urbana",
+        "Las Marías comunidad",
+        "Las Marías zona urbana",
+        "Liborio Negrón Torres comunidad",
+        "Loíza zona urbana",
+        "Luis Lloréns Torres comunidad",
+        "Luis M. Cintrón comunidad",
+        "Manatí zona urbana",
+        "María Antonia comunidad",
+        "Mariano Colón comunidad",
+        "Marueño comunidad",
+        "Mayagüez zona urbana",
+        "Pájaros comunidad",
+        "Parcelas Peñuelas comunidad",
+        "Peña Pobre comunidad",
+        "Peñuelas zona urbana",
+        "Pueblito del Río comunidad",
+        "Rafael Capó comunidad",
+        "Rafael González comunidad",
+        "Rafael Hernández comunidad"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 0",
+      "result": [
+        "Riverlea",
+        "Wall",
+        "Waldport",
+        "Risco",
+        "Niceville",
+        "St. Ann",
+        "Troup",
+        "Machias",
+        "Valders",
+        "Belle Prairie City"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 1",
+      "result": [
+        "Summerville",
+        "Fremont",
+        "Taunton",
+        "Big Run",
+        "Schenectady",
+        "Mansura",
+        "Buffalo Center",
+        "Nooksack",
+        "Chino Hills",
+        "Islip Terrace"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 42",
+      "result": [
+        "Boardman",
+        "Sedco Hills",
+        "Mission Canyon",
+        "Bentonia",
+        "West Pleasant View",
+        "Dietrich",
+        "Parma Heights",
+        "Perham",
+        "South Windham",
+        "Fossil"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 12345",
+      "result": [
+        "Bluff City",
+        "Damascus",
+        "Centre Hall",
+        "North Oaks",
+        "Mount Holly Springs",
+        "Hemingway",
+        "Sawpit",
+        "Bokoshe",
+        "Waipio",
+        "Lake St. Croix Beach"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 20260924",
+      "result": [
+        "Prophetstown",
+        "Norco",
+        "Steeleville",
+        "Mount Leonard",
+        "South Deerfield",
+        "Mercerville-Hamilton Square",
+        "Margate City",
+        "Vega Baja zona urbana",
+        "Huntington Bay",
+        "Ivey"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed -1",
+      "result": [
+        "Summerville",
+        "Fremont",
+        "Taunton",
+        "Big Run",
+        "Schenectady",
+        "Mansura",
+        "Buffalo Center",
+        "Nooksack",
+        "Chino Hills",
+        "Islip Terrace"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed -12345",
+      "result": [
+        "Bluff City",
+        "Damascus",
+        "Centre Hall",
+        "North Oaks",
+        "Mount Holly Springs",
+        "Hemingway",
+        "Sawpit",
+        "Bokoshe",
+        "Waipio",
+        "Lake St. Croix Beach"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed 2147483647",
+      "result": [
+        "Riverlea",
+        "Wall",
+        "Waldport",
+        "Risco",
+        "Niceville",
+        "St. Ann",
+        "Troup",
+        "Machias",
+        "Valders",
+        "Belle Prairie City"
+      ]
+    },
+    {
+      "group": "Seeded PlaceNameGenerator",
+      "name": "GenerateRandomPlaceName seed -2147483648",
+      "result": [
+        "Riverlea",
+        "Wall",
+        "Waldport",
+        "Risco",
+        "Niceville",
+        "St. Ann",
+        "Troup",
+        "Machias",
+        "Valders",
+        "Belle Prairie City"
+      ]
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomPlaceName x10000 seed 7",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "0e7687799d4dc5722f452d58aa9f91ad53b35ccbf191e2c8544a496bd36a74be",
+        "distinct": 7559,
+        "first": [
+          "Van Wert",
+          "Fort Bliss",
+          "Thiells"
+        ]
+      }
+    },
+    {
+      "group": "Seeded large",
+      "name": "GenerateRandomPlaceName x10000 seed 2026",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "797eecea09eabd3dd51882c4a5a93d381011d1e82030e10d97518cd7bed45bf9",
+        "distinct": 7543,
+        "first": [
+          "Hugo",
+          "Donovan",
+          "Tabiona"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 1",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Capitol Heights"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 3",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Capitol Heights",
+          "Cross Mountain",
+          "Kekoskee"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 25",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "names": [
+          "Capitol Heights",
+          "Cross Mountain",
+          "Kekoskee",
+          "Whispering Pines",
+          "Stephenville",
+          "Greers Ferry",
+          "Grand View",
+          "Exeter",
+          "Adrian",
+          "Eagles Mere",
+          "Bostwick",
+          "West Peavine",
+          "Argusville",
+          "Rhinelander",
+          "Chenoa",
+          "Bandera",
+          "Haslett",
+          "Peosta",
+          "Curlew",
+          "Napeague",
+          "Minong",
+          "Rolling Hills",
+          "North Robinson",
+          "Jal",
+          "Protection"
+        ],
+        "enumeratesTheSameTwice": true
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 10000",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "count": 10000,
+        "sha256": "ea915ba29694d4759e86992afc0741b94ca58997a61d4d62525e2a67c0371094",
+        "distinct": 7547,
+        "first": [
+          "Capitol Heights",
+          "Cross Mountain",
+          "Kekoskee"
+        ]
+      }
+    },
+    {
+      "group": "Multiple",
+      "name": "an interface call gives the same names, seed 99",
+      "result": [
+        "Emmitt Diak",
+        "Nguyet Kistler",
+        "Joel Pieroni",
+        "Capitol Heights",
+        "Cross Mountain",
+        "Kekoskee",
+        "50 Sagittarii",
+        "Pi Herculis",
+        "Xi Gruis",
+        "Ines Tablada",
+        "Whispering Pines",
+        "HIP 11397",
+        "Tiansi"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateRandomPlaceName x10 on one Random, seed 5",
+      "result": [
+        "Losantville",
+        "East Dubuque",
+        "Elk River",
+        "Antwerp",
+        "Marshfield Hills",
+        "Onley",
+        "Tuolumne City",
+        "Walla Walla",
+        "Cape May Point",
+        "Klamath"
+      ]
+    },
+    {
+      "group": "Random extensions",
+      "name": "GenerateMultiplePlaceNames count 3 twice on one Random, seed 5",
+      "result": {
+        "type": "System.Collections.Generic.List`1[System.String]",
+        "first": [
+          "Losantville",
+          "East Dubuque",
+          "Elk River"
+        ],
+        "second": [
+          "Antwerp",
+          "Marshfield Hills",
+          "Onley"
+        ]
+      }
+    },
+    {
+      "group": "Shared Random",
+      "name": "person, place, star, extensions and the caller's own draws on one Random, seed 314",
+      "result": [
+        "Eulah Harvison",
+        "Dunbar",
+        "Xi Telescopii",
+        "HIP 105564",
+        "Belinski",
+        971,
+        "Gwendolyn Meadville",
+        "Upper Saddle River",
+        "60 Aquarii",
+        "HIP 59775",
+        "Reusswig",
+        129,
+        "Carisa Mclennan",
+        "Rio Hondo",
+        "72 Herculis",
+        "HIP 78380",
+        "Bushey",
+        727,
+        "Scotty Percey",
+        "Port Wentworth",
+        "20 Ophiuchi",
+        "HIP 105985",
+        "Knorr",
+        163,
+        "Sharolyn Moskal",
+        "Milo",
+        "Sadalmelik",
+        "HD 127663",
+        "Monette",
+        247
+      ]
+    },
+    {
+      "group": "Random calls",
+      "name": "PlaceNameGenerator.GenerateRandomPlaceName, seed 2024",
+      "result": {
+        "result": "Huron",
+        "calls": [
+          "Next(0,16969)=1952"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "PlaceNameGenerator.GenerateMultiplePlaceNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Huron",
+          "Lidgerwood",
+          "Vergas"
+        ],
+        "calls": [
+          "Next(0,16969)=1952",
+          "Next(0,16969)=11820",
+          "Next(0,16969)=8819"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateRandomPlaceName, seed 2024",
+      "result": {
+        "result": "Huron",
+        "calls": [
+          "Next(0,16969)=1952"
+        ]
+      }
+    },
+    {
+      "group": "Random calls",
+      "name": "Random.GenerateMultiplePlaceNames count 3, seed 2024",
+      "result": {
+        "result": [
+          "Huron",
+          "Lidgerwood",
+          "Vergas"
+        ],
+        "calls": [
+          "Next(0,16969)=1952",
+          "Next(0,16969)=11820",
+          "Next(0,16969)=8819"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName first",
+      "result": {
+        "result": "Abbeville",
+        "calls": [
+          "Next(0,16969)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName first",
+      "result": {
+        "result": "Abbeville",
+        "calls": [
+          "Next(0,16969)=0"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName last",
+      "result": {
+        "result": "Yaurel comunidad",
+        "calls": [
+          "Next(0,16969)=16968"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName last",
+      "result": {
+        "result": "Yaurel comunidad",
+        "calls": [
+          "Next(0,16969)=16968"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16969)=16969"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName max (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16969)=16969"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "GenerateRandomPlaceName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16969)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Scripted Random",
+      "name": "Random.GenerateRandomPlaceName min - 1 (out of range)",
+      "result": {
+        "result": {
+          "$throws": "System.IndexOutOfRangeException: Index was outside the bounds of the array."
+        },
+        "calls": [
+          "Next(0,16969)=-1"
+        ]
+      }
+    },
+    {
+      "group": "Subclass",
+      "name": "ReadResourceByLine places2k.txt.stripped",
+      "result": {
+        "count": 16969,
+        "sha256": "a67c105d0bf2ed59287e3380a6e5b10dd73c7387d6ac806e497936105489b152",
+        "first": [
+          "Abbeville",
+          "Adamsville"
+        ]
+      }
+    }
+  ]
+}
