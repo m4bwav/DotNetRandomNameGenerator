@@ -111,7 +111,7 @@ Unchanged: csproj targets, metadata, resources, icon, README packing. Changed: `
 ### Phase 6: release
 - [x] CHANGELOG dated, version 2.3.0, merged, green, tagged; **stop** for the approval; verify-published; GitHub Release; baseline stays 2.2.0 until 2.3.0 is published, then 2.3.0
 ### Phase 7: wrap-up
-- [ ] HANDOFF around standing work; inventory row 4; the skill's retrofit path and lessons (L-090 and up) by pull request; the kickoff's "what the run found wrong"
+- [x] HANDOFF around standing work; inventory row 4; the skill's retrofit path and lessons (L-090 and up) by pull request; the kickoff's "what the run found wrong"
 
 ## Test strategy
 
