@@ -4,11 +4,7 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 
 ## [Unreleased]
 
-## [2.3.0-beta.1] - 2026-09-28
-
-The release rehearsal of 2.3.0, published as a prerelease to prove the new release path (release.yml, the approval gate, verification from nuget.org). It has the same code as 2.3.0: the place list is rebuilt from the Census 2000 file, so names such as Georgetown are no longer cut to "George", and almost every seeded place name differs from 2.2.0. Full notes: the 2.3.0 section of https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md
-
-## [2.3.0]
+## [2.3.0] - 2026-09-28
 
 2.3.0 answers every call as 2.2.0 did, on .NET Framework and on .NET, except for place names: `tests/Golden` holds 426 calls recorded from the published 2.2.0 on each runtime, and the golden tests replay them against every build. The 35 calls per runtime that draw from the place list are the one exception, pinned separately. No public type, member or parameter name changed.
 
@@ -29,6 +25,10 @@ The release rehearsal of 2.3.0, published as a prerelease to prove the new relea
 ### Changed (build)
 
 - Actions pinned to commit SHAs; publishing moved from `ci.yml` to `release.yml`; Dependabot also updates the SDK in `global.json`, groups test packages and waits seven days; line endings LF on every OS.
+
+## [2.3.0-beta.1] - 2026-09-28
+
+The release rehearsal of 2.3.0, published as a prerelease to prove the new release path (release.yml, the approval gate, verification from nuget.org). It has the same code as 2.3.0: the place list is rebuilt from the Census 2000 file, so names such as Georgetown are no longer cut to "George", and almost every seeded place name differs from 2.2.0. Full notes: the 2.3.0 section of https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md
 
 ## [2.2.0] - 2026-09-27
 
@@ -81,7 +81,7 @@ The release rehearsal of 2.3.0, published as a prerelease to prove the new relea
 
 - Last release of the 1.x line, targeting `net40` and `netstandard1.6`.
 
-[Unreleased]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.3.0-beta.1...HEAD
+[Unreleased]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.3.0...HEAD
 [2.3.0-beta.1]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.2.0...v2.3.0-beta.1
 [2.3.0]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/m4bwav/DotNetRandomNameGenerator/compare/v2.1.0...v2.2.0

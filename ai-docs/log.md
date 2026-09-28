@@ -47,3 +47,18 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 - Independent review (read-only subagent, prompts/review-subagent.md): differential of the 2.3.0-beta.1 nupkg against the published 2.2.0 over 5,000 seeds and all 60 call kinds, on net10.0 and net48: 144,891 comparisons per runtime, 0 differences outside the place list; every place answer equals PlaceNames[(int)(sample*count)] of its build; the data rebuilds exactly from the Census file (also by an independent suffix-only parser). 10 findings, all fixed: (1) the CI dependency check (already 1e4e416); (2) consumers could restore a nuget.org copy of the same version: run.sh now writes a nuget.config with packageSourceMapping (the package from the local folder only); (3) "every seeded place name differs" was false (2 percent of seeded draws land on the same name): CHANGELOG, release notes, plan and notes say "almost every"; (4) the exception regex also matched 26 recorded cases that must not change: the replay now pins the exact 35 keys; (5) the oracle covered 9 of 35 exceptions: it now covers all 35 (resource hash, list, seeded, large, multiple, extensions, Random calls, scripted bounds; the mixed seed-99 and seed-314 cases also compare every non-place answer with 2.2.0); (6) to (8) AGENTS.md: the consumers command, the win-x64 golden pin, the seven-day cooldown; (9) the beta's release notes now carry the substance and a link; (10) run.sh compares whole lines (grep -qxF).
 - run.sh against nuget.org 2.2.0 fails as it should (the consumer sees the old place list).
 - Machine fact: Windows Application Control ("An Application Control policy has blocked this file") refused to start the freshly rebuilt net48 golden test exe once; the net48 run is proven by CI's Windows job.
+
+## [2026-09-28] add | Phase 4 and 5: merged, beta tagged, waiting at the approval gate
+- Mark merged PR #13 as merge commit e3d610a (2026-09-28T03:52:36Z) and said he had edited the nuget.org Trusted Publishing policy (workflow file release.yml, environment nuget, package glob RandomNameGeneratorLibrary, scope: new versions only).
+- ci on master run 36375417348: green (Ubuntu, Windows, ci).
+- Tag v2.3.0-beta.1 on e3d610a pushed (the "Cannot create ref due to creations being restricted" line is the admin bypass message, L-087; ls-remote shows the tag on e3d610a).
+- release.yml run 36375599177: build and test, Windows net48 and net10.0, attest all green; "push to nuget.org (after approval)" waiting at the nuget environment.
+- PR #14 (branch release-2.3.0): version 2.3.0, changelog section dated 2026-09-28 and moved above the beta; checked locally (build, 103 tests on net10.0, pack, consumers of 2.3.0, notes extraction, dated-heading check). To be merged only after the beta is verified.
+
+## [2026-09-28] update | Correction to the entry above
+- Mark said "I merged everything"; he did not say whether the nuget.org policy edit (workflow ci.yml to release.yml) is done. The beta's push job will show it: a NuGet/login failure there means the policy still names ci.yml.
+
+## [2026-09-28] verify | 2.3.0-beta.1 released and verified (Phase 5 done)
+- Mark approved release run 36375599177 (approval by m4bwav); push to nuget.org and the GitHub Release succeeded at 03:59 UTC, so NuGet/login works under the edited policy (release.yml).
+- GitHub Release v2.3.0-beta.1: prerelease, nupkg and snupkg attached. `gh attestation verify ... --format json` on the run's nupkg: verified, build signer release.yml@refs/tags/v2.3.0-beta.1, source e3d610a.
+- verify-published run 36376068013 for 2.3.0-beta.1: green on Ubuntu, Windows and macOS (both indexes, repository signature, consumers from nuget.org).
