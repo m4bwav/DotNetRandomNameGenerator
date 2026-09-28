@@ -37,7 +37,7 @@ namespace RandomNameGeneratorLibrary
         }
 
         /// <summary>
-        /// The 16,873 distinct place names the generator draws from. Puerto Rico entries keep their Census
+        /// The 16,969 distinct place names the generator draws from (2.2.0 and earlier: 16,873, some cut short). Puerto Rico entries keep their Census
         /// suffix, for example <c>Bayamón zona urbana</c>.
         /// </summary>
         public static IReadOnlyList<string> PlaceNames => PlaceNameList.Value;

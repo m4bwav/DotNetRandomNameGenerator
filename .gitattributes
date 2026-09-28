@@ -10,3 +10,4 @@
 # The golden recordings and API list are compared byte for byte; keep them exactly as captured.
 tests/Golden/*.json -text
 tests/Golden/PublicApi-*.txt -text
+tests/RandomNameGeneratorLibrary.GoldenTests/Exceptions/*.json -text

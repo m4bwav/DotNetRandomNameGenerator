@@ -3,7 +3,7 @@
   <!--
     The golden replay (plan D1): the Phase 0 capture's cases, compiled unchanged against this repository's library and
     compared with what the published 2.2.0 answered on the same runtime (tests/Golden/2.2.0.<runtime>-windows.json).
-    The one ruled exception is the regenerated place list (plan D3), pinned in tests/Golden/2.3.0.places.<runtime>.json.
+    The one ruled exception is the regenerated place list (plan D3), pinned in Exceptions/2.3.0.places.<runtime>.json beside this file.
     A project of its own, so no other test shares its process (skill L-072 golden-alone-in-process).
   -->
 
@@ -30,6 +30,8 @@
     <Compile Include="../Golden/Capture/Fixtures.cs" Link="Capture/Fixtures.cs" />
     <Compile Include="../Golden/Capture/Json.cs" Link="Capture/Json.cs" />
     <None Include="../Golden/*.json" LinkBase="Golden" CopyToOutputDirectory="PreserveNewest" />
+    <!-- The one ruled exception (plan D3): answers that changed because the place list was regenerated in 2.3.0. -->
+    <None Include="Exceptions/*.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

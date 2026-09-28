@@ -39,7 +39,7 @@ namespace RandomNameGeneratorLibrary.GoldenTests
 
             var dir = Path.Combine(AppContext.BaseDirectory, "Golden");
             Recorded = Load(Path.Combine(dir, "2.2.0." + Runtime + "-windows.json"));
-            var placesPath = Path.Combine(dir, "2.3.0.places." + Runtime + ".json");
+            var placesPath = Path.Combine(AppContext.BaseDirectory, "Exceptions", "2.3.0.places." + Runtime + ".json");
             Places = File.Exists(placesPath) ? Load(placesPath) : new Dictionary<string, JsonElement>(StringComparer.Ordinal);
 
             // Writes the cases that now differ from 2.2.0, for a ruled exception file. Never set in CI; the file it
@@ -116,12 +116,13 @@ namespace RandomNameGeneratorLibrary.GoldenTests
     /// <summary>
     /// The golden contract (plan D1): every answer the published 2.2.0 gave on this runtime, from
     /// tests/Golden/2.2.0.&lt;runtime&gt;-windows.json, apart from the one ruled exception: cases that depend on the place
-    /// list, whose 2.3.0 answers are pinned in tests/Golden/2.3.0.places.&lt;runtime&gt;.json (plan D3).
+    /// list, whose 2.3.0 answers are pinned in tests/RandomNameGeneratorLibrary.GoldenTests/Exceptions/2.3.0.places.&lt;runtime&gt;.json (plan D3).
     /// </summary>
     public class GoldenTests : IClassFixture<GoldenRun>
     {
-        // Only a case whose name says it involves places may be a place exception (plan D3).
-        private static readonly Regex PlaceCase = new Regex("Place|places2k|Shared Random|non-ASCII", RegexOptions.CultureInvariant);
+        // Only a case whose name says it involves places may be a place exception (plan D3), plus the one mixed case
+        // that draws person, place and star names through the interfaces.
+        private static readonly Regex PlaceCase = new Regex("Place|places2k|Shared Random|non-ASCII|^Multiple [|] an interface call gives the same names, seed 99$", RegexOptions.CultureInvariant);
 
         private readonly GoldenRun _run;
 
@@ -146,6 +147,24 @@ namespace RandomNameGeneratorLibrary.GoldenTests
                 Assert.True(_run.Recorded.ContainsKey(p.Key), p.Key + " is not a recorded case");
                 Assert.Matches(PlaceCase, p.Key);
                 Assert.False(GoldenRun.JsonEqual(_run.Recorded[p.Key], p.Value), p.Key + " equals 2.2.0 and needs no exception");
+            }
+        }
+
+        [Fact]
+        public void Seeded_place_exceptions_are_the_new_list_indexed_by_the_same_draws()
+        {
+            // An oracle independent of PlaceNameGenerator's code: the 2.2.0 algorithm (one Next(0, count) per name, recorded
+            // in the "Random calls" cases) applied to the regenerated list gives exactly the pinned answers.
+            var seeded = _run.Places.Where(p => p.Key.StartsWith("Seeded PlaceNameGenerator | GenerateRandomPlaceName seed ", StringComparison.Ordinal)).ToList();
+            Assert.Equal(9, seeded.Count);
+            var names = PlaceNameGenerator.PlaceNames;
+            Assert.Equal(16969, names.Count);
+            foreach (var p in seeded)
+            {
+                var seed = int.Parse(p.Key.Substring(p.Key.LastIndexOf(' ') + 1), CultureInfo.InvariantCulture);
+                var random = new Random(seed);
+                var expected = Enumerable.Range(0, 10).Select(_ => names[random.Next(0, names.Count)]).ToList();
+                Assert.Equal(expected, p.Value.EnumerateArray().Select(e => e.GetString()!).ToList());
             }
         }
 
