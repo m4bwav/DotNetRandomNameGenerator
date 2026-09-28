@@ -15,7 +15,7 @@ RandomNameGeneratorLibrary was modernized on 2026-09-24 and 25 ([the 2.1.0 plan]
 
 ## Status
 
-Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`). Phase 1 ruled 2026-09-28: every recommendation stands except D2, D3 and D4, which the maintainer overruled: "fix the place-list bug now", in place, as 2.3.0 ("I consider it a bug, the old behavior wasn't worth preserving"). Phase 2 in progress.
+Active. Phase 0 done 2026-09-28 (golden commit 84dbc6b on branch `v2-retrofit`). Phase 1 ruled 2026-09-28: every recommendation stands except D2, D3 and D4, which the maintainer overruled: "fix the place-list bug now", in place, as 2.3.0 ("I consider it a bug, the old behavior wasn't worth preserving"). Phase 2 done; Phase 3 review running; the pull request stop is next.
 
 ## Goal
 
@@ -92,22 +92,24 @@ Unchanged: csproj targets, metadata, resources, icon, README packing. Changed: `
 - [x] everlast (mode repo, sync push), old ai-docs migrated; AGENTS.md, CLAUDE.md (the AGENTS.md import line), Copilot pointer
 - [x] Gap audit, place-list check against the Census 2000 source, 1.2.2 comparison
 ### Phase 1: plan
-- [ ] This plan and the decision record. **Stop**: the maintainer rules on D1 to D16 and answers the one question.
+- [x] This plan and the decision record. Ruled 2026-09-28 (see Rulings).
 ### Phase 2: retrofit on branch v2-retrofit
-- [ ] Golden replay project green on the first build (net10.0 and net48); canary after committing (L-074): one planted line in the library turns it red, reverted, green; golden files unchanged since 84dbc6b
-- [ ] PublicApi and README-examples tests; consumers; workflows from the templates, SHA-pinned, actionlint and zizmor clean; Dependabot; Directory.Build.props; SECURITY.md; README; CHANGELOG; version 2.2.1-beta.1
-- [ ] Verified locally (restore locked, format, build, test, pack with validation, consumers) and from a fresh clone
+- [x] Golden replay project: net10.0 green on the first build; net48 differed only by the process bitness of the harness (fixed by win-x64); canary after committing (156 red, reverted, green); golden files unchanged since 84dbc6b (64ebdf3)
+- [x] Place list regenerated (D3), 35 place exceptions per runtime pinned and checked by an oracle (8bebf10)
+- [x] PublicApi and README-examples tests; consumers; workflows from the templates, SHA-pinned, actionlint and zizmor clean; Dependabot; Directory.Build.props; SECURITY.md; README; CHANGELOG; version 2.3.0-beta.1 (3398d5c, 4457d01)
+- [x] Verified locally and from a fresh clone of 4457d01 (202 tests, pack, consumers)
 - [ ] Pushed; pull request with a "For review" list
 ### Phase 3: review
 - [ ] Independent read-only review (prompts/review-subagent.md) including a differential of the new build against the published 2.2.0 over seeded random inputs; findings fixed or answered; summary on the pull request
-- [ ] Rulesets and security settings applied (L-077). **Stop** for the pull request review.
+- [x] Rulesets and security settings applied (L-077): rulesets 24095614 and 24095615, scanning, push protection, private reporting, read-only workflow token, homepage; Releases v2.0.0 and v2.0.1; issue #7 comment.
+- [ ] **Stop** for the pull request review.
 ### Phase 4: CI, merge, cleanup
 - [ ] CI green; the maintainer merges; merge SHA and method read back
 ### Phase 5: rehearsal
 - [ ] The maintainer edits the Trusted Publishing policy (D7). **Stop.**
-- [ ] Tag v2.2.1-beta.1 on green master; **stop** for the approval; verify-published on three OSes
+- [ ] Tag v2.3.0-beta.1 on green master; **stop** for the approval; verify-published on three OSes
 ### Phase 6: release
-- [ ] CHANGELOG dated, version 2.2.1, merged, green, tagged; **stop** for the approval; verify-published; GitHub Release; baseline stays 2.2.0 until 2.2.1 is published, then 2.2.1
+- [ ] CHANGELOG dated, version 2.3.0, merged, green, tagged; **stop** for the approval; verify-published; GitHub Release; baseline stays 2.2.0 until 2.3.0 is published, then 2.3.0
 ### Phase 7: wrap-up
 - [ ] HANDOFF around standing work; inventory row 4; the skill's retrofit path and lessons (L-090 and up) by pull request; the kickoff's "what the run found wrong"
 
