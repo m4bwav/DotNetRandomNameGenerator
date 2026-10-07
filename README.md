@@ -1,6 +1,8 @@
 DotNetRandomNameGenerator
 =========================
 
+![A painted map of a fictional land full of small towns at night, with a wheel of blank name cards at its centre](https://raw.githubusercontent.com/m4bwav/DotNetRandomNameGenerator/master/.github/images/banner.jpg)
+
 Generates random people and place names drawn from freely available US census data, and the names of real stars.
 
 [![NuGet](https://img.shields.io/nuget/v/RandomNameGeneratorLibrary.svg)](https://www.nuget.org/packages/RandomNameGeneratorLibrary/) [![Downloads](https://img.shields.io/nuget/dt/RandomNameGeneratorLibrary.svg)](https://www.nuget.org/packages/RandomNameGeneratorLibrary/) [![CI](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml/badge.svg)](https://github.com/m4bwav/DotNetRandomNameGenerator/actions/workflows/ci.yml)
