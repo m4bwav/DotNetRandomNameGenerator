@@ -1,8 +1,8 @@
 # Security policy
 
-## Reporting a vulnerability
+## Reporting a problem
 
-Report it privately through GitHub: open the repository's **Security** tab and choose **Report a vulnerability**. Please do not open a public issue for a security problem.
+Open an issue or a pull request, or start a thread in [Discussions](https://github.com/m4bwav/DotNetRandomNameGenerator/discussions) and I'll take a look. You can also report privately: open the repository's **Security** tab and choose **Report a vulnerability**.
 
 A confirmed problem is fixed in a new release, and the advisory is published once the fix is on nuget.org. Affected versions are then marked deprecated on nuget.org with the fixed version as the alternate.
 
