@@ -163,6 +163,10 @@ CI (`.github/workflows/ci.yml`) restores in locked mode, checks formatting, buil
 
 To publish: add the entry to `CHANGELOG.md`, bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, merge, wait for CI to pass on `master`, then tag the commit `v<version>` and push the tag. `.github/workflows/release.yml` checks that the tag matches the version and sits on `master`, tests on Linux and Windows, attests the package, and waits for the maintainer's approval on the `nuget` environment before it signs in to nuget.org with Trusted Publishing (GitHub OIDC, no stored API key) and pushes. It then creates the GitHub Release with the changelog section and the packages. `.github/workflows/verify-published.yml` checks the published version from nuget.org on Linux, Windows and macOS.
 
+## Package page
+
+- NuGet: [RandomNameGeneratorLibrary](https://www.nuget.org/packages/RandomNameGeneratorLibrary)
+
 ## License
 
 MIT, see `LICENSE`.
