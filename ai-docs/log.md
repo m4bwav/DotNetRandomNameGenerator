@@ -98,3 +98,4 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 
 ## [2026-10-11] build | Unity package for OpenUPM
 - `Packages/com.m4bwav.random-name-generator` carries the nuget.org 2.3.0 netstandard2.0 DLL and XML byte for byte (`tools/UnityPackage/sync.py`), with Unity-written `.meta` files, LICENSE.md, README.md and a Web-build editor check. Seeded output in Unity 6000.6.4f1 Mono and in a 6000.5.8f1 WebGL/IL2CPP player matches .NET; the Web player needs Use Embedded Resources (dead end recorded in notes/2026-10-11-openupm-unity-package.md). README thread-safety sentence reworded (owed since 2026-09-28). Tags `upm/<version>` feed OpenUPM; `.github/images/openupm-cover.jpg` is the listing cover.
+## [2026-10-11] index | rebuilt (8 entries)
