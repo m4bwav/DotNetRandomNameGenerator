@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RandomNameGeneratorLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:RandomNameGeneratorLibrary.BaseNameGenerator">
+            <summary>
+            Shared plumbing for <see cref="T:RandomNameGeneratorLibrary.PersonNameGenerator"/> and <see cref="T:RandomNameGeneratorLibrary.PlaceNameGenerator"/>:
+            holds the <see cref="T:System.Random"/> the generator draws from and reads the embedded census lists.
+            This class is an implementation detail and is not meant to be used or derived from by callers;
+            it stays public only for binary compatibility with 1.x and 2.0.
+            </summary>
+        </member>
+        <member name="F:RandomNameGeneratorLibrary.BaseNameGenerator.RandGen">
+            <summary>
+            The random number generator every name is drawn from. When it was supplied by the caller it is not
+            thread-safe: use one generator per thread.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.BaseNameGenerator.#ctor">
+            <summary>Creates a generator with a fresh, well-seeded random number generator.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.BaseNameGenerator.#ctor(System.Random)">
+            <summary>Creates a generator that draws from <paramref name="randGen"/>.</summary>
+            <param name="randGen">The random number generator to draw from. A seeded instance gives reproducible names.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="randGen"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.BaseNameGenerator.ReadResourceByLine(System.String)">
+            <summary>
+            Reads an embedded census list, one entry per line, skipping blank lines.
+            </summary>
+            <param name="resourceFileName">The file name after the <c>RandomNameGeneratorLibrary.Resources.</c> prefix.</param>
+            <returns>The non-blank lines of the resource, in file order.</returns>
+            <exception cref="T:System.InvalidOperationException">The resource is not embedded in the assembly.</exception>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.CensusListStripper">
+            <summary>
+            The one-off tool that turned the raw US Census files into the embedded <c>Resources.*.stripped</c> lists.
+            It is not part of the name-generating API and will be removed in 3.0; a maintained copy lives in the
+            repository's <c>tools/CensusTools</c> console project.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.CensusListStripper.StripStatisticsFromPersonNameFile(System.String,System.String)">
+            <summary>Strips the frequency columns from a 1990 Census name file, keeping one Title-case name per line.</summary>
+            <param name="nameFilePath">Path of the Census file (<c>dist.male.first</c>, <c>dist.female.first</c> or <c>dist.all.last</c>).</param>
+            <param name="nameStrippedFilePath">Path to write the stripped list to.</param>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.CensusListStripper.StripStatisticsFromPlaceNameFile(System.String,System.String)">
+            <summary>Strips the state, population and classification columns from the Census 2000 places file, keeping one place name per line.</summary>
+            <param name="placeFilePath">Path of the Census <c>places2k.txt</c> file.</param>
+            <param name="placeStrippedFilePath">Path to write the stripped list to.</param>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.CensusListStripper.RemoveDigits(System.String)">
+            <summary>Removes every decimal digit from <paramref name="key"/>.</summary>
+            <param name="key">The text to strip digits from.</param>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.FileCompressor">
+            <summary>
+            Deflate helper once used to shrink the census lists. It is not part of the name-generating API and will
+            be removed in 3.0; a maintained copy lives in the repository's <c>tools/CensusTools</c> console project.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.FileCompressor.CompressStringToFile(System.String,System.String)">
+            <summary>Writes <paramref name="sourceText"/> to <paramref name="outputFilePath"/> as a Deflate stream.</summary>
+            <param name="sourceText">The text to compress.</param>
+            <param name="outputFilePath">The file to create or overwrite.</param>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.FileCompressor.DecompressFileToString(System.String)">
+            <summary>Reads a Deflate stream written by <see cref="M:RandomNameGeneratorLibrary.FileCompressor.CompressStringToFile(System.String,System.String)"/> back into a string.</summary>
+            <param name="inputFilePath">The compressed file.</param>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.IPersonNameGenerator">
+            <summary>
+            Generates random people's names. Implemented by <see cref="T:RandomNameGeneratorLibrary.PersonNameGenerator"/>; register it with a
+            dependency injection container or mock it in tests.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFirstAndLastName">
+            <summary>Generates a first name of either gender followed by a space and a last name, for example <c>Mark Rogers</c>.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateMultipleFirstAndLastNames(System.Int32)">
+            <summary>Generates <paramref name="count"/> names as <see cref="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFirstAndLastName"/> does.</summary>
+            <param name="count">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateMultipleLastNames(System.Int32)">
+            <summary>Generates <paramref name="count"/> last names.</summary>
+            <param name="count">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames(System.Int32)">
+            <summary>Generates <paramref name="count"/> names as <see cref="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFemaleFirstAndLastName"/> does.</summary>
+            <param name="count">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateMultipleMaleFirstAndLastNames(System.Int32)">
+            <summary>Generates <paramref name="count"/> names as <see cref="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomMaleFirstAndLastName"/> does.</summary>
+            <param name="count">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateMultipleFemaleFirstNames(System.Int32)">
+            <summary>Generates <paramref name="count"/> female first names.</summary>
+            <param name="count">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateMultipleMaleFirstNames(System.Int32)">
+            <summary>Generates <paramref name="count"/> male first names.</summary>
+            <param name="count">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomLastName">
+            <summary>Generates a last name, for example <c>Rogers</c>.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFirstName">
+            <summary>
+            Picks male or female with equal probability, then generates a first name from that list. Because the male
+            list is shorter, any one male name is about 3.5 times likelier than any one female name.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFemaleFirstName">
+            <summary>Generates a female first name, for example <c>Jane</c>.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomMaleFirstName">
+            <summary>Generates a male first name, for example <c>John</c>.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFemaleFirstAndLastName">
+            <summary>Generates a female first name followed by a space and a last name.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomMaleFirstAndLastName">
+            <summary>Generates a male first name followed by a space and a last name.</summary>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.IPlaceNameGenerator">
+            <summary>
+            Generates random US place names. Implemented by <see cref="T:RandomNameGeneratorLibrary.PlaceNameGenerator"/>; register it with a
+            dependency injection container or mock it in tests.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPlaceNameGenerator.GenerateRandomPlaceName">
+            <summary>Generates a place name, for example <c>Hoboken</c>.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IPlaceNameGenerator.GenerateMultiplePlaceNames(System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> place names.</summary>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.IStarNameGenerator">
+            <summary>
+            Generates the names of real stars. Implemented by <see cref="T:RandomNameGeneratorLibrary.StarNameGenerator"/>; register it with a
+            dependency injection container or mock it in tests.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IStarNameGenerator.GenerateRandomStarName">
+            <summary>
+            Generates the name of a named star: an IAU proper name or a Bayer or Flamsteed designation, for example
+            <c>Betelgeuse</c>, <c>Tau Ceti</c> or <c>61 Cygni</c>.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IStarNameGenerator.GenerateRandomProperStarName">
+            <summary>Generates an IAU-approved proper star name, for example <c>Sirius</c>.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IStarNameGenerator.GenerateRandomCatalogStarName">
+            <summary>
+            Generates the catalogue designation of a real star from the Henry Draper or Hipparcos catalogue,
+            for example <c>HD 209458</c> or <c>HIP 70890</c>.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.IStarNameGenerator.GenerateMultipleStarNames(System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> names of named stars.</summary>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.PersonNameGenerator">
+            <summary>
+            Generates random people's names from the 1990 US Census name frequency files (frequencies stripped, so
+            every entry on a list is equally likely). The lists are parsed once per process, on first use.
+            </summary>
+            <remarks>
+            A generator created with the default constructor is safe to share between threads. A generator created
+            around a caller-supplied <see cref="T:System.Random"/> is only as thread-safe as that instance, which for
+            <see cref="T:System.Random"/> means not at all: use one generator per thread.
+            </remarks>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.#ctor">
+            <summary>Creates a generator with a fresh, well-seeded random number generator.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.#ctor(System.Random)">
+            <summary>Creates a generator that draws from <paramref name="randGen"/>.</summary>
+            <param name="randGen">The random number generator to draw from. A seeded instance gives reproducible names.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="randGen"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.#ctor(System.Int32)">
+            <summary>Creates a generator that produces the same sequence of names for the same <paramref name="seed"/>.</summary>
+            <param name="seed">The seed for the underlying <see cref="T:System.Random"/>.</param>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.PersonNameGenerator.MaleFirstNames">
+            <summary>The 1,219 male first names the generator draws from, in Title case.</summary>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.PersonNameGenerator.FemaleFirstNames">
+            <summary>The 4,275 female first names the generator draws from, in Title case.</summary>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.PersonNameGenerator.LastNames">
+            <summary>The 88,799 last names the generator draws from, in Title case.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomFirstAndLastName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomLastName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomFirstName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomFemaleFirstName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomMaleFirstName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomFemaleFirstAndLastName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateRandomMaleFirstAndLastName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateMultipleFirstAndLastNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateMultipleLastNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateMultipleFemaleFirstAndLastNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateMultipleMaleFirstAndLastNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateMultipleFemaleFirstNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PersonNameGenerator.GenerateMultipleMaleFirstNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.PlaceNameGenerator">
+            <summary>
+            Generates random US place names from the Census 2000 places file (one entry per distinct name, so every
+            place is equally likely). The list is parsed once per process, on first use.
+            </summary>
+            <remarks>
+            A generator created with the default constructor is safe to share between threads. A generator created
+            around a caller-supplied <see cref="T:System.Random"/> is only as thread-safe as that instance, which for
+            <see cref="T:System.Random"/> means not at all: use one generator per thread.
+            </remarks>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PlaceNameGenerator.#ctor">
+            <summary>Creates a generator with a fresh, well-seeded random number generator.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PlaceNameGenerator.#ctor(System.Random)">
+            <summary>Creates a generator that draws from <paramref name="randGen"/>.</summary>
+            <param name="randGen">The random number generator to draw from. A seeded instance gives reproducible names.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="randGen"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PlaceNameGenerator.#ctor(System.Int32)">
+            <summary>Creates a generator that produces the same sequence of names for the same <paramref name="seed"/>.</summary>
+            <param name="seed">The seed for the underlying <see cref="T:System.Random"/>.</param>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.PlaceNameGenerator.PlaceNames">
+            <summary>
+            The 16,969 distinct place names the generator draws from (2.2.0 and earlier: 16,873, some cut short). Puerto Rico entries keep their Census
+            suffix, for example <c>Bayamón zona urbana</c>.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PlaceNameGenerator.GenerateRandomPlaceName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.PlaceNameGenerator.GenerateMultiplePlaceNames(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.RandomPersonNameExtensions">
+            <summary>
+            Lets any <see cref="T:System.Random"/> generate people's names directly. Each call wraps the instance in a
+            <see cref="T:RandomNameGeneratorLibrary.PersonNameGenerator"/>, so a seeded <see cref="T:System.Random"/> gives reproducible names.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomFirstName(System.Random)">
+            <summary>Generates a first name of either gender; see <see cref="M:RandomNameGeneratorLibrary.IPersonNameGenerator.GenerateRandomFirstName"/>.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomLastName(System.Random)">
+            <summary>Generates a last name.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomFemaleFirstName(System.Random)">
+            <summary>Generates a female first name.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomMaleFirstName(System.Random)">
+            <summary>Generates a male first name.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomFemaleFirstAndLastName(System.Random)">
+            <summary>Generates a female first name followed by a space and a last name.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomMaleFirstAndLastName(System.Random)">
+            <summary>Generates a male first name followed by a space and a last name.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateRandomFirstAndLastName(System.Random)">
+            <summary>Generates a first name of either gender followed by a space and a last name.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateMultipleFirstAndLastNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> first-and-last names of either gender.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateMultipleLastNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> last names.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateMultipleFemaleFirstAndLastNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> female first-and-last names.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateMultipleMaleFirstAndLastNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> male first-and-last names.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateMultipleFemaleFirstNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> female first names.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPersonNameExtensions.GenerateMultipleMaleFirstNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> male first names.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.RandomPlaceNameExtensions">
+            <summary>
+            Lets any <see cref="T:System.Random"/> generate place names directly. Each call wraps the instance in a
+            <see cref="T:RandomNameGeneratorLibrary.PlaceNameGenerator"/>, so a seeded <see cref="T:System.Random"/> gives reproducible names.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPlaceNameExtensions.GenerateRandomPlaceName(System.Random)">
+            <summary>Generates a place name, for example <c>Hoboken</c>.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomPlaceNameExtensions.GenerateMultiplePlaceNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> place names.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.RandomStarNameExtensions">
+            <summary>
+            Lets any <see cref="T:System.Random"/> generate star names directly. Each call wraps the instance in a
+            <see cref="T:RandomNameGeneratorLibrary.StarNameGenerator"/>, so a seeded <see cref="T:System.Random"/> gives reproducible names.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomStarNameExtensions.GenerateRandomStarName(System.Random)">
+            <summary>Generates the name of a named star, for example <c>Betelgeuse</c> or <c>Tau Ceti</c>.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.RandomStarNameExtensions.GenerateMultipleStarNames(System.Random,System.Int32)">
+            <summary>Generates <paramref name="numberOfNames"/> names of named stars.</summary>
+            <param name="rand">The random number generator to draw from.</param>
+            <param name="numberOfNames">How many names to generate; zero gives an empty sequence.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="rand"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="numberOfNames"/> is negative.</exception>
+        </member>
+        <member name="T:RandomNameGeneratorLibrary.StarNameGenerator">
+            <summary>
+            Generates the names of real stars: IAU proper names, Bayer and Flamsteed designations of every star in the
+            Yale Bright Star Catalogue, and catalogue numbers from the Henry Draper and Hipparcos catalogues. Every
+            entry of a list is equally likely. The lists are parsed once per process, on first use.
+            </summary>
+            <remarks>
+            A generator created with the default constructor is safe to share between threads. A generator created
+            around a caller-supplied <see cref="T:System.Random"/> is only as thread-safe as that instance, which for
+            <see cref="T:System.Random"/> means not at all: use one generator per thread.
+            </remarks>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.#ctor">
+            <summary>Creates a generator with a fresh, well-seeded random number generator.</summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.#ctor(System.Random)">
+            <summary>Creates a generator that draws from <paramref name="randGen"/>.</summary>
+            <param name="randGen">The random number generator to draw from. A seeded instance gives reproducible names.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="randGen"/> is null.</exception>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.#ctor(System.Int32)">
+            <summary>Creates a generator that produces the same sequence of names for the same <paramref name="seed"/>.</summary>
+            <param name="seed">The seed for the underlying <see cref="T:System.Random"/>.</param>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.StarNameGenerator.ProperStarNames">
+            <summary>
+            The 640 proper star names approved by the IAU Working Group on Star Names, with their diacritics
+            (for example <c>Sirius</c>, <c>Rosalíadecastro</c>).
+            </summary>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.StarNameGenerator.DesignatedStarNames">
+            <summary>
+            The 3,076 Bayer and Flamsteed designations in the Yale Bright Star Catalogue, which holds every star
+            visible to the naked eye, written out in full: <c>Alpha¹ Centauri</c>, <c>Tau Ceti</c>, <c>61 Cygni</c>.
+            A star with a Bayer letter is listed by it rather than by its Flamsteed number.
+            </summary>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.StarNameGenerator.StarNames">
+            <summary>
+            Every name <see cref="M:RandomNameGeneratorLibrary.StarNameGenerator.GenerateRandomStarName"/> draws from: <see cref="P:RandomNameGeneratorLibrary.StarNameGenerator.ProperStarNames"/> followed by
+            <see cref="P:RandomNameGeneratorLibrary.StarNameGenerator.DesignatedStarNames"/>.
+            </summary>
+        </member>
+        <member name="P:RandomNameGeneratorLibrary.StarNameGenerator.CatalogStarNameCount">
+            <summary>
+            How many catalogue designations <see cref="M:RandomNameGeneratorLibrary.StarNameGenerator.GenerateRandomCatalogStarName"/> draws from: the 225,300
+            Henry Draper stars plus the 118,218 Hipparcos stars.
+            </summary>
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.GenerateRandomStarName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.GenerateRandomProperStarName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.GenerateRandomCatalogStarName">
+            <inheritdoc />
+        </member>
+        <member name="M:RandomNameGeneratorLibrary.StarNameGenerator.GenerateMultipleStarNames(System.Int32)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

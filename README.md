@@ -102,11 +102,30 @@ Console.WriteLine(PlaceNameGenerator.PlaceNames[0]);        // first entry of th
 
 ### Thread safety
 
-A generator made with the default constructor is safe to share between threads (it uses `Random.Shared` on .NET 6+ and a well-seeded `Random` per generator on .NET Framework). A generator made around your own `Random`, including the extension methods, is only as thread-safe as that `Random`, which is not at all: use one generator per thread. The lists are parsed once per process, on first use, and are safe to read from any thread.
+On .NET 6 and later, a generator made with the default constructor uses `Random.Shared` and is safe to share between threads. Everywhere else the `netstandard2.0` build runs (.NET Framework, Mono, Unity), it holds a plain `Random` of its own, seeded so that two generators made at once still differ, and is not thread-safe. A generator made around your own `Random`, including the extension methods, is only as thread-safe as that `Random`, which is not at all. Use one generator per thread. The lists are parsed once per process, on first use, and are safe to read from any thread.
 
 ### Unity
 
-The `netstandard2.0` build works in Unity: no dependencies, no runtime reflection beyond reading its own embedded resources, and no runtime regular expressions. Copy the DLL from the package's `lib/netstandard2.0` folder into `Assets/Plugins`, or use a NuGet-for-Unity tool.
+The Unity package `com.m4bwav.random-name-generator` is in `Packages/com.m4bwav.random-name-generator`. It carries the `netstandard2.0` assembly from the nuget.org package byte for byte, so a seed gives the same names in Unity as in .NET (checked in Unity 6000.6 Mono and 6000.5 WebGL/IL2CPP). **Web builds:** turn on Player Settings > Publishing Settings > Use Embedded Resources; Unity leaves embedded resources out of Web builds otherwise, and every generator throws at runtime. The package logs an error when a Web build has it off. Install it from [OpenUPM](https://openupm.com/packages/com.m4bwav.random-name-generator/):
+
+```
+openupm add com.m4bwav.random-name-generator
+```
+
+or add the scoped registry to `Packages/manifest.json` by hand:
+
+```json
+{
+  "scopedRegistries": [
+    { "name": "package.openupm.com", "url": "https://package.openupm.com", "scopes": ["com.m4bwav.random-name-generator"] }
+  ],
+  "dependencies": {
+    "com.m4bwav.random-name-generator": "2.3.0"
+  }
+}
+```
+
+Without OpenUPM, install by Git URL in the Package Manager: `https://github.com/m4bwav/DotNetRandomNameGenerator.git?path=Packages/com.m4bwav.random-name-generator#upm/2.3.0`. The library has no dependencies, no runtime reflection beyond reading its own embedded resources, and no runtime regular expressions; one generator per thread, as above.
 
 ## Data
 
@@ -163,9 +182,12 @@ CI (`.github/workflows/ci.yml`) restores in locked mode, checks formatting, buil
 
 To publish: add the entry to `CHANGELOG.md`, bump `<Version>` in `RandomNameGeneratorLibrary.csproj`, merge, wait for CI to pass on `master`, then tag the commit `v<version>` and push the tag. `.github/workflows/release.yml` checks that the tag matches the version and sits on `master`, tests on Linux and Windows, attests the package, and waits for the maintainer's approval on the `nuget` environment before it signs in to nuget.org with Trusted Publishing (GitHub OIDC, no stored API key) and pushes. It then creates the GitHub Release with the changelog section and the packages. `.github/workflows/verify-published.yml` checks the published version from nuget.org on Linux, Windows and macOS.
 
+The Unity package follows each NuGet release: `python tools/UnityPackage/sync.py <version>` copies the published `netstandard2.0` DLL and XML docs from nuget.org into `Packages/com.m4bwav.random-name-generator/Runtime` and sets `package.json`'s version. Merge that, then tag the merge commit `upm/<version>` and push the tag; OpenUPM builds the Unity package from tags with the `upm/` prefix. `sync.py --check` confirms the committed files match nuget.org.
+
 ## Package page
 
 - NuGet: [RandomNameGeneratorLibrary](https://www.nuget.org/packages/RandomNameGeneratorLibrary)
+- OpenUPM (Unity): [com.m4bwav.random-name-generator](https://openupm.com/packages/com.m4bwav.random-name-generator/)
 
 ## License
 

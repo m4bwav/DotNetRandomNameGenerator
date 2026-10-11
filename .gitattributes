@@ -9,3 +9,6 @@
 tests/Golden/*.json -text
 tests/Golden/PublicApi-*.txt -text
 tests/RandomNameGeneratorLibrary.GoldenTests/Exceptions/*.json -text
+# The Unity package carries the nuget.org assembly and its XML docs byte for byte (tools/UnityPackage/sync.py --check).
+Packages/*/Runtime/*.dll binary
+Packages/*/Runtime/*.xml -text

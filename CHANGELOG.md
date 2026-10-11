@@ -4,6 +4,10 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 
 ## [Unreleased]
 
+### Added
+
+- A Unity package, `com.m4bwav.random-name-generator` (OpenUPM), in `Packages/com.m4bwav.random-name-generator`. It carries the published 2.3.0 `netstandard2.0` assembly byte for byte, so the NuGet package is unchanged. `tools/UnityPackage/sync.py` copies each new release's assembly from nuget.org; OpenUPM builds from `upm/<version>` tags. Web builds need Player Settings > Use Embedded Resources; an editor script in the package logs an error when a Web build has it off.
+
 ## [2.3.0] - 2026-09-28
 
 2.3.0 answers every call as 2.2.0 did, on .NET Framework and on .NET, except for place names: `tests/Golden` holds 426 calls recorded from the published 2.2.0 on each runtime, and the golden tests replay them against every build. The 35 calls per runtime that draw from the place list are the one exception, pinned separately. No public type, member or parameter name changed.

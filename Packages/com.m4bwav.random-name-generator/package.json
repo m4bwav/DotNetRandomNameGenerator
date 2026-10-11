@@ -1,0 +1,23 @@
+{
+  "name": "com.m4bwav.random-name-generator",
+  "version": "2.3.0",
+  "displayName": "Random Name Generator",
+  "description": "Random person and place names drawn from US census data, and the names of real stars from the IAU list and the Bright Star, Henry Draper and Hipparcos catalogues. Seed a generator and you get the same names on every platform. The same library as the NuGet package RandomNameGeneratorLibrary, with no dependencies.",
+  "unity": "2019.4",
+  "license": "MIT",
+  "author": {
+    "name": "Mark Rogers",
+    "url": "https://github.com/m4bwav"
+  },
+  "keywords": [
+    "procedural-generation",
+    "name-generator",
+    "random-names",
+    "census",
+    "star-names",
+    "seeded"
+  ],
+  "documentationUrl": "https://github.com/m4bwav/DotNetRandomNameGenerator#readme",
+  "changelogUrl": "https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/CHANGELOG.md",
+  "licensesUrl": "https://github.com/m4bwav/DotNetRandomNameGenerator/blob/master/LICENSE"
+}
