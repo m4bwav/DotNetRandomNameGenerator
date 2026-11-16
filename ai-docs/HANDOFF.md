@@ -6,7 +6,7 @@
 ## Next single action
 After PR #22 is merged, with `ci` green on master:
 
-1. `git fetch origin && python tools/UnityPackage/sync.py --check` on origin/master, then `git tag -a upm/2.3.0 -m "Unity package 2.3.0 (OpenUPM)" origin/master && git push origin upm/2.3.0`. `release.yml` ignores it (it triggers on `v*`).
+1. Done 2026-11-15: `upm/2.3.0` tagged on 1b2b910 and released.
 2. Submit to OpenUPM the way UniverseGenerator was (fork m4bwav/openupm, synced with `gh repo sync m4bwav/openupm -b master`): branch, add `data/packages/com.m4bwav.random-name-generator.yml`, open a pull request against openupm/openupm. Mergify merges a single data file once validation passes. The YAML (replace SHA with the master commit that holds `.github/images/openupm-cover.jpg`):
 
 ```yaml
