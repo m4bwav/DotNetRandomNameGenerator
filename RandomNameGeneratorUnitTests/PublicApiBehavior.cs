@@ -27,23 +27,26 @@ namespace RandomNameGeneratorUnitTests
         [Fact]
         public void NoPublicMemberWasAddedWithoutAPlanDecision()
         {
-            var baseline = new HashSet<string>(Baseline(), StringComparer.Ordinal);
+            // Additions ruled in a plan decision are listed in RandomNameGeneratorUnitTests/PublicApi-additions.txt.
+            var baseline = new HashSet<string>(Baseline().Concat(Listed("RandomNameGeneratorUnitTests", "PublicApi-additions.txt")), StringComparer.Ordinal);
             var added = List(typeof(PersonNameGenerator).Assembly).Where(l => !baseline.Contains(l)).ToList();
             Assert.True(added.Count == 0, "added: " + string.Join(Environment.NewLine, added));
         }
 
-        private static IEnumerable<string> Baseline()
+        private static IEnumerable<string> Baseline() => Listed("tests", "Golden", "PublicApi-2.2.0.txt");
+
+        private static IEnumerable<string> Listed(params string[] relativePath)
         {
             for (var dir = new DirectoryInfo(AppContext.BaseDirectory); dir != null; dir = dir.Parent)
             {
-                var candidate = Path.Combine(dir.FullName, "tests", "Golden", "PublicApi-2.2.0.txt");
+                var candidate = Path.Combine(dir.FullName, Path.Combine(relativePath));
                 if (File.Exists(candidate))
                 {
                     return File.ReadAllLines(candidate).Where(l => l.Length > 0 && !l.StartsWith("#", StringComparison.Ordinal)).ToList();
                 }
             }
 
-            throw new FileNotFoundException("tests/Golden/PublicApi-2.2.0.txt was not found above " + AppContext.BaseDirectory);
+            throw new FileNotFoundException(string.Join("/", relativePath) + " was not found above " + AppContext.BaseDirectory);
         }
 
         private static List<string> List(Assembly asm)
