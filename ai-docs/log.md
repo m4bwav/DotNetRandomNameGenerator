@@ -102,3 +102,5 @@ Append-only. One line per operation: `## [YYYY-MM-DD] op | title` where op is on
 ## [2026-10-11] index | rebuilt (8 entries)
 ## [2026-11-15] release | upm/2.3.0 tagged on 1b2b910 (PR #22 merge, ci green, sync.py --check OK); GitHub release https://github.com/m4bwav/DotNetRandomNameGenerator/releases/tag/upm/2.3.0 (not latest). OpenUPM listing PR still waits on Mark.
 - 2026-11-16: CI broke on NU1004 (runner SDK 10.0.15x moved the implicit Microsoft.NET.ILLink.Tasks to 10.0.15 vs lock 10.0.12). Pinned global.json to SDK 10.0.401 with rollForward disable so lock files only change on a deliberate SDK bump (bump global.json, then dotnet restore --force-evaluate).
+- 2026-11-27: FantasyNameGenerator (word-grammar fantasy names) added on branch name-grammars; public API additions are allowed through RandomNameGeneratorUnitTests/PublicApi-additions.txt (decisions/2026-11-27-fantasy-name-grammars.md). The OneDrive folder D:/m4bwa/OneDrive/Code/DotNetRandomNameGenerator is not a git clone; work from a fresh clone.
+## [2026-11-27] index | rebuilt (9 entries)

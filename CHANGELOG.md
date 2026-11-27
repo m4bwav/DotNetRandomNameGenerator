@@ -6,6 +6,8 @@ All notable changes to RandomNameGeneratorLibrary. The format follows [Keep a Ch
 
 ### Added
 
+- `FantasyNameGenerator` (with `IFantasyNameGenerator` and the `Landform` enum): names for fantasy settings from small word grammars, seeded like the other generators (`new FantasyNameGenerator(42)`). Place names (adjective + structure, sometimes "of the" + a two-word feature: "Broken Tower of the Ash Hollow"), place names that fit a landform (hill, river, forest, marsh, coast, mountain, plain), faction names ("the Grey Heron Clan"), war-band compounds ("Splitskull"), trade surnames with older spellings ("Smith", "Smyth", "Tailor", via the public `ApplySpellingVariant`), a census first name with a byname ("Anna the Bold") and keeper epithets ("Bram the Honest"). The word lists were written for this library. The ideas behind the grammars were inspired by Matthew J. Finch's *Tome of Adventure Design*, *Points of Light*, Gygax's *Living Fantasy* and *World Builder*, and the *Judges Guild Guidebook to Shops*; nothing is copied from them. Existing generators and their seeded output are unchanged.
+
 - A Unity package, `com.m4bwav.random-name-generator` (OpenUPM), in `Packages/com.m4bwav.random-name-generator`. It carries the published 2.3.0 `netstandard2.0` assembly byte for byte, so the NuGet package is unchanged. `tools/UnityPackage/sync.py` copies each new release's assembly from nuget.org; OpenUPM builds from `upm/<version>` tags. Web builds need Player Settings > Use Embedded Resources; an editor script in the package logs an error when a Web build has it off.
 
 ## [2.3.0] - 2026-09-28
